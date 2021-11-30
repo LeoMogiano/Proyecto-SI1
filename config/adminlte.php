@@ -261,6 +261,11 @@ return [
             'icon'        => 'fab fa-accusoft fa-fw',
         ],
         [
+            'text' => 'Marcas',
+            'route'  => 'marcas.index',
+            'icon'        => 'fab fa-maxcdn fa-fw',
+        ],
+        [
             'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
