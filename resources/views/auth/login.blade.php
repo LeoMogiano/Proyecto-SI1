@@ -116,13 +116,13 @@
                                     <label class="recordame" for="remember">
                                         {{ __('Recuérdame') }}
                                     </label>
-                                    <div class="olvidaste">
-                                        @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                {{ __('¿Has olvidado la contraseña?') }}
-                                            </a>
-                                        @endif
-                                </div>
+                                          {{--  <div class="olvidaste">
+                                                @if (Route::has('password.request'))
+                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                        {{ __('¿Has olvidado la contraseña?') }}
+                                                    </a>
+                                                @endif
+                                        </div>--}}
                                 </div>
                             <div class="loginboton">
                                 <button type="submit" class="botonaso">

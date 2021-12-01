@@ -105,18 +105,20 @@ form {
 
   .form-check {
       margin-top: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+      margin-left: 20rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
   }
   .recordame {
-      margin-right: 3rem;
+      margin-left: 0.5rem;
+
   }
 
   .loginboton {
-      margin-top: 1rem;
+      margin-right: 1rem;
       margin-bottom: 1rem;
-      
+     
   }
 
   .botonaso {
