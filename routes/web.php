@@ -16,8 +16,9 @@ use App\Http\Controllers\MarcaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/register');
 });
+
 
 Auth::routes();
 
