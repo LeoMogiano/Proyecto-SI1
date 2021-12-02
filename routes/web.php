@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use App\Http\Controllers\MarcaController;
 */
 
 Route::get('/', function () {
-    return view('auth/register');
+   // return view('auth/register');
+   return view('welcome');
 });
 
 
@@ -25,3 +27,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('categorias',CategoriaController::class)->names('categorias');
 Route::resource('marcas',MarcaController::class)->names('marcas');
+Route::resource('users',UserController::class)->names('users');

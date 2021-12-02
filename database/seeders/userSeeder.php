@@ -20,6 +20,13 @@ class userSeeder extends Seeder
         $user->email='oscar@gmail.com';
         $user->password=bcrypt('12345');//bcrypt encripta la contraseña 
         $user->save();//save con  parentesis
-
+        $user->assignRole('administrador');//asigna un roll al  usuario que guardamos
+        //CREAMOS UN CLIENTE
+        $user=new User() ;
+        $user->name='cliente';
+        $user->email='oscar123@gmail.com';
+        $user->password=bcrypt('54321');//bcrypt encripta la contraseña 
+        $user->save();//save con  parentesis
+        $user->assignRole('cliente');//asigna un roll al  usuario que guardamos
     }
 }

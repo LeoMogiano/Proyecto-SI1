@@ -320,9 +320,16 @@ return [
             'url'        => '#',
         ],
         [
+            'text'       => 'users',
+            'icon' =>        'fa fw-users',
+            'route'        => 'users.index',
+            'can'       =>  'gestionar usuario'  
+        ],
+        [
             'text'       => 'Advertencias',
             'icon_color' => 'yellow',
             'url'        => '#',
+
         ],
         [
             'text'       => 'Informacion',
