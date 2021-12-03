@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -43,17 +44,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required|unique:users',
+            'name'=>'required',
+            'email'=>'required|unique:users',
             'password'=>'required',
             'roles'=>'required',
+            
         ]);
 
         $usuario = new User();
         $usuario->name = $request->name;
+        $usuario->email = $request->email;
         $usuario->password = bcrypt(($request->password));
         $usuario->save();
-        $usuario->roles()->sync($request->roles);
 
+        $usuario->roles()->sync($request->roles);
+        
         /* if($request->mecanicos > 0){
             $mecanicos = Mecanico::findOrFail($request->mecanico);
             $mecanicos->user_id = $usuario->id;

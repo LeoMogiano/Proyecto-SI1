@@ -20,6 +20,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre de usuario</th>
+                        <th scope="col">Correo electronico</th>
                         <th scope="col">Rol</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -30,12 +31,13 @@
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
                             <td>{{$user->getRoleNames()[0]}}</td>
                             <td>
                                 <form action="{{route('users.destroy', $user)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <a href="{{route('users.edit', $user)}}" class="btn btn-info btn-sm">Editar<a>
+                                    <a href="{{route('users.edit', $user)}}" class="btn btn-primary btn-sm"                                    ">Editar<a>
                                     @can('editar usuario')
                                     @endcan
                                     <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" value="Borrar">Eliminar</button> 

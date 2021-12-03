@@ -19,7 +19,13 @@
                     <br><br>
                 @enderror
                 <br>
-
+                <label for="email">Ingrese el correo electronico</label>
+                <input type="text" name="email" class="form-control" value="{{old('email')}}">
+                @error('email')
+                    <small>*{{$message}}</small>
+                    <br><br>
+                @enderror
+                <br>
                 <label for="password">Ingrese la contraseña</label>
                 <input type="password" name="password" class="form-control" value="{{old('password')}}">
                 @error('password')
