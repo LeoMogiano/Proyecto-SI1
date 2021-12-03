@@ -320,8 +320,8 @@ return [
             'url'        => '#',
         ],
         [
-            'text'       => 'usuario',
-            'icon' =>        'fa fw-users',
+            'text'       => 'Usuarios',
+            'icon' =>        'fas fa-users fa-fw',
             'route'        => 'users.index',
             'can'       =>  'gestionar usuario'  
         ],
