@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Smartplusshouse</title>
-    <link rel="shortcut icon" href="img/SmarHome.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
     
+    <link rel="shortcut icon" href="img/SmarHome.jpeg" type="image/x-icon">
+    {{-- <link rel="stylesheet" href="css/style.css"> --}}
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>" />
 </head>
 <body >
  
@@ -73,7 +75,17 @@
                 <div class="card-title">
                     <img src="img/SmarHome.jpeg" class="logoto" alt="Logos">Smartplusshouse
                 </div>
-
+                @error('email')
+                <div class="palerta"  >
+                   <strong>El correo electrónico que has introducido o contraseña son incorrectos.</strong> 
+                  </div>
+                @enderror
+                @error('password')
+                <div class="palerta"  >
+                    <strong>El correo electrónico que has introducido o contraseña son incorrectos.</strong> 
+                   </div>
+                @enderror
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -85,12 +97,8 @@
 
                             
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo Electrónico">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
+                                
                             
                         </div>
                         {{-- <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label> --}}
@@ -99,12 +107,8 @@
                             
 
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Contraseña">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
+                                
                             
                         </div>
 
@@ -157,6 +161,6 @@
         </div>
     </div>
 </div>
-<script src="app.js"></script>
+
 </body>
 </html>

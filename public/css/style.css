@@ -11,6 +11,7 @@ input {
     font-family: 'Poppins', sans-serif;
 }
 
+
 .container {
     position: relative;
     width: 100%;
@@ -212,4 +213,16 @@ img.logoto {
     object-fit: cover;
     width: 100%;
     z-index: -1;
+}
+
+.palerta {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1.5rem;
+    width: 50%;
+    border: 1px solid rgb(255, 0, 0);
+    text-align: center;
+    color: rgb(255, 0, 0);
+    background-color: #fff;
 }
