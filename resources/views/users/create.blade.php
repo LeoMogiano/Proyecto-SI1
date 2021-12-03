@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Taller')
+@section('title', 'Smartplusshouse')
 
 @section('content_header')
     <h1>Registrar Usuario</h1>

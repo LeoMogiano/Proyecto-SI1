@@ -1,9 +1,11 @@
 @extends('adminlte::page')
 
- @section('title', 'Dashboard')
+ @section('title', 'Smartplusshouse')
+ <link rel="shortcat icon" href="img/SmarHome.jpeg">    {{-- pone el icono--}} 
 
 @section('content_header')
     <h1>Menu de Inicio</h1>
+   
 @stop
 
 @section('content')
