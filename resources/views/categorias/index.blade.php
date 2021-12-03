@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Smartplusshouse')
 
 @section('content_header')
     <h1>Lista Categorias</h1>
