@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -320,8 +320,8 @@ return [
             'url'        => '#',
         ],
         [
-            'text'       => 'users',
-            'icon' =>        'fa fw-users',
+            'text'       => 'Usuarios',
+            'icon' =>        'fas fa-users fa-fw',
             'route'        => 'users.index',
             'can'       =>  'gestionar usuario'  
         ],
