@@ -266,6 +266,11 @@ return [
             'icon'        => 'fab fa-maxcdn fa-fw',
         ],
         [
+            'text' => 'Tipos de Servicios',
+            'route'  => 'tipoServicios.index',
+            'icon'        => 'fab fa-servicestack fa-fw',
+        ],
+        [
             'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
