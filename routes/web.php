@@ -19,7 +19,7 @@ use App\Http\Controllers\ProveedorController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { //get-obtener una vista
    // return view('auth/register');
    return view('welcome');
 });

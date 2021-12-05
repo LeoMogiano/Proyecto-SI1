@@ -125,12 +125,14 @@ return [
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
+    
     'classes_content_header' => '',
+
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'navbar-navy elevation-4', // se mira cuando se cambia de opcion --- se puede poner navbar o sidebar-ligth o accent
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
-    'classes_topnav_nav' => 'navbar-expand',
+    'classes_topnav' => 'accent-dark navbar-navy', //CAMBIA LA BARRA ARRIBA DE LISTAS DE SERVICIO
+    'classes_topnav_nav' => 'navbar-expand ' ,
     'classes_topnav_container' => 'container',
 
     /*
@@ -172,7 +174,7 @@ return [
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
-    'right_sidebar_scrollbar_theme' => 'os-theme-light',
+    'right_sidebar_scrollbar_theme' => 'os-theme-dark',
     'right_sidebar_scrollbar_auto_hide' => 'l',
 
     /*
@@ -246,14 +248,22 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+       ['header' => 'OPCIONES DEL USUARIO'],
         [
-            'text'        => 'Paginas',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Perfil',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
         ],
-        ['header' => 'CONFIGURACION DE CUENTA'],
+        
+        // [
+        //     'text'        => 'Paginas',
+        //     'url'         => 'admin/pages',
+        //     'icon'        => 'far fa-fw fa-file',
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
+        
+        ['header' => 'OPCIONES GENERALES'],
         
         [
             'text' => 'Categorias',
@@ -275,77 +285,81 @@ return [
             'route'  => 'proveedores.index',
             'icon'        => 'fas fa-user-tie fa-fw',
         ],
-        [
-            'text' => 'Perfil',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
+        // [
+        //     'text' => 'Perfil',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+         [
             'text' => 'Cambiar Contraseña',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        [
-            'text'    => 'Multinivel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Nivel 1',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Nivel 2',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => '2-Nivel 1',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => '2-Nivel 2',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => '2-2-Nivel 1',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => '2-2-Nivel 2',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'Etiquetas'],
-        [
-            'text'       => 'Importante',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
+        
+        // [
+        //     'text'    => 'Multinivel',
+        //     'icon'    => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Nivel 1',
+        //             'url'  => '#',
+        //         ],
+        //         [
+        //             'text'    => 'Nivel 2',
+        //             'url'     => '#',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => '2-Nivel 1',
+        //                     'url'  => '#',
+        //                 ],
+        //                 [
+        //                     'text'    => '2-Nivel 2',
+        //                     'url'     => '#',
+        //                     'submenu' => [
+        //                         [
+        //                             'text' => '2-2-Nivel 1',
+        //                             'url'  => '#',
+        //                         ],
+        //                         [
+        //                             'text' => '2-2-Nivel 2',
+        //                             'url'  => '#',
+        //                         ],
+        //                     ],
+        //                 ],
+        //             ],
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //     ],
+        // ],
+       
+        ['header' => 'OPCIONES DEL ADMINISTRADOR' ,
+        'can'       =>  'gestionar usuario'], // SOLO PUEDE VER EL ADMINISTRADOR
+        //[
+        //    'text'       => 'Importante',
+        //    'icon_color' => 'white',
+        //    'url'        => '#',
+        //],
         [
             'text'       => 'Usuarios',
             'icon' =>        'fas fa-users fa-fw',
             'route'        => 'users.index',
-            'can'       =>  'gestionar usuario'  
-        ],
-        [
-            'text'       => 'Advertencias',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'can'       =>  'gestionar usuario'
 
         ],
-        [
-            'text'       => 'Informacion',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        //[
+        //    'text'       => 'Advertencias',
+        //    'icon_color' => 'white',
+        //    'url'        => '#',
+        //  
+        //],
+        //[
+        //    'text'       => 'Informacion',
+        //    'icon_color' => 'white',
+        //    'url'        => '#',
+        //],
     ],
 
     /*
@@ -502,3 +516,5 @@ return [
 
     'livewire' => false,
 ];
+
+
