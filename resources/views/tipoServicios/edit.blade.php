@@ -16,17 +16,14 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nombre">Ingrese nuevo nombre</label>
-                        <input type="text" name="nombre" class="form-control" value="{{old('nombre', $tipoServicio->nombre)}}" >
+                        <input type="text" name="nombre" class="form-control" value="{{old('nombre', $tipoServicio->nombre)}}" id="nombre">
                         @error('nombre')
                             <small>*{{$message}}</small>
                             <br><br>
                         @enderror
                     </div>
-                    
-
-                    
                     <div class="form-group col-md-12" >
-                        <label for="nombre">Ingrese nueva descripción</label>
+                        <label for="descripción">Ingrese nueva descripción</label>
                         <input type="text" name="descripción" class="form-control" value="{{old('descripción', $tipoServicio->descripción)}}">
                         @error('descripción')
                             <small>*{{$message}}</small>

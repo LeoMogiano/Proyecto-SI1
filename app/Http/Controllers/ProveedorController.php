@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tipoServicio;
+use App\Models\proveedor;
 use Illuminate\Http\Request;
 
-class TipoServicioController extends Controller
+class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TipoServicioController extends Controller
      */
     public function index()
     {
-        $tipoServicio=TipoServicio::all();
-        return view('tipoServicios.index',['tipoServicios'=>$tipoServicio]);
+        $proveedors = proveedor::all();
+        return view('proveedores.index',['proveedores'=>$proveedors]);
         //Uno define el "tipoServicios" en routes y creo que el que esta entre corchete es el de la base
     }
 
@@ -26,7 +26,7 @@ class TipoServicioController extends Controller
      */
     public function create()
     {
-        return view('tipoServicios.create');
+        return view('proveedores.create');
     }
 
     /**
@@ -37,12 +37,14 @@ class TipoServicioController extends Controller
      */
     public function store(Request $request)
     {
-        $tipoServicio=new TipoServicio();
-        $tipoServicio->nombre=$request->input('nombre');
-        $tipoServicio->descripción=$request->input('descripción'); 
-        $tipoServicio->save();
+        $proveedors=new proveedor();
+        $proveedors->nombre=$request->input('nombre');
+        $proveedors->email=$request->input('email');
+        $proveedors->ubicación=$request->input('ubicación');
+        $proveedors->tiempoEstimado=$request->input('tiempoEstimado'); 
+        $proveedors->save();
 
-        return redirect()->route('tipoServicios.index');
+        return redirect()->route('proveedores.index');
     }
 
     /**
@@ -64,8 +66,9 @@ class TipoServicioController extends Controller
      */
     public function edit($id)
     {
-        $tipoServicio=TipoServicio::findOrFail($id);
-        return view('tipoServicios.edit',compact('tipoServicio'));
+        $proveedors=proveedor::findOrFail($id);
+        return view('proveedores.edit',['proveedores'=>$proveedors]);
+    
     }
 
     /**
@@ -77,13 +80,14 @@ class TipoServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tipoServicio=TipoServicio::findOrFail($id);
-    
-        $tipoServicio->nombre=$request->input('nombre');
-        $tipoServicio->descripción=$request->input('descripción');
-        $tipoServicio->save();
+        $proveedors=proveedor::findOrFail($id);
+        $proveedors->nombre=$request->input('nombre');
+        $proveedors->email=$request->input('email');
+        $proveedors->ubicación=$request->input('ubicación');
+        $proveedors->tiempoEstimado=$request->input('tiempoEstimado'); 
+        $proveedors->save();
         
-        return redirect()->route('tipoServicios.index');
+        return redirect()->route('proveedores.index');
     }
 
     /**
@@ -94,9 +98,10 @@ class TipoServicioController extends Controller
      */
     public function destroy($id)
     {
-        $tipoServicio=TipoServicio ::findOrFail($id);
-        $tipoServicio->delete();
+        $proveedors=proveedor::findOrFail($id);
+        $proveedors->delete();
 
-        return redirect()->route('tipoServicios.index');
+        return redirect()->route('proveedores.index');
     }
 }
+

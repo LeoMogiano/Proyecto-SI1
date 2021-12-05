@@ -271,6 +271,11 @@ return [
             'icon'        => 'fab fa-servicestack fa-fw',
         ],
         [
+            'text' => 'Proveedores',
+            'route'  => 'proveedores.index',
+            'icon'        => 'fas fa-user-tie fa-fw',
+        ],
+        [
             'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',

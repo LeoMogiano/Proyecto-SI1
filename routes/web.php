@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TipoServicioController;
+use App\Http\Controllers\ProveedorController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +32,4 @@ Route::resource('categorias',CategoriaController::class)->names('categorias');
 Route::resource('marcas',MarcaController::class)->names('marcas');
 Route::resource('users',UserController::class)->names('users');
 Route::resource('tipoServicios',TipoServicioController::class)->names('tipoServicios');
+Route::resource('proveedores',ProveedorController::class)->names('proveedores');
