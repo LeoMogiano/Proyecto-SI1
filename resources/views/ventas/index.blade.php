@@ -13,36 +13,41 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-    @can('crear categoria')
-    <a class="btn btn-primary" href="{{route('categorias.create')}}">Registrar Categoria</a>
+    @can('crear venta')
+    <a class="btn btn-primary" href="{{route('ventas.create')}}">Registrar Categoria</a>
     @endcan 
     </div>
     <div class="card-body">
-        <table class="table table-striped table-bordered shadow-lg mt-4" id="categorias">
+        <table class="table table-striped table-bordered shadow-lg mt-4" id="ventas">
             <thead>
                 <tr>
-                    <th >Id</th>
-                    <th >Nombres</th>
-                    @can('crear categoria', Model::class)
-                    <th>Acciones</th>  
-                    @endcan
+                    <th >Id </th>
+                    <th>Nro de Venta </th> 
+                    <th >Monto Total</th> 
+                    <th>Fecha de Venta</th> 
+                    <th>Identificacion de usuario</th> 
+                   
                     
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categoria as $categorias)
+                @foreach ($venta as $ventas)
                 <tr>
-                    <td>{{$categorias->id}}</td>
-                    <td>{{$categorias->nombre}}</td>
+                    <td>{{$ventas->id}}</td>
+                    <td>{{$ventas->Nro_v}}</td>
+                    <td>{{$ventas->Fecha_v}}</td>
+                    <td>{{$ventas->montoTotal}}</td>
+                    <td>{{$ventas->Id_us}}</td>
                     <td>
-                        @can('crear categoria')
-                        <a class="btn btn-primary btn-sm" href="{{route(    'categorias.edit',$categorias)}}">Editar</a>  
+                        --
+                        @can('crear venta')
+                        <a class="btn btn-primary btn-sm" href="{{route(    'ventas.edit',$ventas)}}">Editar</a>  
                         @endcan
                         
-                        <form action="{{route('categorias.destroy',$categorias)}}" method="POST">
+                        <form action="{{route('ventas.destroy',$ventas)}}" method="POST">
                             @csrf
                             @method('delete')
-                            @can('crear categoria')
+                            @can('crear venta')
                             <button style="margin-top: 0.35rem"type="submit" class="btn btn-danger btn-sm" >Eliminar</button> 
                             @endcan
                             
@@ -61,7 +66,7 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $('#categorias').DataTable({
+        $('#ventas').DataTable({
             autoWidth:false
         });
     </script>

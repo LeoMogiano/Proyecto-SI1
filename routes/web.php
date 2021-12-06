@@ -6,7 +6,7 @@ use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TipoServicioController;
 use App\Http\Controllers\ProveedorController;
-
+use App\Http\Controllers\ventaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +33,4 @@ Route::resource('marcas',MarcaController::class)->names('marcas');
 Route::resource('users',UserController::class)->names('users');
 Route::resource('tipoServicios',TipoServicioController::class)->names('tipoServicios');
 Route::resource('proveedores',ProveedorController::class)->names('proveedores');
+Route::resource('ventas',ventaController::class)->names('ventas');

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(userSeeder::class);
         $this->call(TipoServicioSeeder::class);
         $this->call(proveedorSeeder::class);
+        $this->call(ventaSeeder::class);
     }
 }

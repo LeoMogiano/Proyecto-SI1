@@ -233,6 +233,7 @@ return [
             'text'         => 'search',
             'topnav_right' => true,
         ],
+        
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
@@ -273,6 +274,11 @@ return [
         [
             'text' => 'Marcas',
             'route'  => 'marcas.index',
+            'icon'        => 'fab fa-maxcdn fa-fw',
+        ],
+        [
+            'text' => 'Ventas',
+            'route'  => 'ventas.index',
             'icon'        => 'fab fa-maxcdn fa-fw',
         ],
         [
