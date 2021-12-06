@@ -279,7 +279,7 @@ return [
         [
             'text' => 'Ventas',
             'route'  => 'ventas.index',
-            'icon'        => 'fab fa-maxcdn fa-fw',
+            'icon'        => 'fas fa-shopping-cart fa-fw',
         ],
         [
             'text' => 'Tipos de Servicios',

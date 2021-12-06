@@ -3,7 +3,7 @@
 @section('title', 'Smartplusshouse')
 
 @section('content_header')
-    <h1>Lista Categorias</h1>
+    <h1>Lista Nota Venta</h1>
 @stop
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -14,7 +14,7 @@
 <div class="card">
     <div class="card-header">
     @can('crear venta')
-    <a class="btn btn-primary" href="{{route('ventas.create')}}">Registrar Categoria</a>
+    <a class="btn btn-primary" href="{{route('ventas.create')}}">Registrar Nota Venta</a>
     @endcan 
     </div>
     <div class="card-body">
@@ -25,9 +25,10 @@
                     <th>Nro de Venta </th> 
                     <th >Monto Total</th> 
                     <th>Fecha de Venta</th> 
-                    <th>Identificacion de usuario</th> 
-                   
-                    
+                    <th>ID de Usuario</th>
+                    @can('crear venta')               
+                    <th>Acciones</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -35,12 +36,13 @@
                 <tr>
                     <td>{{$ventas->id}}</td>
                     <td>{{$ventas->Nro_v}}</td>
-                    <td>{{$ventas->Fecha_v}}</td>
                     <td>{{$ventas->montoTotal}}</td>
+                    <td>{{$ventas->Fecha_v}}</td>                   
                     <td>{{$ventas->Id_us}}</td>
-                    <td>
-                        --
-                        @can('crear venta')
+                    @can('crear venta')
+                    <td> 
+                        
+                @can('crear venta')
                         <a class="btn btn-primary btn-sm" href="{{route(    'ventas.edit',$ventas)}}">Editar</a>  
                         @endcan
                         
@@ -53,6 +55,7 @@
                             
                         </form>
                     </td>
+                @endcan
                 </tr>
                 @endforeach
             </tbody>

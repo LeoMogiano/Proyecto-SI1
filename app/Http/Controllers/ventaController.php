@@ -36,13 +36,12 @@ class ventaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nro_v' => 'required|unique:ventas',
-            'Fecha_v' => 'required:ventas',
-            'montoTotal' => 'required:ventas',
-            'Id_us' => 'required'
-        ]);
-        $venta = venta::create($request->all());
+        $venta=new venta();
+        $venta->Nro_v=$request->input('Nro_v');
+        $venta->Fecha_v=$request->input('Fecha_v');
+        $venta->montoTotal=$request->input('montoTotal');
+        $venta->Id_us=$request->input('Id_us');
+        $venta->save();
         return redirect()->route('ventas.index',$venta);
     }
 
@@ -52,9 +51,9 @@ class ventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(venta $venta)
+    public function show($id)
     {
-        return view('ventas.show',compact('venta'));
+        
     }
 
     /**
@@ -63,8 +62,9 @@ class ventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(venta $venta)
+    public function edit($id)
     {
+        $venta=venta::findOrFail($id);
         return view('ventas.edit',compact('venta'));
     }
 
@@ -75,12 +75,15 @@ class ventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, venta $venta)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'nombre' => "required|unique:ventas,nombre,$venta->id"
-        ]);
-        $venta ->update($request->all());
+        $venta=venta::findOrFail($id);
+    
+        $venta->Nro_v=$request->input('Nro_v');
+        $venta->Fecha_v=$request->input('Fecha_v');
+        $venta->montoTotal=$request->input('montoTotal');
+        $venta->Id_us=$request->input('Id_us');
+        $venta->save();
         return redirect()->route('ventas.index',$venta);
     }
 
@@ -90,8 +93,9 @@ class ventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(venta $venta)
+    public function destroy($id)
     {
+        $venta=venta ::findOrFail($id);
         $venta->delete();
         return redirect()->route('ventas.index');
     }
