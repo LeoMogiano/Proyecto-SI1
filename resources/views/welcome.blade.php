@@ -35,9 +35,10 @@
             <li><img class="small" src="img/CamaraXd2.png" onclick="imgSlider('img/CamaraXd2.png');changeCircleColor('#eb741e')"></li>
         </ul>
         <ul class="sci">         
-             <li><a href="https://github.com/LeoMogiano/Proyecto-SI1"><img src="img/facebook.png" alt=""></a></li>
+             {{-- <li><a href="https://github.com/LeoMogiano/Proyecto-SI1"><img src="img/facebook.png" alt=""></a></li> --}}
             {{-- <li><a href=""><img src="img/twitter.png" alt=""></a></li> --}}
             {{-- <li><a href=""><img src="img/instagram.png" alt=""></a></li> --}}
+            <li><a href="https://github.com/LeoMogiano/Proyecto-SI1"><img src="img/Gitt.png" alt=""></a></li>
             
         </ul>
     </section>
