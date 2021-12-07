@@ -22,8 +22,7 @@
             
             <div class="textBox">
             <h2>Esto no es solo <b>Seguridad</b><br>Esto es <span>Smartplusshouse</span></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quas eius, perspiciatis repudiandae amet doloribus quos pariatur 
-                voluptatem dolore fugiat hic excepturi voluptatibus minus accusamus debitis numquam vitae alias nemo.</p>
+            <p></p>
                 
             </div>
             <div class="imgBox">
