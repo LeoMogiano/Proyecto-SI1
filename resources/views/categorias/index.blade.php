@@ -26,7 +26,7 @@
                     @can('crear categoria', Model::class)
                     <th>Acciones</th>  
                     @endcan
-                    
+                   
                 </tr>
             </thead>
             <tbody>

@@ -28,5 +28,6 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'gestionar categoria'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'crear venta'])->syncRoles([$role2]);
         //
+        
     }
 }
