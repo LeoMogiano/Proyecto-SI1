@@ -22,7 +22,7 @@
             
             <div class="textBox">
             <h2>Esto no es solo <b>Seguridad</b><br>Esto es <span>Smartplusshouse</span></h2>
-            <p></p>
+            <p>SISTEMA DE INFOMACION PARA ADMINISTRAR COMPRA Y VENTA DE ACCESORIOS DE SEGURIDAD WEB,SIP(CAMARAS, VIDEOPORTEROS, INTERCOMUNICADORES, ALARMAS, ETC).</p>
                 
             </div>
             <div class="imgBox">
