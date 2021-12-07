@@ -34,7 +34,7 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) // es el boton para registrar
     {
         $request->validate([
             'nombre' => 'required|unique:categorias'

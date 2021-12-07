@@ -290,7 +290,9 @@ return [
             'text' => 'Proveedores',
             'route'  => 'proveedores.index',
             'icon'        => 'fas fa-user-tie fa-fw',
+            'can'       =>  'Modo Admin',
         ],
+        
         // [
         //     'text' => 'Perfil',
         //     'url'  => 'admin/settings',

@@ -13,7 +13,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+        @can('Modo Admin')
         <a class="btn btn-primary" href="{{route('tipoServicios.create')}}">Registrar Tipo</a>
+        @endcan
     </div>
     <div class="card-body">
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tipoServicios">
@@ -22,7 +24,9 @@
                     <th >Id</th>
                     <th >Nombres</th>
                     <th>Descripciones</th>
+                    
                     <th>Acciones</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -31,19 +35,21 @@
                                 <td>{{$tipoServicio->id}}</td>
                                 <td>{{$tipoServicio->nombre}}</td>
                                 <td>{{$tipoServicio->descripción}}</td>
+                                
                                 <td>
+                                     <button class="btn btn-info btn-sm"style="margin-top: 0.35rem; margin-left: 0.35rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" >Solicitar</button> 
+                                    @can('Modo Admin')
                                     <a href="{{route('tipoServicios.edit', $tipoServicio)}}" class="btn btn-primary btn-sm">Editar<a>
-                                        @can('editar tipo de servicio')
-                                        @endcan
+                                        
                                     <form action="{{route('tipoServicios.destroy', $tipoServicio)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         
                                         <button class="btn btn-danger btn-sm"style="margin-top: 0.35rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" value="Borrar">Eliminar</button> 
-                                        @can('eliminar tipo de servicio')
-                                        @endcan
+                                     @endcan   
                                     </form>
                                 </td>
+                                
                             </tr>
                         @endforeach
             </tbody>
