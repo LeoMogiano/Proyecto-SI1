@@ -13,7 +13,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-    @can('crear categoria')
+    @can('gestionar usuario')
     <a class="btn btn-primary" href="{{route('categorias.create')}}">Registrar Categoria</a>
     @endcan 
     </div>
@@ -35,14 +35,14 @@
                     <td>{{$categorias->id}}</td>
                     <td>{{$categorias->nombre}}</td>
                     <td>
-                        @can('crear categoria')
+                        @can('gestionar usuario')
                         <a class="btn btn-primary btn-sm" href="{{route(    'categorias.edit',$categorias)}}">Editar</a>  
                         @endcan
                         
                         <form action="{{route('categorias.destroy',$categorias)}}" method="POST">
                             @csrf
                             @method('delete')
-                            @can('crear categoria')
+                            @can('gestionar usuario')
                             <button style="margin-top: 0.35rem"type="submit" class="btn btn-danger btn-sm" >Eliminar</button> 
                             @endcan
                             

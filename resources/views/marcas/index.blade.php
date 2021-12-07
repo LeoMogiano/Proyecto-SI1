@@ -13,7 +13,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+        @can('Modo Admin')
         <a class="btn btn-primary" href="{{route('marcas.create')}}">Registrar Marca</a>
+        @endcan
     </div>
     <div class="card-body">
         <table class="table table-striped table-bordered shadow-lg mt-4" id="marcas">
@@ -21,7 +23,9 @@
                 <tr>
                     <th >Id</th>
                     <th >Nombres</th>
+                    @can('Modo Admin')
                     <th>Acciones</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +33,7 @@
                 <tr>
                     <td>{{$marcas->id}}</td>
                     <td>{{$marcas->nombre}}</td>
+                    @can('Modo Admin')
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{route(    'marcas.edit',$marcas)}}">Editar</a>
                         <form action="{{route('marcas.destroy',$marcas)}}" method="POST">
@@ -37,7 +42,9 @@
                             <button style="margin-top: 0.35rem"type="submit" class="btn btn-danger btn-sm" >Eliminar</button>
                         </form>
                     </td>
+                    @endcan
                 </tr>
+
                 @endforeach
             </tbody>
         </table>
