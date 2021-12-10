@@ -277,6 +277,11 @@ return [
             'icon'        => 'fab fa-maxcdn fa-fw',
         ],
         [
+            'text' => 'Modelos',
+            'route'  => 'modelos.index',
+            'icon'        => 'fab fa-medium fa-fw',
+        ],
+        [
             'text' => 'Ventas',
             'route'  => 'ventas.index',
             'icon'        => 'fas fa-shopping-cart fa-fw',

@@ -159,8 +159,6 @@ header ul li {
     margin: 5px 0;
     transform: scale(0.6);
     filter: invert(1);
-    width: 25px;
-    height: 25px;
 }
 
 .circle {

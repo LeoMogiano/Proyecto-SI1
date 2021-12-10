@@ -18,7 +18,7 @@
         <span class="text-danger">{{$message}}</span>
         @enderror
             
-        
+
         <br>
         <button  class="btn btn-primary" type="submit">Registrar</button>
         <a class="btn btn-danger" href="{{route('categorias.index')}}">Volver</a>
