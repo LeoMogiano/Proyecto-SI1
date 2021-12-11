@@ -282,6 +282,11 @@ return [
             'icon'        => 'fab fa-medium fa-fw',
         ],
         [
+            'text' => 'Productos',
+            'route'  => 'productos.index',
+            'icon'        => 'fab fa-product-hunt fa-fw',
+        ],
+        [
             'text' => 'Ventas',
             'route'  => 'ventas.index',
             'icon'        => 'fas fa-shopping-cart fa-fw',

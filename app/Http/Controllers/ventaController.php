@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\venta;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class ventaController extends Controller
     public function index()
     {
         $venta = venta::all();
-        return view('ventas.index',compact('venta'));
+        $User = User::all();
+        return view('ventas.index',compact('venta','User'));
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Http\Controllers\TipoServicioController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ventaController;
 use App\Http\Controllers\ModeloController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,4 @@ Route::resource('tipoServicios',TipoServicioController::class)->names('tipoServi
 Route::resource('proveedores',ProveedorController::class)->names('proveedores');
 Route::resource('ventas',ventaController::class)->names('ventas');
 Route::resource('modelos',ModeloController::class)->names('modelos');
+Route::resource('productos',ProductoController::class)->names('productos');

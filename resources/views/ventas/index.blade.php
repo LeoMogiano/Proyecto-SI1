@@ -25,7 +25,7 @@
                     <th>Nro de Venta </th> 
                     <th >Monto Total</th> 
                     <th>Fecha de Venta</th> 
-                    <th>ID de Usuario</th>
+                    <th>Nombre de Usuario</th>
                     @can('crear venta')               
                     <th>Acciones</th>
                     @endcan
@@ -38,20 +38,25 @@
                     <td>{{$ventas->Nro_v}}</td>
                     <td>{{$ventas->montoTotal}}</td>
                     <td>{{$ventas->Fecha_v}}</td>                   
-                    <td>{{$ventas->Id_us}}</td>
-                    @can('crear venta')
-                    <td> 
-                        
+                    @foreach ($User as $Users)
+                        @if ($ventas->Id_us==$Users->id)
+
+                        <td>{{$Users->name}}</td>   
+                        @endif
+                    @endforeach
                 @can('crear venta')
+                    <td>
+                        
+                        @can('crear venta')
                         <a class="btn btn-primary btn-sm" href="{{route(    'ventas.edit',$ventas)}}">Editar</a>  
                         @endcan
                         
                         <form action="{{route('ventas.destroy',$ventas)}}" method="POST">
                             @csrf
                             @method('delete')
-                            @can('crear venta')
+                         @can('crear venta')
                             <button style="margin-top: 0.35rem"type="submit" class="btn btn-danger btn-sm" >Eliminar</button> 
-                            @endcan
+                         @endcan
                             
                         </form>
                     </td>

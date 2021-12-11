@@ -20,7 +20,11 @@
                 <div class="card-title">
                     <img src="img/SmarHome.jpeg" class="logoto" alt="Logos">Smartplusshouse
                 </div>
-
+                @error('password')
+                            <div class="palerta"  >
+                            <strong>Se necesitan 8 caracteres como mínimo para la contraseña.</strong> 
+                             </div>
+                             @enderror
                 <div class="card-body">
                     
                 <form method="POST" action="{{ route('register') }}">
@@ -45,24 +49,21 @@
 
                         
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Correo Electrónico">
-
+                            
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                             <div class="palerta"  >
+                                 <strong>El correo electrónico que has introducido o contraseña son incorrectos.</strong> 
+                             </div>
                             @enderror
                         
                     </div>
-
+                    
+                    
                     <div class="form-group row">
                         <i class="fas fa-lock"></i>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
 
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            
                         
                     </div>
 
