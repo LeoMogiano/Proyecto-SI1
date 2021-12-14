@@ -43,7 +43,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|unique:modelos'
+            'nombre' => 'required|unique:productos'
         ]);
         $producto=new producto();
         $producto->nombre=$request->input('nombre');
@@ -89,20 +89,12 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, producto $producto)
     {
         $request->validate([
-            'nombre' => 'required|unique:modelos'
+            'nombre' => "required|unique:productos,nombre,$producto->id"
         ]);
-        $producto=producto::findOrFail($id);
-        $producto->nombre=$request->input('nombre');
-        $producto->color=$request->input('color');
-        $producto->precio=$request->input('precio');
-        $producto->costo=$request->input('costo');
-        $producto->stock=$request->input('stock');
-        $producto->Id_categoria=$request->input('categoria');
-        $producto->Id_modelo=$request->input('modelo');
-        $producto->save();
+        $producto ->update($request->all());
         return redirect()->route('productos.index',$producto);
     }
 

@@ -38,6 +38,9 @@ class ventaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'Nro_v' => "required|unique:ventas"
+        ]);
         $venta=new venta();
         $venta->Nro_v=$request->input('Nro_v');
         $venta->Fecha_v=$request->input('Fecha_v');
@@ -77,15 +80,12 @@ class ventaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, venta $venta)
     {
-        $venta=venta::findOrFail($id);
-    
-        $venta->Nro_v=$request->input('Nro_v');
-        $venta->Fecha_v=$request->input('Fecha_v');
-        $venta->montoTotal=$request->input('montoTotal');
-        $venta->Id_us=$request->input('Id_us');
-        $venta->save();
+        $request->validate([
+            'Nro_v' => "required|unique:ventas,Nro_v,$venta->id"
+        ]);
+        $venta ->update($request->all());
         return redirect()->route('ventas.index',$venta);
     }
 

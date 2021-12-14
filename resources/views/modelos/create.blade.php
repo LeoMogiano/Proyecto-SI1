@@ -8,15 +8,21 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">        
+    
+    <div class="card-body">      
+        @error('nombre')
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> Este modelo ya está registrado.
+      </div>
+         
+        @enderror  
         <form method="post" action="{{route('modelos.store')}}" >
         @csrf
         
         <h5>Nombre:</h5>
         <input type="text"  name="nombre" class="focus border-primary  form-control">
-        @error('nombre')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        
 
         <div class="form-group">
             <h5>Nombre de la Marca:</h5>

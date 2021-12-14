@@ -80,15 +80,12 @@ class ModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, modelo $modelo)
     {
         $request->validate([
-            'nombre' => 'required|unique:modelos'
+            'nombre' => "required|unique:modelos,nombre,$modelo->id"
         ]);
-        $modelo=modelo::findOrFail($id);
-        $modelo->nombre=$request->input('nombre');
-        $modelo->Id_marca=$request->input('marca');
-        $modelo->save();
+        $modelo ->update($request->all());
         return redirect()->route('modelos.index',$modelo);
     }
 

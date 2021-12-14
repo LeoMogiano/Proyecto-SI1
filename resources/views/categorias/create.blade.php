@@ -8,15 +8,21 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">        
+    
+    <div class="card-body"> 
+        @error('nombre')
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> Esta categoria ya está registrada.
+      </div>
+         
+        @enderror        
         <form method="post" action="{{route('categorias.store')}}" >
         @csrf
         
         <h5>Nombre:</h5>
         <input type="text"  name="nombre" class="focus border-primary  form-control">
-        @error('nombre')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+        
             
 
         <br>

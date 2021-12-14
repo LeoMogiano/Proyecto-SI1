@@ -17,6 +17,7 @@ class CreateProveedorsTable extends Migration
             $table->id();
             $table->string('nombre',40);
             $table->string('email',35);
+            $table->string('telefono',15);
             $table->string('ubicación',60);
             $table->string('tiempoEstimado',160);
             $table->timestamps();

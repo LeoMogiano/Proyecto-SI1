@@ -22,6 +22,7 @@
                     <th>Id</th>
                     <th>Nombres</th>
                     <th>Email</th>
+                    <th>Télefono</th>
                     <th>Ubicaciones</th>
                     <th>Descripciones</th>
                     <th>Acciones</th>
@@ -33,6 +34,7 @@
                                 <td>{{$proveedors->id}}</td>
                                 <td>{{$proveedors->nombre}}</td>
                                 <td>{{$proveedors->email}}</td>
+                                <td>{{$proveedors->telefono}}</td>
                                 <td>{{$proveedors->ubicación}}</td>
                                 <td>{{$proveedors->tiempoEstimado}}</td>
                                 <td>
@@ -43,7 +45,7 @@
                                         @csrf
                                         @method('delete')
                                         
-                                        <button class="btn btn-danger btn-sm"style="margin-top: 0.35rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" value="Borrar">Eliminar</button> 
+                                        <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem" onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
                                         @can('eliminar tipo de servicio')
                                         @endcan
                                     </form>

@@ -8,15 +8,21 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">        
+    
+    <div class="card-body">  
+        @error('nombre')
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> Este producto ya está registrado.
+      </div>
+         
+        @enderror      
         <form method="post" action="{{route('productos.store')}}" >
         @csrf
         <div class="form-group col-md-6">
         <h5>Nombre:</h5>
         <input type="text"  name="nombre" class="focus border-primary  form-control">
-        @error('nombre')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
+       
         </div>
         <div class="form-group col-md-3">
         <h5>Color:</h5>

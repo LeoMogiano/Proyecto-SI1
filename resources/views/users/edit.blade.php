@@ -9,7 +9,13 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-
+        @error('name')
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> Este usuario ya está registrado.
+      </div>
+         
+        @enderror 
             <form action="{{route('users.update', $user)}}" method="post" novalidate >
                 @csrf
                 @method('put')
@@ -17,10 +23,7 @@
                     <div class="form-group col-md-6">
                         <label for="name">Ingrese el nombre de usuario</label>
                         <input type="text" name="name" class="form-control" value="{{old('name', $user->name)}}" id="name">
-                        @error('name')
-                            <small>*{{$message}}</small>
-                            <br><br>
-                        @enderror
+                        
                     </div>
                     <div class="form-group col-md-6">
                         <label for="activar-contraseña">Nueva contraseña</label>
@@ -66,8 +69,9 @@
                     @enderror --}}
                 </div>
                 <br>
-
-                <button  class="btn btn-danger btn-sm" type="submit">Actualizar Usuario</button>
+                
+                <button  class="btn btn-primary" type="submit">Actualizar Usuario</button>
+                <a class="btn btn-danger" href="{{route('users.index')}}">Volver</a>
             </form>
 
     </div>

@@ -8,8 +8,15 @@
 
 @section('content')
 <div class="card">
+    
     <div class="card-body">
-
+        @error('nombre')
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Error!</strong> Este tipo de servicio ya está registrado.
+  </div>
+     
+    @enderror
             <form action="{{route('tipoServicios.update', $tipoServicio)}}" method="post" novalidate >
                 @csrf
                 @method('put')
@@ -17,10 +24,7 @@
                     <div class="form-group col-md-6">
                         <label for="nombre">Ingrese nuevo nombre</label>
                         <input type="text" name="nombre" class="form-control" value="{{old('nombre', $tipoServicio->nombre)}}" id="nombre">
-                        @error('nombre')
-                            <small>*{{$message}}</small>
-                            <br><br>
-                        @enderror
+                        
                     </div>
                     <div class="form-group col-md-12" >
                         <label for="descripción">Ingrese nueva descripción</label>

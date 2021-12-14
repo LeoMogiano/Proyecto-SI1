@@ -51,7 +51,7 @@
                             @csrf
                             @method('delete')
                             @can('gestionar usuario')
-                            <button style="margin-top: 0.35rem"type="submit" class="btn btn-danger btn-sm" >Eliminar</button> 
+                            <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem" onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
                             @endcan
                             
                         </form>

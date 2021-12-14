@@ -37,10 +37,10 @@
                                 <form action="{{route('users.destroy', $user)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <a href="{{route('users.edit', $user)}}" class="btn btn-primary btn-sm"                                    ">Editar<a>
+                                    <a href="{{route('users.edit', $user)}}" class="btn btn-primary btn-sm">Editar<a>
                                     @can('editar usuario')
                                     @endcan
-                                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" value="Borrar">Eliminar</button> 
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button> 
                                     @can('eliminar usuario')
                                     @endcan
                                 </form>

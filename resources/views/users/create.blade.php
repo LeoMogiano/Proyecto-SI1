@@ -9,15 +9,18 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-
+        @error('name')
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> Este usuario ya está registrado.
+      </div>
+         
+        @enderror 
             <form action="{{route('users.store')}}" method="post" novalidate >
                 @csrf
                 <label for="name">Ingrese el nombre de usuario</label>
                 <input type="text" name="name" class="form-control" value="{{old('name')}}">
-                @error('name')
-                    <small>*{{$message}}</small>
-                    <br><br>
-                @enderror
+                
                 <br>
                 <label for="email">Ingrese el correo electronico</label>
                 <input type="text" name="email" class="form-control" value="{{old('email')}}">

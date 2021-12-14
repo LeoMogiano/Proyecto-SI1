@@ -8,20 +8,24 @@
 
 @section('content')
 <div class="card">
+    
     <div class="card-body">
-
+        @error('nombre')
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> Este proveedor ya está registrado.
+      </div>
+         
+        @enderror
             <form action="{{route('proveedores.store')}}" method="post" novalidate >
                 @csrf
                 <div class="form-row">
                      <div class="form-group col-md-6">
                         <label for="nombre">Ingrese nombre del tipo</label>
                         <input type="text" name="nombre" class="form-control" value="{{old('nombre')}}" id="nombre">
-                        @error('nombre')
-                            <small>*{{$message}}</small>
-                            <br><br>
-                        @enderror
+                        
                     </div>
-                    <div class="form-group col-md-10">
+                    <div class="form-group col-md-6">
                         <label for="nombre">Ingrese el email</label>
                         <input type="text" name="email" class="form-control" value="{{old('email')}}" id="email">
                         @error('email')
@@ -29,6 +33,16 @@
                             <br><br>
                         @enderror
                     </div> 
+
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Ingrese el telefono</label>
+                        <input type="text" name="telefono" class="form-control" value="{{old('email')}}" id="telefono">
+                        @error('telefono')
+                            <small>*{{$message}}</small>
+                            <br><br>
+                        @enderror
+                    </div> 
+                    
                     <div class="form-group col-md-10">
                         <label for="ubicación">Ingrese la ubicación</label>
                         <input type="text" name="ubicación" class="form-control" value="{{old('ubicación')}}" id="ubicación">

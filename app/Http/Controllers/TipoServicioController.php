@@ -37,6 +37,9 @@ class TipoServicioController extends Controller
      */
     public function store(Request $request) //es el boton de registrar
     {
+        $request->validate([
+            'nombre' => 'required|unique:tipo_servicios'
+        ]);
         $tipoServicio=new TipoServicio();
         $tipoServicio->nombre=$request->input('nombre');
         $tipoServicio->descripción=$request->input('descripción'); 
@@ -75,15 +78,13 @@ class TipoServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, tipoServicio $tipoServicio)
     {
-        $tipoServicio=TipoServicio::findOrFail($id);
-    
-        $tipoServicio->nombre=$request->input('nombre');
-        $tipoServicio->descripción=$request->input('descripción');
-        $tipoServicio->save();
-        
-        return redirect()->route('tipoServicios.index');
+        $request->validate([
+            'nombre' => "required|unique:tipo_servicios,nombre,$tipoServicio->id"
+        ]);
+        $tipoServicio ->update($request->all());
+        return redirect()->route('tipoServicios.index',$tipoServicio);
     }
 
     /**
