@@ -13,8 +13,10 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-    
+    @can('Modo Admin')
     <a class="btn btn-primary" href="{{route('productos.create')}}">Registrar Producto</a>
+    @endcan
+    
     
     </div>
     <div class="card-body">
@@ -58,10 +60,11 @@
                     @endforeach
                     
                     <td>
-                        
+                        @can('Modo Cliente')
+                        <a class="btn btn-primary" href="">solicitar Producto</a>
+                          @endcan
+                        @can('Modo Admin')
                         <a class="btn btn-primary btn-sm" href="{{route(    'productos.edit',$productos)}}">Editar</a>  
-                        
-                        
                         <form action="{{route('productos.destroy',$productos)}}" method="POST">
                             @csrf
                             @method('delete')
@@ -70,6 +73,11 @@
                             
                             
                         </form>
+                        @endcan 
+                        
+                        
+                        
+                       
                     </td>
                 </tr>
                 @endforeach

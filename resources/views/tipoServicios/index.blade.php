@@ -37,7 +37,10 @@
                                 <td>{{$tipoServicio->descripción}}</td>
                                 
                                 <td>
-                                     <button class="btn btn-info btn-sm"style="margin-top: 0.35rem; margin-right: 0.5rem; margin-bottom: 0.25rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" >Solicitar</button> 
+                                    @can('Modo Cliente')
+                                    <button class="btn btn-info btn-sm"style="margin-top: 0.35rem; margin-right: 0.5rem; margin-bottom: 0.25rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" >Solicitar</button> 
+                                @endcan
+                                     
                                     @can('Modo Admin')
                                     <a href="{{route('tipoServicios.edit', $tipoServicio)}}" class="btn btn-primary btn-sm">Editar<a>
                                         
