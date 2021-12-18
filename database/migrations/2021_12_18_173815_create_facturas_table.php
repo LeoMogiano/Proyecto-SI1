@@ -15,6 +15,12 @@ class CreateFacturasTable extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
+            $table->integer('Nro_aut');
+            $table->dateTime('Fecha_f');
+            $table->integer('nit');
+            $table->float('monTotal');
+            $table->unsignedBigInteger('Id_venta');
+            $table->foreign('Id_venta')->on ('ventas')->references('id'); //foranea 
             $table->timestamps();
         });
     }

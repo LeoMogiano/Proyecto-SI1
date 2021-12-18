@@ -282,6 +282,11 @@ return [
             'icon'        => 'fab fa-medium fa-fw',
         ],
         [
+            'text' => 'Facturas',
+            'route'  => 'facturas.index',
+            'icon'        => 'fas fa-file-invoice fa-fw',
+        ],
+        [
             'text' => 'Productos',
             'route'  => 'productos.index',
             'icon'        => 'fab fa-product-hunt fa-fw',
