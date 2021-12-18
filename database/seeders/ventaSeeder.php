@@ -14,12 +14,12 @@ class ventaSeeder extends Seeder
      */
     public function run()
     {    
-        $cat=New venta();
-        $cat->id=1;
-        $cat->Nro_v='V001';
-        $cat->Fecha_v="2021-12-05 15:05:00";
-        $cat->montoTotal=12.5;
-        $cat->Id_us=2;
-        $cat->save();
+        $venta=New venta();
+        $venta->id=1;
+        $venta->Nro_v='V001';
+        $venta->Fecha_v="2021-12-05 15:05:00";
+        $venta->montoTotal=12.5;
+        $venta->Id_us=2;
+        $venta->save();
     }
 }

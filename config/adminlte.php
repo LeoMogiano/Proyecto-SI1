@@ -292,6 +292,11 @@ return [
             'icon'        => 'fas fa-shopping-cart fa-fw',
         ],
         [
+            'text' => 'Compras',
+            'route'  => 'compras.index',
+            'icon'        => 'fas fa-boxes fa-fw',
+        ],
+        [
             'text' => 'Tipos de Servicios',
             'route'  => 'tipoServicios.index',
             'icon'        => 'fab fa-servicestack fa-fw',

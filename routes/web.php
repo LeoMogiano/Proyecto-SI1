@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CompraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\UserController;
@@ -38,3 +39,4 @@ Route::resource('proveedores',ProveedorController::class)->names('proveedores');
 Route::resource('ventas',ventaController::class)->names('ventas');
 Route::resource('modelos',ModeloController::class)->names('modelos');
 Route::resource('productos',ProductoController::class)->names('productos');
+Route::resource('compras',CompraController::class)->names('compras');

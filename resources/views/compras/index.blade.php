@@ -3,7 +3,7 @@
 @section('title', 'Smartplusshouse')
 
 @section('content_header')
-    <h1>Lista Nota Venta</h1>
+    <h1>Lista Nota Compra</h1>
 @stop
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -14,44 +14,44 @@
 <div class="card">
     <div class="card-header">
     
-    <a class="btn btn-primary" href="{{route('ventas.create')}}">Registrar Nota Venta</a>
-    
+    <a class="btn btn-primary" href="{{route('compras.create')}}">Registrar Nota de Compra</a>
+   
     </div>
     <div class="card-body">
-        <table class="table table-striped table-bordered shadow-lg mt-4" id="ventas">
+        <table class="table table-striped table-bordered shadow-lg mt-4" id="compras">
             <thead>
                 <tr>
                     <th >Id </th>
-                    <th>Nro de Venta </th> 
-                    <th >Monto Total</th> 
-                    <th>Fecha de Venta</th> 
-                    <th>Nombre de Usuario</th>
-                                  
+                    <th>Nro de Compra </th> 
+                    <th >Costo Total</th> 
+                    <th>Fecha de Compra</th> 
+                    <th>Nombre de Proveedor</th>
+                    @can('crear compra')               
                     <th>Acciones</th>
-                    
+                    @endcan
                 </tr>
             </thead>
             <tbody>
-                @foreach ($venta as $ventas)
+                @foreach ($compra as $compras)
                 <tr>
-                    <td>{{$ventas->id}}</td>
-                    <td>{{$ventas->Nro_v}}</td>
-                    <td>{{$ventas->montoTotal}}</td>
-                    <td>{{$ventas->Fecha_v}}</td>                   
-                    @foreach ($User as $Users)
-                        @if ($ventas->Id_us==$Users->id)
+                    <td>{{$compras->id}}</td>
+                    <td>{{$compras->Nro_c}}</td>
+                    <td>{{$compras->costoTotal}}</td>
+                    <td>{{$compras->Fecha_c}}</td>                   
+                    @foreach ($proveedor as $proveedors)
+                        @if ($compras->Id_prov==$proveedors->id)
 
-                        <td>{{$Users->name}}</td>   
+                        <td>{{$proveedors->nombre}}</td>   
                         @endif
                     @endforeach
                 
                     <td>
                         
                         
-                        <a class="btn btn-primary btn-sm" href="{{route(    'ventas.edit',$ventas)}}">Editar</a>  
+                        <a class="btn btn-primary btn-sm" href="{{route(    'compras.edit',$compras)}}">Editar</a>  
+                       
                         
-                        
-                        <form action="{{route('ventas.destroy',$ventas)}}" method="POST">
+                        <form action="{{route('compras.destroy',$compras)}}" method="POST">
                             @csrf
                             @method('delete')
                          
@@ -74,7 +74,7 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $('#ventas').DataTable({
+        $('#compras').DataTable({
             autoWidth:false
         });
     </script>
