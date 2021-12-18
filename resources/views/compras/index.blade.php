@@ -21,8 +21,8 @@
         <table class="table table-striped table-bordered shadow-lg mt-4" id="compras">
             <thead>
                 <tr>
-                    <th >Id </th>
-                    <th>Nro de Compra </th> 
+                    <th >Id-Nro de Compra </th>
+                    {{-- <th>Nro de Compra </th>  --}}
                     <th >Costo Total</th> 
                     <th>Fecha de Compra</th> 
                     <th>Nombre de Proveedor</th>
@@ -35,7 +35,7 @@
                 @foreach ($compra as $compras)
                 <tr>
                     <td>{{$compras->id}}</td>
-                    <td>{{$compras->Nro_c}}</td>
+                    {{-- <td>{{$compras->Nro_c}}</td> --}}
                     <td>{{$compras->costoTotal}}</td>
                     <td>{{$compras->Fecha_c}}</td>                   
                     @foreach ($proveedor as $proveedors)

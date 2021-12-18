@@ -20,11 +20,11 @@
                 @csrf
                 @method('put')
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="Nro_v">Ingrese nuevo Nro de Venta</label>
                         <input type="text" name="Nro_v" class="form-control" value="{{old('Nro_v', $venta->Nro_v)}}" id="Nro_v">
                         
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-12" >
                         <label for="montoTotal">Ingrese nuevo Monto Total</label>
                         <input type="text" name="montoTotal" class="form-control" value="{{old('montoTotal', $venta->montoTotal)}}">

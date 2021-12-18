@@ -15,7 +15,7 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->string('Nro_c');
+            /* $table->string('Nro_c'); */
             $table->dateTime('Fecha_c');
             $table->float('costoTotal');
             $table->unsignedBigInteger('Id_prov');

@@ -38,11 +38,9 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nro_c' => "required|unique:compras"
-        ]);
+        
         $compra=new compra();
-        $compra->Nro_c=$request->input('Nro_c');
+        /* $compra->Nro_c=$request->input('Nro_c'); */
         $compra->Fecha_c=$request->input('Fecha_c');
         $compra->costoTotal=$request->input('costoTotal');
         $compra->Id_prov=$request->input('Id_prov');
@@ -82,9 +80,7 @@ class CompraController extends Controller
      */
     public function update(Request $request, compra $compra)
     {
-        $request->validate([
-            'Nro_c' => "required|unique:compras,Nro_c,$compra->id"
-        ]);
+        
         $compra ->update($request->all());
         return redirect()->route('compras.index',$compra);
     }

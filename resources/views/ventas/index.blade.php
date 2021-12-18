@@ -22,7 +22,7 @@
             <thead>
                 <tr>
                     <th >Id </th>
-                    <th>Nro de Venta </th> 
+                  {{--   <th>Nro de Venta </th>  --}}
                     <th >Monto Total</th> 
                     <th>Fecha de Venta</th> 
                     <th>Nombre de Usuario</th>
@@ -35,7 +35,7 @@
                 @foreach ($venta as $ventas)
                 <tr>
                     <td>{{$ventas->id}}</td>
-                    <td>{{$ventas->Nro_v}}</td>
+                    {{-- <td>{{$ventas->Nro_v}}</td> --}}
                     <td>{{$ventas->montoTotal}}</td>
                     <td>{{$ventas->Fecha_v}}</td>                   
                     @foreach ($User as $Users)

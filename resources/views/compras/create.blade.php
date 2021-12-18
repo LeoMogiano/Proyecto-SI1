@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        @error('Nro_c')
+        @error('id')
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>¡Error!</strong> Esta nota de compra ya está registrada.
@@ -19,11 +19,11 @@
             <form action="{{route('compras.store')}}" method="post" novalidate >
                 @csrf
                 <div class="form-row">
-                     <div class="form-group col-md-6">
+                    {{--  <div class="form-group col-md-6">
                         <label for="Nro_c">Ingrese el Nro de Compra</label>
                         <input type="text" name="Nro_c" class="form-control" value="C" id="Nro_c    ">
                         
-                    </div>
+                    </div> --}}
 
                     <div class="form-group col-md-10">
                         <label for="costoTotal">Ingrese el Costo Total</label>

@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        @error('Nro_c')
+        @error('id')
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>¡Error!</strong> Esta nota de compra ya está registrada.
@@ -20,11 +20,11 @@
                 @csrf
                 @method('put')
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="Nro_c">Ingrese nuevo Nro de compra</label>
                         <input type="text" name="Nro_c" class="form-control" value="{{old('Nro_c', $compra->Nro_c)}}" id="Nro_c">
                         
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-12" >
                         <label for="costoTotal">Ingrese nuevo Costo Total</label>
                         <input type="text" name="costoTotal" class="form-control" value="{{old('costoTotal', $compra->costoTotal)}}">
