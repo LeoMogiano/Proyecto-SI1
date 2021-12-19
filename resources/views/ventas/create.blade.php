@@ -19,11 +19,7 @@
             <form action="{{route('ventas.store')}}" method="post" novalidate >
                 @csrf
                 <div class="form-row">
-                     {{-- <div class="form-group col-md-6">
-                        <label for="Nro_v">Ingrese el Nro de Venta</label>
-                        <input type="text" name="Nro_v" class="form-control" value="V" id="Nro_v">
-                        
-                    </div> --}}
+                     
 
                     <div class="form-group col-md-10">
                         <label for="montoTotal">Ingrese el Monto Total</label>
@@ -54,6 +50,7 @@
                 </div>
                 <div class="form-group">
                     <button  class="btn btn-primary" type="submit">Añadir Nota de Venta</button>
+                    
                     <a class="btn btn-danger" href="{{route('ventas.index')}}">Volver</a>
                 </div>
                 

@@ -48,7 +48,7 @@
                     <td>
                         
                         
-                        <a class="btn btn-primary btn-sm" href="{{route(    'ventas.edit',$ventas)}}">Editar</a>  
+                        <a class="btn btn-primary btn-sm" href="{{route('ventas.edit',$ventas)}}">Editar</a>  
                         
                         
                         <form action="{{route('ventas.destroy',$ventas)}}" method="POST">
@@ -59,6 +59,7 @@
                          
                             
                         </form>
+                        <a class="btn btn-info btn-sm" style="margin-top: 0.35rem" href="{{route('ventas.show',$ventas)}}">Detalle Venta</a>
                     </td>
                 
                 </tr>

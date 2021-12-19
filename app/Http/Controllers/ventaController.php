@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categoria;
+use App\Models\modelo;
+use App\Models\producto;
 use App\Models\User;
 use App\Models\venta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ventaController extends Controller
 {
@@ -27,7 +32,8 @@ class ventaController extends Controller
      */
     public function create()
     {
-        return view('ventas.create');
+        $producto = producto::all();
+        return view('ventas.create',compact('producto'));
     }
 
     /**
@@ -39,8 +45,7 @@ class ventaController extends Controller
     public function store(Request $request)
     {
         
-        $venta=new venta();
-        /* $venta->Nro_v=$request->input('Nro_v'); */
+        $venta=new venta();  
         $venta->Fecha_v=$request->input('Fecha_v');
         $venta->montoTotal=$request->input('montoTotal');
         $venta->Id_us=$request->input('Id_us');
@@ -56,7 +61,12 @@ class ventaController extends Controller
      */
     public function show($id)
     {
-        
+        $venta=venta::findOrFail($id);
+        $productos=producto::all();
+        $productoos=DB::table('producto_venta')->where('venta_id',$venta->id)->get();
+        $categorias=categoria::all();
+        $modelos=modelo::all();
+        return view('ventas.show',compact('venta','productos','productoos','categorias','modelos'));
     }
 
     /**

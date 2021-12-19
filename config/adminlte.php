@@ -302,6 +302,11 @@ return [
             'icon'        => 'fas fa-boxes fa-fw',
         ],
         [
+            'text' => 'Servicios',
+            'route'  => 'servicios.index',
+            'icon'        => 'fas fa-concierge-bell fa-fw',
+        ],
+        [
             'text' => 'Tipos de Servicios',
             'route'  => 'tipoServicios.index',
             'icon'        => 'fab fa-servicestack fa-fw',

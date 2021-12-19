@@ -11,6 +11,7 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ventaController;
 use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ServicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,4 @@ Route::resource('modelos',ModeloController::class)->names('modelos');
 Route::resource('productos',ProductoController::class)->names('productos');
 Route::resource('compras',CompraController::class)->names('compras');
 Route::resource('facturas',facturaController::class)->names('facturas');
+Route::resource('servicios',ServicioController::class)->names('servicios');

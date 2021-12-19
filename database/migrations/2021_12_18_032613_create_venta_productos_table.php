@@ -13,7 +13,7 @@ class CreateVentaProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('venta_producto', function (Blueprint $table) {
+        Schema::create('producto_venta', function (Blueprint $table) {
             $table->id();
             $table->integer('cantidad');
             $table->float('precio_tot');
