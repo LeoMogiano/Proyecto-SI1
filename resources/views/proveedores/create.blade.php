@@ -21,7 +21,7 @@
                 @csrf
                 <div class="form-row">
                      <div class="form-group col-md-6">
-                        <label for="nombre">Ingrese nombre del tipo</label>
+                        <label for="nombre">Ingrese nombre del proveedor</label>
                         <input type="text" name="nombre" class="form-control" value="{{old('nombre')}}" id="nombre">
                         
                     </div>

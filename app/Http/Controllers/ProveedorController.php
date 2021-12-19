@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\proveedor;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class ProveedorController extends Controller
 {
@@ -47,7 +48,11 @@ class ProveedorController extends Controller
         $proveedors->ubicación=$request->input('ubicación');
         $proveedors->tiempoEstimado=$request->input('tiempoEstimado'); 
         $proveedors->save();
-
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Proveedores')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $proveedors->id;
+        $lastActivity->save();
         return redirect()->route('proveedores.index');
     }
 
@@ -93,7 +98,11 @@ class ProveedorController extends Controller
         $proveedors->ubicación=$request->input('ubicación');
         $proveedors->tiempoEstimado=$request->input('tiempoEstimado'); 
         $proveedors->save();
-        
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Proveedores')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $proveedors->id;
+        $lastActivity->save();
         return redirect()->route('proveedores.index');
     }
 
@@ -106,6 +115,11 @@ class ProveedorController extends Controller
     public function destroy($id)
     {
         $proveedors=proveedor::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Proveedores')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $proveedors->id;
+        $lastActivity->save();
         $proveedors->delete();
 
         return redirect()->route('proveedores.index');

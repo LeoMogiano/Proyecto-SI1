@@ -6,6 +6,7 @@ use App\Models\producto;
 use App\Models\modelo;
 use App\Models\categoria;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class ProductoController extends Controller
 {
@@ -54,6 +55,11 @@ class ProductoController extends Controller
         $producto->Id_categoria=$request->input('categoria');
         $producto->Id_modelo=$request->input('modelo');
         $producto->save();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Producto')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $producto->id;
+        $lastActivity->save();
         return redirect()->route('productos.index',$producto);
     }
 
@@ -95,6 +101,11 @@ class ProductoController extends Controller
             'nombre' => "required|unique:productos,nombre,$producto->id"
         ]);
         $producto ->update($request->all());
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Producto')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $producto->id;
+        $lastActivity->save();
         return redirect()->route('productos.index',$producto);
     }
 
@@ -107,6 +118,11 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto=producto::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Producto')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $producto->id;
+        $lastActivity->save();
         $producto->delete();
         return redirect()->route('productos.index');
     }

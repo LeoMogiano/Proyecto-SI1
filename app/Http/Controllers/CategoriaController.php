@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\categoria;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
+
 
 class CategoriaController extends Controller
 {
@@ -36,10 +38,17 @@ class CategoriaController extends Controller
      */
     public function store(Request $request) // es el boton para registrar
     {
+        date_default_timezone_set("America/La_Paz");
+
         $request->validate([
             'nombre' => 'required|unique:categorias'
         ]);
         $categoria = categoria::create($request->all());
+        activity()->useLog('Categoria')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id=Categoria::all()->last()->id;
+        $lastActivity->save();
+
         return redirect()->route('categorias.index',$categoria);
     }
 
@@ -74,11 +83,17 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, categoria $categoria)
     {
+        date_default_timezone_set("America/La_Paz");
         $request->validate([
             'nombre' => "required|unique:categorias,nombre,$categoria->id"
         ]);
         $categoria ->update($request->all());
+        activity()->useLog('Categoria')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $categoria->id;
+        $lastActivity->save();
         return redirect()->route('categorias.index',$categoria);
+
     }
 
     /**
@@ -89,7 +104,13 @@ class CategoriaController extends Controller
      */
     public function destroy(categoria $categoria)
     {
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Categoria')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $categoria->id;
+        $lastActivity->save();
         $categoria->delete();
+        
         return redirect()->route('categorias.index');
     }
 }

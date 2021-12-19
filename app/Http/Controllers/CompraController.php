@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\compra;
 use App\Models\proveedor;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class CompraController extends Controller
 {
@@ -45,6 +46,11 @@ class CompraController extends Controller
         $compra->costoTotal=$request->input('costoTotal');
         $compra->Id_prov=$request->input('Id_prov');
         $compra->save();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Compras')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $compra->id;
+        $lastActivity->save();
         return redirect()->route('compras.index',$compra);
     }
 
@@ -82,6 +88,11 @@ class CompraController extends Controller
     {
         
         $compra ->update($request->all());
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Compras')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $compra->id;
+        $lastActivity->save();
         return redirect()->route('compras.index',$compra);
     }
 
@@ -94,6 +105,11 @@ class CompraController extends Controller
     public function destroy($id)
     {
         $compra=compra ::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Compras')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $compra->id;
+        $lastActivity->save();
         $compra->delete();
         return redirect()->route('compras.index');
     }

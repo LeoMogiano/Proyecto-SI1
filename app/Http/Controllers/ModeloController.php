@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\marca;
 use App\Models\modelo;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class ModeloController extends Controller
 {
@@ -46,6 +47,11 @@ class ModeloController extends Controller
         $modelo->nombre=$request->input('nombre');
         $modelo->Id_marca=$request->input('marca');
         $modelo->save();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Modelo')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $modelo->id;
+        $lastActivity->save();
         return redirect()->route('modelos.index',$modelo);
     }
 
@@ -86,6 +92,11 @@ class ModeloController extends Controller
             'nombre' => "required|unique:modelos,nombre,$modelo->id"
         ]);
         $modelo ->update($request->all());
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Modelo')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $modelo->id;
+        $lastActivity->save();
         return redirect()->route('modelos.index',$modelo);
     }
 
@@ -97,7 +108,13 @@ class ModeloController extends Controller
      */
     public function destroy($id)
     {
+
         $modelo=modelo::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Modelo')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $modelo->id;
+        $lastActivity->save();
         $modelo->delete();
         return redirect()->route('modelos.index');
     }

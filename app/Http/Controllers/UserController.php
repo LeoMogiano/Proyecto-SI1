@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 class UserController extends Controller
 {
@@ -65,6 +66,11 @@ class UserController extends Controller
             $mecanicos->save();
         } */
             // return $usuario;
+            date_default_timezone_set("America/La_Paz");
+            activity()->useLog('Usuarios')->log('Registró')->subject();
+            $lastActivity=Activity::all()->last();
+            $lastActivity->subject_id= $usuario->id;
+            $lastActivity->save();
         return redirect()->route('users.index');
     }
 
@@ -145,7 +151,11 @@ class UserController extends Controller
                 $empleadoNuevo2->save();    
             }
         } */
-
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Usuarios')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $user->id;
+        $lastActivity->save();
         return redirect()->route('users.index');
     }
 
@@ -157,7 +167,13 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Usuarios')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $user->id;
+        $lastActivity->save();
         User::destroy($user->id);
+        
         return redirect('users');
     }
 }

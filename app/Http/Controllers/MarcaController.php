@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\marca;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class marcaController extends Controller
 {
@@ -36,10 +37,15 @@ class marcaController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set("America/La_Paz");
         $request->validate([
             'nombre' => 'required|unique:marcas'
         ]);
         $marca = marca::create($request->all());
+        activity()->useLog('Marca')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $marca->id;
+        $lastActivity->save();
         return redirect()->route('marcas.index',$marca);
     }
 
@@ -74,10 +80,16 @@ class marcaController extends Controller
      */
     public function update(Request $request, marca $marca)
     {
+        date_default_timezone_set("America/La_Paz");
+
         $request->validate([
             'nombre' => "required|unique:marcas,nombre,$marca->id"
         ]);
         $marca ->update($request->all());
+        activity()->useLog('Marca')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $marca->id;
+        $lastActivity->save();
         return redirect()->route('marcas.index',$marca);
     }
 
@@ -88,7 +100,13 @@ class marcaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(marca $marca)
-    {
+    {   
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Marca')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $marca->id;
+        $lastActivity->save();
+
         $marca->delete();
         return redirect()->route('marcas.index');
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\servicio;
 use App\Models\tipoServicio;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class ServicioController extends Controller
 {
@@ -39,14 +40,17 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Id:tp' => 'required|unique:servicios'
-        ]);
+        
         $servicio=new servicio();
         $servicio->descripción=$request->input('descripción');
         $servicio->precio=$request->input('precio');
         $servicio->Id_tp=$request->input('Id_tp');
         $servicio->save();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Servicios')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $servicio->id;
+        $lastActivity->save();
         return redirect()->route('servicios.index',$servicio);
     }
 
@@ -85,6 +89,11 @@ class ServicioController extends Controller
     {
        
         $servicio ->update($request->all());
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Servicios')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $servicio->id;
+        $lastActivity->save();
         return redirect()->route('servicios.index',$servicio);
     }
 
@@ -97,6 +106,11 @@ class ServicioController extends Controller
     public function destroy($id)
     {
         $servicio=servicio::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Servicios')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $servicio->id;
+        $lastActivity->save();
         $servicio->delete();
         return redirect()->route('servicios.index');
     }

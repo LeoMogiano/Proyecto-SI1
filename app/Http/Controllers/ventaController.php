@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\venta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 
 class ventaController extends Controller
@@ -50,6 +51,11 @@ class ventaController extends Controller
         $venta->montoTotal=$request->input('montoTotal');
         $venta->Id_us=$request->input('Id_us');
         $venta->save();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Ventas')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $venta->id;
+        $lastActivity->save();
         return redirect()->route('ventas.index',$venta);
     }
 
@@ -92,6 +98,11 @@ class ventaController extends Controller
     {
        
         $venta ->update($request->all());
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Ventas')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $venta->id;
+        $lastActivity->save();
         return redirect()->route('ventas.index',$venta);
     }
 
@@ -104,6 +115,11 @@ class ventaController extends Controller
     public function destroy($id)
     {
         $venta=venta ::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Ventas')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $venta->id;
+        $lastActivity->save();
         $venta->delete();
         return redirect()->route('ventas.index');
     }

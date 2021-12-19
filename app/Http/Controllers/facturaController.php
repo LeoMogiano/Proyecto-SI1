@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\factura;
 use App\Models\venta;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class facturaController extends Controller
 {
@@ -45,6 +46,11 @@ class facturaController extends Controller
         $factura->monTotal=$request->input('monTotal');
         $factura->Id_venta=$request->input('Id_venta');
         $factura->save();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Factura')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $factura->id;
+        $lastActivity->save();
         return redirect()->route('facturas.index',$factura);
     }
 
@@ -81,6 +87,11 @@ class facturaController extends Controller
     public function update(Request $request, factura $factura)
     {
         $factura ->update($request->all());
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Factura')->log('Editó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $factura->id;
+        $lastActivity->save();
         return redirect()->route('facturas.index',$factura);
     }
 
@@ -93,6 +104,11 @@ class facturaController extends Controller
     public function destroy($id)
     {
         $factura=factura ::findOrFail($id);
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Factura')->log('Eliminó')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $factura->id;
+        $lastActivity->save();
         $factura->delete();
         return redirect()->route('facturas.index');
     }

@@ -265,11 +265,16 @@ return [
         // ],
         
         ['header' => 'OPCIONES GENERALES'],
+        [
+            'text' => 'Bitacora',
+            'route'  => 'Bitacora.index',
+            'icon'        => 'fas fa-book fa-fw',
+        ],
         
         [
             'text' => 'Categorias',
             'route'  => 'categorias.index',
-            'icon'        => 'fab fa-accusoft fa-fw',
+            'icon'        => 'fas fa-copyright fa-fw',
         ],
         [
             'text' => 'Marcas',
