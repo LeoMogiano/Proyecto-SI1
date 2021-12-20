@@ -7,7 +7,10 @@
 @stop
 
 @section('content')
+
+
     <div class="card">
+        
         <div class="card-body">
             @error('Nro_v')
                 <div class="alert alert-danger">
@@ -60,8 +63,8 @@
     <div class="card">
         <div class="card-header">
 
-            <a class="btn btn-primary" href="{{ route('ventas.create') }}">Registrar Nota Venta</a>
-
+            <a class="btn btn-primary" href="{{route('dventas.show',$venta->id)}}">Agregar Producto</a>
+            
         </div>
         <div class="card-body">
             <table class="table table-striped table-bordered shadow-lg mt-4" id="ventas">
@@ -77,13 +80,14 @@
                 </thead>
                 <tbody>
                     @foreach ($productos as $producto)
-                        <tr>
+                        
 
                             @foreach ($productoos as $productoo)
+                            <tr>
                                 @if ($productoo->producto_id == $producto->id)
                                     <td>{{ $producto->nombre }}</td>
                                     <td>{{ $productoo->cantidad }}</td>
-                                    <td>{{ $productoo->cantidad * $producto->precio }}</td>
+                                    <td>{{ $productoo->precio_tot }}</td>
                                     <td>{{ $productoo->descuento }}</td>
                                     @foreach ($categorias as $categoria)
                                         @if ($categoria->id == $producto->Id_categoria)
@@ -97,11 +101,12 @@
                                     @endforeach
 
                                 @endif
+                            </tr>
                             @endforeach
-
+                        
                             
 
-                        </tr>
+                       
                     @endforeach
                 </tbody>
             </table>

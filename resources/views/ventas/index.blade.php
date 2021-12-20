@@ -60,6 +60,7 @@
                             
                         </form>
                         <a class="btn btn-info btn-sm" style="margin-top: 0.35rem" href="{{route('ventas.show',$ventas)}}">Detalle Venta</a>
+                        
                     </td>
                 
                 </tr>

@@ -48,7 +48,7 @@ class ventaController extends Controller
         
         $venta=new venta();  
         $venta->Fecha_v=$request->input('Fecha_v');
-        $venta->montoTotal=$request->input('montoTotal');
+        $venta->montoTotal=0;
         $venta->Id_us=$request->input('Id_us');
         $venta->save();
         date_default_timezone_set("America/La_Paz");
@@ -56,7 +56,7 @@ class ventaController extends Controller
         $lastActivity=Activity::all()->last();
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
-        return redirect()->route('ventas.index',$venta);
+        return redirect()->route('dventas.show',$venta);
     }
 
     /**
