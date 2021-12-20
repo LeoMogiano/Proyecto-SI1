@@ -15,11 +15,11 @@
         @csrf
         <div class="form-group col-md-3" >
         <h5>Descripción:</h5>
-        <input type="text"  name="descripción" class="focus border-primary  form-control">
+        <input type="text"  name="descripción" class="focus border-primary  form-control" required>
         </div>
         <div class="form-group col-md-3" >
             <h5>Precio:</h5>
-            <input type="text"  name="precio" class="focus border-primary  form-control">   
+            <input type="text"  name="precio" class="focus border-primary  form-control" required>   
         </div>
 
         <div class="form-group">

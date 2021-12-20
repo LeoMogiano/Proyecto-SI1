@@ -19,7 +19,7 @@
     @method('PATCH')
      
     <h5>Nombres:</h5>
-    <input type="text"  name="nombre" value="{{$marca->nombre}}" class="focus border-primary  form-control">
+    <input type="text"  name="nombre" value="{{$marca->nombre}}" class="focus border-primary  form-control" required>
     
     
     <br>

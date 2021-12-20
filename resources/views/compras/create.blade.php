@@ -16,7 +16,7 @@
       </div>
          
         @enderror 
-            <form action="{{route('compras.store')}}" method="post" novalidate >
+            <form action="{{route('compras.store')}}" method="post" >
                 @csrf
                 <div class="form-row">
                     {{--  <div class="form-group col-md-6">
@@ -27,7 +27,7 @@
 
                     <div class="form-group col-md-10">
                         <label for="costoTotal">Ingrese el Costo Total</label>
-                        <input type="text" name="costoTotal" class="form-control" value="{{old('costoTotal')}}" id="costoTotal">
+                        <input type="text" name="costoTotal" class="form-control" value="{{old('costoTotal')}}" id="costoTotal" required>
                         @error('costoTotal')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -35,7 +35,7 @@
                     </div> 
                     <div class="form-group col-md-10">
                         <label for="Fecha_c">Ingrese el Fecha de Compra</label>
-                        <input type="text" name="Fecha_c" class="form-control" value="{{old('Fecha_c')}}" id="Fecha_c">
+                        <input type="text" name="Fecha_c" class="form-control" value="{{old('Fecha_c')}}" id="Fecha_c" required>
                         @error('Fecha_c')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group col-md-10">
                         <label for="Id_prov">Ingrese el ID del Proveedor </label>
-                        <input type="text" name="Id_prov" class="form-control" value="{{old('Id_prov')}}" id="Id_prov">
+                        <input type="text" name="Id_prov" class="form-control" value="{{old('Id_prov')}}" id="Id_prov" required>
                         @error('Id_prov')
                             <small>*{{$message}}</small>
                             <br><br>

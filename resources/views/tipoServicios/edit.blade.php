@@ -17,18 +17,18 @@
   </div>
      
     @enderror
-            <form action="{{route('tipoServicios.update', $tipoServicio)}}" method="post" novalidate >
+            <form action="{{route('tipoServicios.update', $tipoServicio)}}" method="post"  >
                 @csrf
                 @method('put')
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nombre">Ingrese nuevo nombre</label>
-                        <input type="text" name="nombre" class="form-control" value="{{old('nombre', $tipoServicio->nombre)}}" id="nombre">
+                        <input type="text" name="nombre" class="form-control" value="{{old('nombre', $tipoServicio->nombre)}}" id="nombre" required>
                         
                     </div>
                     <div class="form-group col-md-12" >
                         <label for="descripción">Ingrese nueva descripción</label>
-                        <input type="text" name="descripción" class="form-control" value="{{old('descripción', $tipoServicio->descripción)}}">
+                        <input type="text" name="descripción" class="form-control" value="{{old('descripción', $tipoServicio->descripción)}}" required>
                         @error('descripción')
                             <small>*{{$message}}</small>
                             <br><br>

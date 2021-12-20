@@ -16,21 +16,21 @@
       </div>
          
         @enderror 
-            <form action="{{route('users.store')}}" method="post" novalidate >
+            <form action="{{route('users.store')}}" method="post" >
                 @csrf
                 <label for="name">Ingrese el nombre de usuario</label>
-                <input type="text" name="name" class="form-control" value="{{old('name')}}">
+                <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                 
                 <br>
                 <label for="email">Ingrese el correo electronico</label>
-                <input type="text" name="email" class="form-control" value="{{old('email')}}">
+                <input type="text" name="email" class="form-control" value="{{old('email')}}" required>
                 @error('email')
                     <small>*{{$message}}</small>
                     <br><br>
                 @enderror
                 <br>
                 <label for="password">Ingrese la contraseña</label>
-                <input type="password" name="password" class="form-control" value="{{old('password')}}">
+                <input type="password" name="password" class="form-control" value="{{old('password')}}" required>
                 @error('password')
                     <small>*{{$message}}</small>
                     <br><br>

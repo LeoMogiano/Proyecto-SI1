@@ -16,18 +16,14 @@
       </div>
          
         @enderror 
-            <form action="{{route('compras.update', $compra)}}" method="post" novalidate >
+            <form action="{{route('compras.update', $compra)}}" method="post" >
                 @csrf
                 @method('put')
                 <div class="form-row">
-                    {{-- <div class="form-group col-md-6">
-                        <label for="Nro_c">Ingrese nuevo Nro de compra</label>
-                        <input type="text" name="Nro_c" class="form-control" value="{{old('Nro_c', $compra->Nro_c)}}" id="Nro_c">
-                        
-                    </div> --}}
+                   
                     <div class="form-group col-md-12" >
                         <label for="costoTotal">Ingrese nuevo Costo Total</label>
-                        <input type="text" name="costoTotal" class="form-control" value="{{old('costoTotal', $compra->costoTotal)}}">
+                        <input type="text" name="costoTotal" class="form-control" value="{{old('costoTotal', $compra->costoTotal)}}" required>
                         @error('costoTotal')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -35,7 +31,7 @@
                     </div>
                     <div class="form-group col-md-12" >
                         <label for="Fecha_c">Ingrese nueva Fecha de Compra</label>
-                        <input type="text" name="Fecha_c" class="form-control" value="{{old('Fecha_c', $compra->Fecha_c)}}">
+                        <input type="text" name="Fecha_c" class="form-control" value="{{old('Fecha_c', $compra->Fecha_c)}}" required>
                         @error('Fecha_c')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -43,7 +39,7 @@
                     </div> 
                     <div class="form-group col-md-12" >
                         <label for="Id_prov">Ingrese nuevo ID de Usuario</label>
-                        <input type="text" name="Id_prov" class="form-control" value="{{old('Id_prov', $compra->Id_prov)}}">
+                        <input type="text" name="Id_prov" class="form-control" value="{{old('Id_prov', $compra->Id_prov)}}" required>
                         @error('Id_prov')
                             <small>*{{$message}}</small>
                             <br><br>

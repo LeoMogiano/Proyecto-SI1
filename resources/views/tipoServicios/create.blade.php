@@ -16,12 +16,12 @@
       </div>
          
         @enderror
-            <form action="{{route('tipoServicios.store')}}" method="post" novalidate >
+            <form action="{{route('tipoServicios.store')}}" method="post" >
                 @csrf
                 <div class="form-row">
                      <div class="form-group col-md-6">
                         <label for="nombre">Ingrese nombre del tipo</label>
-                        <input type="text" name="nombre" class="form-control"  value="{{old('nombre')}}" id="nombre">
+                        <input type="text" name="nombre" class="form-control"  value="{{old('nombre')}}" id="nombre" required>
                         
                     </div>
 
@@ -29,7 +29,7 @@
 
                     <div class="form-group col-md-10">
                         <label for="nombre">Ingrese la descripción</label>
-                        <input type="text" name="descripción" class="form-control"  value="{{old('descripción')}}" id="descripción" >
+                        <input type="text" name="descripción" class="form-control"  value="{{old('descripción')}}" id="descripción" required>
                         @error('descripción')
                             <small>*{{$message}}</small>
                             <br><br>

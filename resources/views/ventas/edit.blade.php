@@ -9,14 +9,8 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        @error('Nro_v')
-        <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>¡Error!</strong> Esta nota de venta ya está registrada.
-      </div>
-         
-        @enderror 
-            <form action="{{route('ventas.update', $venta)}}" method="post" novalidate >
+        
+            <form action="{{route('ventas.update', $venta)}}" method="post" >
                 @csrf
                 @method('put')
                 <div class="form-row">
@@ -27,7 +21,7 @@
                     </div> --}}
                     <div class="form-group col-md-12" >
                         <label for="montoTotal">Ingrese nuevo Monto Total</label>
-                        <input type="text" name="montoTotal" class="form-control" value="{{old('montoTotal', $venta->montoTotal)}}">
+                        <input type="text" name="montoTotal" class="form-control" value="{{old('montoTotal', $venta->montoTotal)}}" required>
                         @error('montoTotal')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -35,7 +29,7 @@
                     </div>
                     <div class="form-group col-md-12" >
                         <label for="Fecha_v">Ingrese nueva Fecha de Venta</label>
-                        <input type="text" name="Fecha_v" class="form-control" value="{{old('Fecha_v', $venta->Fecha_v)}}">
+                        <input type="text" name="Fecha_v" class="form-control" value="{{old('Fecha_v', $venta->Fecha_v)}}" required>
                         @error('Fecha_v')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -43,7 +37,7 @@
                     </div> 
                     <div class="form-group col-md-12" >
                         <label for="Id_us">Ingrese nuevo ID de Usuario</label>
-                        <input type="text" name="Id_us" class="form-control" value="{{old('Id_us', $venta->Id_us)}}">
+                        <input type="text" name="Id_us" class="form-control" value="{{old('Id_us', $venta->Id_us)}}" required>
                         @error('Id_us')
                             <small>*{{$message}}</small>
                             <br><br>
