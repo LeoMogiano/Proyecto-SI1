@@ -529,7 +529,7 @@
                         <p>Visite nuestras redes sociales</p>
                         <div class="footer-social">
                             
-                            <a href="https://wa.me/59168905534" ><i class="fa fab fa-whatsapp"></i></a>
+                            <a href="https://chat.whatsapp.com/K2zq1Hh4dRFCStNNq1WSM6>" ><i class="fa fab fa-whatsapp"></i></a>
                             <a href="#" ><i class="fa fa-twitter"></i></a>
                             <a href="#" ><i class="fa fa-youtube"></i></a>
                             <a href="#" ><i class="fa fa-linkedin"></i></a>
