@@ -529,7 +529,7 @@
                         <p>Visite nuestras redes sociales</p>
                         <div class="footer-social">
                             
-                            <a href="https://chat.whatsapp.com/K2zq1Hh4dRFCStNNq1WSM6>" ><i class="fa fab fa-whatsapp"></i></a>
+                            <a href="https://wa.me/message/P3Z4SEURODT2I1" ><i class="fa fab fa-whatsapp"></i></a>
                             <a href="#" ><i class="fa fa-twitter"></i></a>
                             <a href="#" ><i class="fa fa-youtube"></i></a>
                             <a href="#" ><i class="fa fa-linkedin"></i></a>
@@ -540,7 +540,7 @@
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="footer-wid-title">User Navigation </h2>
+                        <h2 class="footer-wid-title">Navegacion del Usuario</h2>
                         <ul>
                             <li><a href="#">Mi Cuenta</a></li>
                             <li><a href="#">Historial de pedidos</a></li>
