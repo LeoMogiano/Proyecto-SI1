@@ -87,7 +87,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="#">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="#">Carrito - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -221,19 +221,19 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-truck"></i>
-                        <p>Free shipping</p>
+                        <p>Envío gratis</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-lock"></i>
-                        <p>Secure payments</p>
+                        <p>Pagos Seguros</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-gift"></i>
-                        <p>New products</p>
+                        <p>Productos Nuevos</p>
                     </div>
                 </div>
             </div>
@@ -267,8 +267,8 @@
                                 <div class="product-f-image">
                                     <img src="{{asset('img/product-2.jpg')}}" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Añadir Al Carrito</a>
+                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i> Ver Detalles</a>
                                     </div>
                                 </div>
                                 
@@ -281,7 +281,7 @@
                                 <div class="product-f-image">
                                     <img src="{{asset('img/product-3.jpg')}}" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Añadir Al Carrito</a>
                                         <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
@@ -296,8 +296,8 @@
                                 <div class="product-f-image">
                                     <img src="{{asset('img/product-4.jpg')}}" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Añadir al Carrito</a>
+                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i> Ver Detalles</a>
                                     </div>
                                 </div>
                                 
@@ -311,8 +311,8 @@
                                 <div class="product-f-image">
                                     <img src="{{asset('img/product-5.jpg')}}" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Añadir al carrito</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> Ver Detalles</a>
                                     </div>
                                 </div>
                                 
