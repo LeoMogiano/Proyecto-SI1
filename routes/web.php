@@ -14,6 +14,7 @@ use App\Http\Controllers\ventaController;
 use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ServicioController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
