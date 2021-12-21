@@ -79,7 +79,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="#"><span>Proyecto</span></a></h1>
+                        <h1><a href="#" class="logo"><img src="img/SmarHome.jpeg" class="logu" alt="Logo"><span>Smartplusshouse</span></a></h1>
+                        <h1><a href="#"></a></h1>
                     </div>
                 </div>
                 
@@ -105,12 +106,11 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Shop page</a></li>
-                        <li><a href="#">Single product</a></li>
-                        <li><a href="#">Cart</a></li>
-                        <li><a href="#">Checkout</a></li>                        
-                        <li><a href="#">Contact</a></li>
+                        <li class="active"><a href="#">Inicio</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href="#">Servicio</a></li>
+                        <li><a href="#">Facturas</a></li>                       
+                        <li><a href="#">Contacto</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
                     </ul>
                 </div>  
