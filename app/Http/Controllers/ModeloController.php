@@ -88,9 +88,7 @@ class ModeloController extends Controller
      */
     public function update(Request $request, modelo $modelo)
     {
-        $request->validate([
-            'nombre' => "required|unique:modelos,nombre,$modelo->id"
-        ]);
+       
         $modelo ->update($request->all());
         date_default_timezone_set("America/La_Paz");
         activity()->useLog('Modelo')->log('Editó')->subject();

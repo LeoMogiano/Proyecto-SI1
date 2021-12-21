@@ -50,7 +50,8 @@
 
                 <br>
                 <button class="btn btn-primary" type="submit">Registrar</button>
-                <a class="btn btn-danger" href="{{ route('ventas.index') }}">Volver</a>
+                <a class="btn btn-danger" href="{{ route('ventas.show',$venta_id) }}">Volver</a>
+                {{-- return redirect()->route('ventas.show',$request->venta_id); --}}
             </form>
 
         </div>

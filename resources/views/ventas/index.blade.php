@@ -58,8 +58,8 @@
                             <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem" onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
                          
                             
-                        </form>
-                        <a class="btn btn-info btn-sm" style="margin-top: 0.35rem" href="{{route('ventas.show',$ventas)}}">Detalle Venta</a>
+                        </form> <a class="btn btn-info btn-sm" style="margin-top: 0.35rem" href="{{route('ventas.show',$ventas)}}">Detalle Venta</a>
+                       
                         
                     </td>
                 

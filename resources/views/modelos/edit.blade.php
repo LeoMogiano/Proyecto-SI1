@@ -24,7 +24,7 @@
         <br>
         <div class="form-group">
             <h5>Nombre de la Marca:</h5>
-            <select name="marca" class="focus border-primary  form-control">
+            <select name="Id_marca" class="focus border-primary  form-control">
                 @foreach ($marca as $marcas)
                     @if ($modelo->Id_marca == $marcas->id)
                         {{-- ZZ <option value="{{$modelo->Id_marca}}">{{$modelo->Id_marca}}</option> XX --}}
