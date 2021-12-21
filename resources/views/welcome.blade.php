@@ -39,12 +39,12 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li class="hidden"><a href="#"><i class="fa fa-user"></i> My Account</a></li><!-- Solo se muestra cuando se está logeado -->
-                            {{-- <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li> --}}
-                            <li><a href="#"><i class="fa fa-cart-arrow-down"></i> My Cart</a></li>
+                            <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li><!-- Solo se muestra cuando se está logeado -->
+                            {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
+                            <li><a href="#"><i class="fa fa-cart-arrow-down"></i> mi carrito</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
-                            <li><a href="{{route('register') }}"><i class="far fa-edit"></i> registrarse</a></li>
+                            <li><a href="{{route('register') }}"><i class="fa far fa-edit"></i> registrarse</a></li>
                             <li class="hidden"><a href="#"><i class="fa fa-power-off"></i> Logout</a></li><!--Solo se muestra cuando están logeados -->                           
                         </ul>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">Moneda :</span><span class="value">USD </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">USD</a></li>
                                     <li><a href="#">Bs</a></li>
@@ -62,7 +62,7 @@
                             </li>
 
                             <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">Español </span><b class="caret"></b></a>
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">Idioma :</span><span class="value">Español </span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">English</a></li>
                                     <li><a href="#">Español</a></li>
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="#" class="logo"><img src="img/SmarHome.jpeg" class="logu" alt="Logo"><span>Smartplusshouse</span></a></h1>
+                        <h1><a  class="logo"><img src="img/SmarHome.jpeg" class="logu" alt="Logo"><span>Smartplusshouse</span></a></h1>
                         <h1><a href="#"></a></h1>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="latest-product">
-                        <h2 class="section-title">Latest Products</h2>
+                        <h2 class="section-title">últimos productos</h2>
                         <div class="product-carousel">
                             <div class="single-product">
                                 <div class="product-f-image">
@@ -373,8 +373,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Top Sellers</h2>
-                        <a href="" class="wid-view-more">View All</a>
+                        <h2 class="product-wid-title">Las más vendidas</h2>
+                        <a href="" class="wid-view-more">ver todo</a>
                         <div class="single-wid-product">
                             <a href="#"><img src="{{asset('img/product-thumb-1.jpg')}}" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Producto 9</a></h2>
@@ -421,8 +421,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Recently Viewed</h2>
-                        <a href="#" class="wid-view-more">View All</a>
+                        <h2 class="product-wid-title">visto recientemente</h2>
+                        <a href="#" class="wid-view-more">Ver todo</a>
                         <div class="single-wid-product">
                             <a href="#"><img src="{{asset('img/product-thumb-4.jpg')}}" alt="" class="product-thumb"></a>
                             <h2><a href="#">Producto 6</a></h2>
@@ -469,8 +469,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Top New</h2>
-                        <a href="#" class="wid-view-more">View All</a>
+                        <h2 class="product-wid-title">Nuevos Productos</h2>
+                        <a href="#" class="wid-view-more">Ver Todo</a>
                         <div class="single-wid-product">
                             <a href="#"><img src="{{asset('img/product-thumb-3.jpg')}}" alt="" class="product-thumb"></a>
                             <h2><a href="#">Producto 3</a></h2>
@@ -526,10 +526,10 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
                         <h2><span>Tienda de camaras</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                        <p>Visite nuestras redes sociales</p>
                         <div class="footer-social">
                             
-                            <a href="#" ><i class="fa fa-facebook"></i></a>
+                            <a href="https://wa.me/59168905534" ><i class="fa fab fa-whatsapp"></i></a>
                             <a href="#" ><i class="fa fa-twitter"></i></a>
                             <a href="#" ><i class="fa fa-youtube"></i></a>
                             <a href="#" ><i class="fa fa-linkedin"></i></a>
@@ -542,18 +542,18 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
                         <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><a href="#">Front page</a></li>
+                            <li><a href="#">Mi Cuenta</a></li>
+                            <li><a href="#">Historial de pedidos</a></li>
+                            <li><a href="#">Lista de deseos</a></li>
+                            <li><a href="#">Contacto Del Vendedor</a></li>
+                            <li><a href="#">Pagina Principal</a></li>
                         </ul>                        
                     </div>
                 </div>
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categories</h2>
+                        <h2 class="footer-wid-title">Categoria</h2>
                         <ul>
                             <li><a href="#">Camara </a></li>
                             {{-- <li><a href="#">Camara</a></li> --}}
@@ -566,8 +566,8 @@
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
-                        <h2 class="footer-wid-title">titulo</h2>
-                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                        <h2 class="footer-wid-title">Titulo</h2>
+                        <p>Suscríbase a nuestro boletín y obtenga ofertas exclusivas que no encontrará en ningún otro lugar directamente en su bandeja de entrada.</p>
                         <div class="newsletter-form">
                             <form action="#">
                                 <input type="email" placeholder="Type your email">
@@ -585,7 +585,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; uagrm <a href="!#" target="_blank">Proyecto</a></p>                        
+                        <p>&copy; uagrm <a href="!#" target="_blank">Smartplusshouse</a></p>                        
                     </div>
                 </div>
                 
