@@ -40,10 +40,11 @@
                     <div class="user-menu">
                         <ul>
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> My Account</a></li><!-- Solo se muestra cuando se está logeado -->
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                            {{-- <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li> --}}
                             <li><a href="#"><i class="fa fa-cart-arrow-down"></i> My Cart</a></li>
-                            <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li>
+                            {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
+                            <li><a href="{{route('register') }}"><i class="far fa-edit"></i> registrarse</a></li>
                             <li class="hidden"><a href="#"><i class="fa fa-power-off"></i> Logout</a></li><!--Solo se muestra cuando están logeados -->                           
                         </ul>
                     </div>
