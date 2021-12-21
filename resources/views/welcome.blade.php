@@ -41,10 +41,10 @@
                         <ul>
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li><!-- Solo se muestra cuando se está logeado -->
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
-                            <li><a href="#"><i class="fa fa-cart-arrow-down"></i> mi carrito</a></li>
+                            <li><a href="#"><i class="fa fa-cart-arrow-down"></i> Mi carrito</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
-                            <li><a href="{{route('register') }}"><i class="fa far fa-edit"></i> registrarse</a></li>
+                            <li><a href="{{route('register') }}"><i class="fa far fa-edit"></i> Registrarse</a></li>
                             <li class="hidden"><a href="#"><i class="fa fa-power-off"></i> Logout</a></li><!--Solo se muestra cuando están logeados -->                           
                         </ul>
                     </div>
@@ -246,7 +246,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="latest-product">
-                        <h2 class="section-title">últimos productos</h2>
+                        <h2 class="section-title">Últimos Productos</h2>
                         <div class="product-carousel">
                             <div class="single-product">
                                 <div class="product-f-image">
