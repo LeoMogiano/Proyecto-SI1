@@ -11,8 +11,6 @@
 
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡Error!</strong> {{ session()->get('error') }}
-
-
     @endif
 
     <div class="card">
