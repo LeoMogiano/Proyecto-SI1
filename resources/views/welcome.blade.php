@@ -529,7 +529,8 @@
                         <p>Visite nuestras redes sociales</p>
                         <div class="footer-social">
                             
-                            <a href="https://wa.me/message/P3Z4SEURODT2I1" ><i class="fa fab fa-whatsapp"></i></a>
+                            <a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i class="fa fab fa-whatsapp"></i></a>
+                            <a class="Gitt" href="https://github.com/LeoMogiano/Proyecto-SI1"><img src="img/Gitt.png" alt=""></a>
                             <a href="#" ><i class="fa fa-twitter"></i></a>
                             <a href="#" ><i class="fa fa-youtube"></i></a>
                             <a href="#" ><i class="fa fa-linkedin"></i></a>
