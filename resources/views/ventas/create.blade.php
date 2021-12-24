@@ -26,7 +26,7 @@
 
                     <div class="form-group col-md-10">
                         <label for="Fecha_v">Ingrese el Fecha de Venta</label>
-                        <input type="text" name="Fecha_v" class="form-control" value="{{ old('Fecha_v') }}" id="Fecha_v" required>
+                        <input id="datetimepicker" type="text" name="Fecha_v" class="form-control" value="{{ old('Fecha_v') }}" autocomplete="off" id="Fecha_v" required>
                         @error('Fecha_v')
                             <small>*{{ $message }}</small>
                             <br><br>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group col-md-10">
                         <label for="Id_us">Ingrese el ID del Usuario</label>
-                        <input type="text" name="Id_us" class="form-control" value="{{ old('Id_us') }}" id="Id_us" required>
+                        <input type="text" name="Id_us" class="form-control" value="{{ old('Id_us') }}"  required>
                         @error('Id_us')
                             <small>*{{ $message }}</small>
                             <br><br>
@@ -58,8 +58,16 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('datetimepicker/jquery.datetimepicker.css') }}" >
 @stop
 
 @section('js')
+<script src="{{ asset('datetimepicker/jquery.js') }}"></script>
+<script src="{{ asset('datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        jQuery('#datetimepicker').datetimepicker();
+    });
+</script>
 
 @stop

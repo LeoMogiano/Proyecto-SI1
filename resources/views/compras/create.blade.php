@@ -35,7 +35,7 @@
                     </div> 
                     <div class="form-group col-md-10">
                         <label for="Fecha_c">Ingrese el Fecha de Compra</label>
-                        <input type="text" name="Fecha_c" class="form-control" value="{{old('Fecha_c')}}" id="Fecha_c" required>
+                        <input type="text" name="Fecha_c" class="form-control" value="{{old('Fecha_c')}}" id="datetimepicker" autocomplete="off" required>
                         @error('Fecha_c')
                             <small>*{{$message}}</small>
                             <br><br>
@@ -65,9 +65,15 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('datetimepicker/jquery.datetimepicker.css') }}" >
 @stop
 
 @section('js')
-    
+<script src="{{ asset('datetimepicker/jquery.js') }}"></script>
+<script src="{{ asset('datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        jQuery('#datetimepicker').datetimepicker();
+    });
+</script>   
 @stop
