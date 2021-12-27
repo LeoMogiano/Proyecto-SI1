@@ -125,14 +125,14 @@ return [
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
-    
+
     'classes_content_header' => '',
 
     'classes_content' => '',
     'classes_sidebar' => 'navbar-navy elevation-4', // se mira cuando se cambia de opcion --- se puede poner navbar o sidebar-ligth o accent
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'accent-dark navbar-navy', //CAMBIA LA BARRA ARRIBA DE LISTAS DE SERVICIO
-    'classes_topnav_nav' => 'navbar-expand ' ,
+    'classes_topnav_nav' => 'navbar-expand ',
     'classes_topnav_container' => 'container',
 
     /*
@@ -233,7 +233,7 @@ return [
             'text'         => 'search',
             'topnav_right' => true,
         ],
-        
+
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
@@ -249,13 +249,13 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-       ['header' => 'OPCIONES DEL USUARIO'],
+        ['header' => 'OPCIONES DEL USUARIO'],
         [
             'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
-        
+
         // [
         //     'text'        => 'Paginas',
         //     'url'         => 'admin/pages',
@@ -263,15 +263,102 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        
+
         ['header' => 'OPCIONES GENERALES'],
-        [
+        /* [
             'text' => 'Bitacora',
             'route'  => 'Bitacora.index',
             'icon'        => 'fas fa-book fa-fw',
-        ],
-        
+        ], */
         [
+            'text' => 'Gestión de Usuario',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            'submenu' => [
+                [
+                    'text' => 'Bitacora',
+                    'route'  => 'Bitacora.index',
+                    'icon'        => 'fas fa-book fa-fw',
+                ],
+                [
+                    'text'       => 'Usuarios',
+                    'icon' =>        'fas fa-users fa-fw',
+                    'route'        => 'users.index',
+                    'can'       =>  'gestionar usuario'
+        
+                ]
+            ]
+        ],
+        [
+            'text' => 'Gestión de Compra',
+            'icon'        => 'fas fa-parachute-box fa-fw',
+            'submenu' => [
+                [
+                    'text' => 'Proveedores',
+                    'route'  => 'proveedores.index',
+                    'icon'        => 'fas fa-user-tie fa-fw',
+                    'can'       =>  'Modo Admin',
+                ],
+                [
+                    'text' => 'Compras',
+                    'route'  => 'compras.index',
+                    'icon'        => 'fas fa-boxes fa-fw',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Gestión de Venta',
+            'icon'        => 'fas fa-shopping-bag fa-fw',
+            'submenu' => [
+                [
+                    'text' => 'Ventas',
+                    'route'  => 'ventas.index',
+                    'icon'        => 'fas fa-shopping-cart fa-fw',
+                ],
+                [
+                    'text' => 'Facturas',
+                    'route'  => 'facturas.index',
+                    'icon'        => 'fas fa-file-invoice fa-fw',
+                ],
+                [
+                    'text' => 'Servicios',
+                    'route'  => 'servicios.index',
+                    'icon'        => 'fas fa-concierge-bell fa-fw',
+                ],
+                [
+                    'text' => 'Tipos de Servicios',
+                    'route'  => 'tipoServicios.index',
+                    'icon'        => 'fab fa-servicestack fa-fw',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Gestión de Insumo',
+            'icon'        => 'fab fa-invision fa-fw',
+            'submenu' => [
+                [
+                    'text' => 'Categorias',
+                    'route'  => 'categorias.index',
+                    'icon'        => 'fas fa-copyright fa-fw',
+                ],
+                [
+                    'text' => 'Marcas',
+                    'route'  => 'marcas.index',
+                    'icon'        => 'fab fa-maxcdn fa-fw',
+                ],
+                [
+                    'text' => 'Modelos',
+                    'route'  => 'modelos.index',
+                    'icon'        => 'fab fa-medium fa-fw',
+                ],
+                [
+                    'text' => 'Productos',
+                    'route'  => 'productos.index',
+                    'icon'        => 'fab fa-product-hunt fa-fw',
+                ]
+            ]
+        ],
+
+        /* [
             'text' => 'Categorias',
             'route'  => 'categorias.index',
             'icon'        => 'fas fa-copyright fa-fw',
@@ -285,28 +372,28 @@ return [
             'text' => 'Modelos',
             'route'  => 'modelos.index',
             'icon'        => 'fab fa-medium fa-fw',
-        ],
-        [
+        ], */
+        /* [
             'text' => 'Facturas',
             'route'  => 'facturas.index',
             'icon'        => 'fas fa-file-invoice fa-fw',
-        ],
-        [
+        ], */
+        /* [
             'text' => 'Productos',
             'route'  => 'productos.index',
             'icon'        => 'fab fa-product-hunt fa-fw',
-        ],
-        [
+        ], */
+        /* [
             'text' => 'Ventas',
             'route'  => 'ventas.index',
             'icon'        => 'fas fa-shopping-cart fa-fw',
-        ],
-        [
+        ], */
+        /* [
             'text' => 'Compras',
             'route'  => 'compras.index',
             'icon'        => 'fas fa-boxes fa-fw',
-        ],
-        [
+        ], */
+        /* [
             'text' => 'Servicios',
             'route'  => 'servicios.index',
             'icon'        => 'fas fa-concierge-bell fa-fw',
@@ -315,25 +402,25 @@ return [
             'text' => 'Tipos de Servicios',
             'route'  => 'tipoServicios.index',
             'icon'        => 'fab fa-servicestack fa-fw',
-        ],
-        [
+        ], */
+        /* [
             'text' => 'Proveedores',
             'route'  => 'proveedores.index',
             'icon'        => 'fas fa-user-tie fa-fw',
             'can'       =>  'Modo Admin',
-        ],
-        
+        ], */
+
         // [
         //     'text' => 'Perfil',
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-user',
         // ],
-         [
+        [
             'text' => 'Cambiar Contraseña',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        
+
         // [
         //     'text'    => 'Multinivel',
         //     'icon'    => 'fas fa-fw fa-share',
@@ -372,21 +459,23 @@ return [
         //         ],
         //     ],
         // ],
-       
-        ['header' => 'OPCIONES DEL ADMINISTRADOR' ,
-        'can'       =>  'gestionar usuario'], // SOLO PUEDE VER EL ADMINISTRADOR
+
+        /* [
+            'header' => 'OPCIONES DEL ADMINISTRADOR',
+            'can'       =>  'gestionar usuario'
+        ], */ // SOLO PUEDE VER EL ADMINISTRADOR
         //[
         //    'text'       => 'Importante',
         //    'icon_color' => 'white',
         //    'url'        => '#',
         //],
-        [
+        /* [
             'text'       => 'Usuarios',
             'icon' =>        'fas fa-users fa-fw',
             'route'        => 'users.index',
             'can'       =>  'gestionar usuario'
 
-        ],
+        ], */
         //[
         //    'text'       => 'Advertencias',
         //    'icon_color' => 'white',
@@ -554,5 +643,3 @@ return [
 
     'livewire' => false,
 ];
-
-
