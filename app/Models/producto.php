@@ -13,5 +13,8 @@ class producto extends Model
     public function ventas(){
         return $this->belongsToMany(venta::class);
     }
+    public function compras(){
+        return $this->belongsToMany(compra::class);
+    }
 
 }

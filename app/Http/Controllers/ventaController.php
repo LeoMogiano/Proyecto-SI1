@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\categoria;
+use App\Models\factura;
 use App\Models\modelo;
 use App\Models\producto;
 use App\Models\User;
@@ -56,6 +57,15 @@ class ventaController extends Controller
         $lastActivity=Activity::all()->last();
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
+
+        $factura= new factura();
+        $factura->Nro_aut=Rand(1,100000);
+        $factura->Fecha_f= $venta->Fecha_v;
+        $factura->nit=Rand(1,9999996);
+        $factura->monTotal=$venta->montoTotal;
+        $factura->Id_venta=$venta->id;
+        $factura->save();
+        
         return redirect()->route('dventas.show',$venta);
     }
 
@@ -115,12 +125,17 @@ class ventaController extends Controller
     public function destroy($id)
     {
         $venta=venta ::findOrFail($id);
+
+        $factura=factura::findOrFail($venta->id);
+        $factura->delete();
+
         date_default_timezone_set("America/La_Paz");
         activity()->useLog('Ventas')->log('Eliminó')->subject();
         $lastActivity=Activity::all()->last();
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
         $venta->delete();
+        
         return redirect()->route('ventas.index');
     }
 }

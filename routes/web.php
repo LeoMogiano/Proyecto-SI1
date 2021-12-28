@@ -3,6 +3,7 @@
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\dcompraController;
 use App\Http\Controllers\dventaController;
 use App\Http\Controllers\facturaController;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,4 @@ Route::resource('facturas',facturaController::class)->names('facturas');
 Route::resource('servicios',ServicioController::class)->names('servicios');
 Route::resource('Bitacora',BitacoraController::class)->names('Bitacora');
 Route::resource('dventas',dventaController::class)->names('dventas');
+Route::resource('dcompras',dcompraController::class)->names('dcompras');

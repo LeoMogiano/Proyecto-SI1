@@ -37,14 +37,35 @@
                             <br><br>
                         @enderror
                     </div> 
-                    <div class="form-group col-md-12" >
+                    {{-- <div class="form-group col-md-12" >
                         <label for="Id_prov">Ingrese nuevo ID de Usuario</label>
                         <input type="text" name="Id_prov" class="form-control" value="{{old('Id_prov', $compra->Id_prov)}}" required>
                         @error('Id_prov')
                             <small>*{{$message}}</small>
                             <br><br>
                         @enderror
-                    </div> 
+                    </div>  --}}
+
+                    <div class="form-group">
+                        <h5>Nombre de la proveedor:</h5>
+                        <select name="Id_prov" class="focus border-primary  form-control">
+                            @foreach ($proveedor as $proveedors)
+                                @if ($compra->Id_prov == $proveedors->id)
+                                    {{-- ZZ <option value="{{$compra->Id_prov}}">{{$compra->Id_prov}}</option> XX --}}
+                                    <option value={{ $proveedors->id }}>{{ $proveedors->nombre }}</option>
+                                @endif
+            
+                            @endforeach
+                            @foreach ($proveedor as $proveedors)
+                                @if ($compra->Id_prov != $proveedors->id)
+                                    <option value={{ $proveedors->id }}>{{ $proveedors->nombre }}</option>
+                                @endif
+            
+                            @endforeach
+            
+            
+                        </select>
+                    </div>
                 </div>
                 
         <br>

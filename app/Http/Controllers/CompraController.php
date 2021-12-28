@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categoria;
 use App\Models\compra;
+use App\Models\modelo;
+use App\Models\producto;
 use App\Models\proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
 class CompraController extends Controller
@@ -28,7 +32,8 @@ class CompraController extends Controller
      */
     public function create()
     {
-        return view('compras.create');
+        $proveedor = proveedor::all();
+        return view('compras.create',compact('proveedor'));
     }
 
     /**
@@ -43,7 +48,7 @@ class CompraController extends Controller
         $compra=new compra();
         /* $compra->Nro_c=$request->input('Nro_c'); */
         $compra->Fecha_c=$request->input('Fecha_c');
-        $compra->costoTotal=$request->input('costoTotal');
+        $compra->costoTotal=0;
         $compra->Id_prov=$request->input('Id_prov');
         $compra->save();
         date_default_timezone_set("America/La_Paz");
@@ -51,7 +56,9 @@ class CompraController extends Controller
         $lastActivity=Activity::all()->last();
         $lastActivity->subject_id= $compra->id;
         $lastActivity->save();
-        return redirect()->route('compras.index',$compra);
+
+       
+        return redirect()->route('dcompras.show',$compra);
     }
 
     /**
@@ -62,7 +69,12 @@ class CompraController extends Controller
      */
     public function show($id)
     {
-        //
+        $compra=compra::findOrFail($id);
+        $productos=producto::all();
+        $productoos=DB::table('producto_compras')->where('compra_id',$compra->id)->get();
+        $categorias=categoria::all();
+        $modelos=modelo::all();
+        return view('compras.show',compact('compra','productos','productoos','categorias','modelos'));
     }
 
     /**
@@ -73,8 +85,9 @@ class CompraController extends Controller
      */
     public function edit($id)
     {
+        $proveedor = proveedor::all();
         $compra=compra::findOrFail($id);
-        return view('compras.edit',compact('compra'));
+        return view('compras.edit',compact('compra','proveedor'));
     }
 
     /**

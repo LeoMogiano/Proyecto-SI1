@@ -3,7 +3,7 @@
 @section('title', 'Smartplusshouse')
 
 @section('content_header')
-    <h1>Detalle Venta</h1>
+    <h1>Detalle compra</h1>
 @stop
 
 @section('content')
@@ -12,40 +12,34 @@
     <div class="card">
         
         <div class="card-body">
-            @error('Nro_v')
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>¡Error!</strong> Esta nota de venta ya está registrada.
-                </div>
-
-            @enderror
-            <form action="{{ route('ventas.update', $venta) }}" method="post" novalidate>
+            
+            <form action="{{ route('compras.update', $compra) }}" method="post" novalidate>
                 @csrf
                 @method('put')
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="montoTotal">Ingrese nuevo Monto Total</label>
-                        <input type="text" name="montoTotal" class="form-control"
-                            value="{{ old('montoTotal', $venta->montoTotal) }}" readonly>
-                        @error('montoTotal')
+                        <label for="costoTotal">Monto Total</label>
+                        <input type="text" name="costoTotal" class="form-control"
+                            value="{{ old('costoTotal', $compra->costoTotal) }}" readonly>
+                        @error('costoTotal')
                             <small>*{{ $message }}</small>
                             <br><br>
                         @enderror
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="Fecha_v">Ingrese nueva Fecha de Venta</label>
-                        <input type="text" name="Fecha_v" class="form-control"
-                            value="{{ old('Fecha_v', $venta->Fecha_v) }}" readonly>
-                        @error('Fecha_v')
+                        <label for="Fecha_c">Fecha de compra</label>
+                        <input type="text" name="Fecha_c" class="form-control"
+                            value="{{ old('Fecha_c', $compra->Fecha_c) }}" readonly>
+                        @error('Fecha_c')
                             <small>*{{ $message }}</small>
                             <br><br>
                         @enderror
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="Id_us">Ingrese nuevo ID de Usuario</label>
-                        <input type="text" name="Id_us" class="form-control" value="{{ old('Id_us', $venta->Id_us) }}"
+                        <label for="Id_prov">ID del Proveedor</label>
+                        <input type="text" name="Id_prov" class="form-control" value="{{ old('Id_prov', $compra->Id_prov) }}"
                             readonly>
-                        @error('Id_us')
+                        @error('Id_prov')
                             <small>*{{ $message }}</small>
                             <br><br>
                         @enderror
@@ -54,7 +48,7 @@
 
                 <br>
 
-                <a class="btn btn-danger" href="{{ route('ventas.index') }}">Volver</a>
+                <a class="btn btn-danger" href="{{ route('compras.index') }}">Volver</a>
             </form>
 
         </div>
@@ -63,18 +57,17 @@
     <div class="card">
         <div class="card-header">
 
-            <a class="btn btn-primary" href="{{route('dventas.show',$venta->id)}}">Agregar Producto</a>
+            <a class="btn btn-primary" href="{{route('dcompras.show',$compra->id)}}">Agregar Producto</a>
             
         </div>
         <div class="card-body">
-            <table class="table table-striped table-bordered shadow-lg mt-4" id="ventas">
+            <table class="table table-striped table-bordered shadow-lg mt-4" id="compras">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Cantidad</th>
                         <th>Precio Unitario</th>
                         <th>Precio Total</th>
-                        <th>Descuento</th>
                         <th>Categoria</th>
                         <th>Modelo</th>
                     </tr>
@@ -90,7 +83,6 @@
                                     <td>{{ $productoo->cantidad }}</td>
                                     <td>{{ $producto->precio }}</td>
                                     <td>{{ $productoo->precio_tot }}</td>
-                                    <td>{{ $productoo->descuento }}</td>
                                     @foreach ($categorias as $categoria)
                                         @if ($categoria->id == $producto->Id_categoria)
                                             <td>{{ $categoria->nombre }}</td>
@@ -121,7 +113,7 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $('#ventas').DataTable({
+        $('#compras').DataTable({
             autoWidth: false
         });
     </script>

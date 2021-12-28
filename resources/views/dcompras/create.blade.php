@@ -9,18 +9,18 @@
 @section('content')
 
 
-    @if (session()->has('error'))
+    {{-- @if (session()->has('error'))
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡Error!</strong> {{ session()->get('error') }}
     </div>
     @endif
-
+ --}}
     <div class="card">
 
         <div class="card-body">
 
-            <form method="post" action="{{ route('dventas.store') }}">
+            <form method="post" action="{{ route('dcompras.store') }}">
                 @csrf
 
                 <div class="form-group col-md-3">
@@ -33,7 +33,7 @@
                     </select>
                 </div>
 
-                <input type="text" name="venta_id" value="{{ $venta_id }}" class="focus border-primary  form-control"
+                <input type="text" name="compra_id" value="{{ $compra_id }}" class="focus border-primary  form-control"
                     hidden>
 
                 <div class="form-group col-md-3">
@@ -41,18 +41,18 @@
                     <input type="text" name="cantidad" class="focus border-primary  form-control" required>
 
                 </div>
-                <h5>Descuento(Dejar en blanco si no aplica):</h5>
+               {{--  <h5>Descuento(Dejar en blanco si no aplica):</h5>
                 <div class="form-group d-flex col-md-1">
 
                     <input type="text" name="descuento" class="focus border-primary  form-control">
                     <h2>%</h2>
 
-                </div>
+                </div> --}}
 
                 <br>
                 <button class="btn btn-primary" type="submit">Registrar</button>
-                <a class="btn btn-danger" href="{{ route('ventas.show', $venta_id) }}">Volver</a>
-                {{-- return redirect()->route('ventas.show',$request->venta_id); --}}
+                <a class="btn btn-danger" href="{{ route('compras.show', $compra_id) }}">Volver</a>
+                {{-- return redirect()->route('compras.show',$request->compra_id); --}}
             </form>
 
         </div>

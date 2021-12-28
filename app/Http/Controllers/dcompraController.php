@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categoria;
-use App\Models\factura;
-use App\Models\modelo;
+use App\Models\compra;
 use App\Models\producto;
-use App\Models\venta;
-use App\Models\venta_producto;
+use App\Models\producto_compra;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class dventaController extends Controller
+class dcompraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +16,7 @@ class dventaController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -30,7 +26,7 @@ class dventaController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -40,38 +36,23 @@ class dventaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {      
+    {
         $producto=producto::find($request->producto_id);
-        if ($request->cantidad > $producto->stock) {
-            return redirect()->back()->with("error","No se cuenta con el stock requerido");
-        }
-        $dventa=new venta_producto();
-        $dventa->venta_id=$request->venta_id;
-        $dventa->producto_id=$request->producto_id;
-        $dventa->cantidad=$request->cantidad;
+        $dcompra=new producto_compra();
+        $dcompra->compra_id=$request->compra_id;
+        $dcompra->producto_id=$request->producto_id;
+        $dcompra->cantidad=$request->cantidad;
         $precio=producto::find($request->producto_id)->precio;
-        $dventa->precio_tot=$request->cantidad*$precio;
-        if (!$request->descuento) {
-            $dventa->descuento=0;
-        } else {
-            $dventa->descuento=$request->descuento;
-            $nuevo_precio=$dventa->precio_tot*($dventa->descuento/100);
-            $dventa->precio_tot-=$nuevo_precio;
-           
-        }
-        $dventa->save();
+        $dcompra->precio_tot=$request->cantidad*$precio;
+        $dcompra->save();
       
-        $producto->stock-=$dventa->cantidad;
+        $producto->stock+=$dcompra->cantidad;
         $producto->save();
-        $venta=venta::find($request->venta_id);
-        $venta->montoTotal+=$dventa->precio_tot;
-        $venta->save();
-
-        $factura=factura::find($request->venta_id);
-        $factura->monTotal=$venta->montoTotal;
-        $factura->save();
+        $compra=compra::find($request->compra_id);
+        $compra->costoTotal+=$dcompra->precio_tot;
+        $compra->save();
         
-        return redirect()->route('ventas.show',$request->venta_id);
+        return redirect()->route('compras.show',$request->compra_id);
     }
 
     /**
@@ -83,8 +64,8 @@ class dventaController extends Controller
     public function show($id)
     {
         $productos=producto::all();
-        $venta_id=$id;
-        return view('dventas.create',compact('productos','venta_id'));
+        $compra_id=$id;
+        return view('dcompras.create',compact('productos','compra_id'));
     }
 
     /**
