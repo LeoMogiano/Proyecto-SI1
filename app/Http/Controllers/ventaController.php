@@ -121,13 +121,15 @@ class ventaController extends Controller
         $venta=venta ::findOrFail($id);
 
         
-        
-        /* $factura=DB::table('facturas')->where('Id_venta',$venta->id)->get();
-        
-      
+        /* $factura=DB::find($venta->id)->first(); */
+         $factura=factura::where('Id_venta',$venta->id)->first();
+        /* $material = Material::select('material.id', 'material.nombre')
+        ->where('material.id', $id)
+        ->first(); */
+       
         if ($factura != null) {
             $factura->delete();
-        } */
+        }
 
         date_default_timezone_set("America/La_Paz");
         activity()->useLog('Ventas')->log('Eliminó')->subject();
