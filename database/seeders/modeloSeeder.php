@@ -19,5 +19,11 @@ class modeloSeeder extends Seeder
        $modelo->nombre='A7X';
        $modelo->Id_marca=1001; 
        $modelo->save();//save con  parentesis
+
+       $modelo=new modelo() ;
+       $modelo->id=51;
+       $modelo->nombre='AXS';
+       $modelo->Id_marca=1003; 
+       $modelo->save();
     }
 }

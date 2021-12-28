@@ -228,11 +228,11 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
+       /* [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
-        ],
+        ],*/
 
         [
             'type'         => 'fullscreen-widget',
@@ -268,13 +268,13 @@ return [
         /* [
             'text' => 'Bitacora',
             'route'  => 'Bitacora.index',
-            'icon'        => 'fas fa-book fa-fw',
+            'icon'        => 'fas fa-book fa-fw',  
         ], */
         [
             'text' => 'Gestión de Usuario',
             'icon'        => 'fas fa-users-cog fa-fw',
             'submenu' => [
-                [
+                 [
                     'text' => 'Bitacora',
                     'route'  => 'Bitacora.index',
                     'icon'        => 'fas fa-book fa-fw',
@@ -285,7 +285,7 @@ return [
                     'route'        => 'users.index',
                     'can'       =>  'gestionar usuario'
         
-                ]
+                ]  
             ]
         ],
         [
