@@ -58,13 +58,7 @@ class ventaController extends Controller
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
 
-        $factura= new factura();
-        $factura->Nro_aut=Rand(1,100000);
-        $factura->Fecha_f= $venta->Fecha_v;
-        $factura->nit=Rand(1,9999996);
-        $factura->monTotal=$venta->montoTotal;
-        $factura->Id_venta=$venta->id;
-        $factura->save();
+        
         
         return redirect()->route('dventas.show',$venta);
     }
@@ -126,8 +120,14 @@ class ventaController extends Controller
     {
         $venta=venta ::findOrFail($id);
 
-        $factura=factura::findOrFail($venta->id);
-        $factura->delete();
+        
+        
+        /* $factura=DB::table('facturas')->where('Id_venta',$venta->id)->get();
+        
+      
+        if ($factura != null) {
+            $factura->delete();
+        } */
 
         date_default_timezone_set("America/La_Paz");
         activity()->useLog('Ventas')->log('Eliminó')->subject();
@@ -135,6 +135,7 @@ class ventaController extends Controller
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
         $venta->delete();
+        
         
         return redirect()->route('ventas.index');
     }

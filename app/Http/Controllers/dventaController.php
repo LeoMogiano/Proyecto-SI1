@@ -67,9 +67,9 @@ class dventaController extends Controller
         $venta->montoTotal+=$dventa->precio_tot;
         $venta->save();
 
-        $factura=factura::find($request->venta_id);
+        /* $factura=factura::find($request->venta_id);
         $factura->monTotal=$venta->montoTotal;
-        $factura->save();
+        $factura->save(); */
         
         return redirect()->route('ventas.show',$request->venta_id);
     }
@@ -95,7 +95,18 @@ class dventaController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $venta=venta::findOrFail($id);
+
+    
+        $factura= new factura();
+        $factura->Nro_aut=Rand(1,100000);
+        $factura->Fecha_f= $venta->Fecha_v;
+        $factura->nit=Rand(1,9999996);
+        $factura->monTotal=$venta->montoTotal;
+        $factura->Id_venta=$venta->id;
+        $factura->save();
+        return redirect()->route('facturas.index');
     }
 
     /**
@@ -118,6 +129,6 @@ class dventaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

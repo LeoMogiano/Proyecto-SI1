@@ -11,6 +11,12 @@
 @endsection
 
 @section('content')
+{{-- @if (session()->has('error'))
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Error!</strong> {{ session()->get('error') }}
+    </div>
+    @endif --}}
 <div class="card">
     <div class="card-header">
     
@@ -59,7 +65,8 @@
                          
                             
                         </form> <a class="btn btn-info btn-sm" style="margin-top: 0.35rem" href="{{route('ventas.show',$ventas)}}">Detalle Venta</a>
-                       
+                        <br>
+                        <a class="btn btn-success btn-sm" style="margin-top: 0.35rem" href="{{route('dventas.edit',$ventas)}}">Generar Factura</a>
                         
                     </td>
                 
