@@ -252,7 +252,7 @@ return [
         ['header' => 'OPCIONES DEL USUARIO'],
         [
             'text' => 'Perfil',
-            'url'  => 'admin/settings',
+            'route'  => 'perfil.index',
             'icon' => 'fas fa-fw fa-user',
         ],
 

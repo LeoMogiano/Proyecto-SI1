@@ -71,7 +71,7 @@
                             @endcan
                             @can('AdminDueño')
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('servicios.index') }}"><i
+                                    <a class="nav-link active" href="{{ route('perfil.index') }}"><i
                                             class="fa fa-key"></i>Dashboard</a>
                                 </li>
                             @endcan
