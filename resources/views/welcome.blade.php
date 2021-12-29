@@ -58,9 +58,9 @@
                             @can('Session')
                                 <li class="nav-item">
 
-                                    <a class="nav-link active" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();"><i
-                                            class="fa fa-power-off"></i>
+                                    <a class="nav-link active" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-               {{--  <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
