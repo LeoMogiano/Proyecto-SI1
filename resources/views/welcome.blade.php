@@ -646,7 +646,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="copyright">
-                                <p style="color: rgb(0, 0, 0)"><b>&copy; uagrm  </b><a href="!#" target="_blank">Smartplusshouse</a></p>
+                                <p style="color: rgb(0, 0, 0)"><b>&copy; uagrm  </b><a href="!#" target="_blank" style="color: #fff">Smartplusshouse</a></p>
                             </div>
                         </div>
 
