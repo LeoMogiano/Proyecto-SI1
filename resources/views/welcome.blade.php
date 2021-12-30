@@ -60,7 +60,7 @@
 
                                     <a class="nav-link active" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -71,7 +71,7 @@
                             @endcan
                             @can('AdminDueño')
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('perfil.index') }}"><i
+                                    <a class="nav-link active" href="{{ route('servicios.index') }}"><i
                                             class="fa fa-key"></i>Dashboard</a>
                                 </li>
                             @endcan
@@ -112,9 +112,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="xdd" style="padding-top: 1rem">
-                        <h1><a class="logo"><img src="img/SmarHome.jpeg" class="logu"
-                                    alt="Logo"><span>Smartplusshouse</span></a></h1>
+                    <div class="xp" style="padding-top: 1rem">
+                        <h1><a class="logoo"><img src="img/SmarHome.jpeg" class="logu"
+                                    alt="Logo">Smartplusshouse</a></h1>
                         <h1><a href="#"></a></h1>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
 
     <!---End mainmenu area -->
 
-    <div class="slider-area">
+   {{--  <div class="slider-area">
         <div class="zigzag-bottom"></div>
         <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
 
@@ -172,7 +172,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!--
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -250,7 +250,7 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="single-promo">
                                 <i class="fa fa-refresh"></i>
-                                <p>30 Days return</p>
+                                <p>Atención 24hrs</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -281,7 +281,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="latest-product">
-                                <h2 class="section-title">Últimos Productos</h2>
+                                <h2 class="section-title"> <b>Últimos Productos</b> </h2>
                                 <div class="product-carousel">
                                     <div class="single-product">
                                         <div class="product-f-image">
@@ -588,12 +588,12 @@
 
                                     <a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i
                                             class="fa fab fa-whatsapp"></i></a>
-                                    <a class="Gitt" href="https://github.com/LeoMogiano/Proyecto-SI1"><img
-                                            src="img/Gitt.png" alt=""></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                            
+                                    <a target="_blank" href="https://github.com/LeoMogiano/Proyecto-SI1"><i class="fa fa-github-square"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-youtube"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -646,17 +646,17 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="copyright">
-                                <p>&copy; uagrm <a href="!#" target="_blank">Smartplusshouse</a></p>
+                                <p style="color: rgb(0, 0, 0)"><b>&copy; uagrm  </b><a href="!#" target="_blank">Smartplusshouse</a></p>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="footer-card-icon">
                                 <i class="fa fa-cc-discover"></i>
                                 <i class="fa fa-cc-mastercard"></i>
                                 <i class="fa fa-cc-paypal"></i>
                                 <i class="fa fa-cc-visa"></i>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

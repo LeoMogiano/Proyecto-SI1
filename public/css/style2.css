@@ -91,10 +91,7 @@ z-index: 999;}
 .logo h1 a {
     color: #999;
 }
-.logo h1 a:hover {text-decoration: none;opacity: .7}
-.logo h1 a span {
-    color: #0059a1;
-}
+
 .shopping-item {
     border: 1px solid #ddd;
     float: right;
@@ -245,7 +242,7 @@ z-index: 9;
 
 .promo-area .zigzag-bottom, .brands-area .zigzag-bottom{background: #fff}
 .single-promo {
-    border: 1px solid #17a78b;
+    border: 1px solid #fff;
     font-size: 25px;
     font-weight: 200;
     padding: 20px 10px;
@@ -255,7 +252,7 @@ z-index: 9;
   font-size: 50px;
 }
 
-.single-promo:hover {color: #fff;background: #222;border-color: #222}
+/* .single-promo:hover {color: #fff;background: #222;border-color: #222} */
 
 .section-title {
   font-family: "Raleway",sans-serif;
@@ -429,15 +426,15 @@ z-index: 9;
   padding-top: 30px;
 }
 .product-widget-area .zigzag-bottom{background: #333}
-.footer-top-area .zigzag-bottom{background: #000}
+.footer-top-area .zigzag-bottom{background: #0059a1}
 .footer-top-area {background: none repeat scroll 0 0 #333;
 color: #999;
 padding: 35px 0 180px;}
 
 
-.footer-bottom-area {background: #000;color: #fff}
+.footer-bottom-area {background: #fff;color: #fff}
 .footer-about-us span {
-  color: #0059a1;
+  color: #f8f8f8;
 }
 .footer-wid-title {
   font-family: raleway;
@@ -501,10 +498,10 @@ padding: 35px 0 180px;}
 .newsletter-form {
     margin-top: 25px;
 }
-a {color: #0059a1}
-a:hover, a:focus {color: #17a78b}
+a {color: #fff}
+
 .footer-bottom-area {
-  background: none repeat scroll 0 0 #000;
+  background: none repeat scroll 0 0 #0059a1;
   color: #fff;
   padding-bottom: 40px;
 }
