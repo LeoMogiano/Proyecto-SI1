@@ -26,7 +26,7 @@ class marcaSeeder extends Seeder
         
         $marc=New marca();
         $marc->id=1003;
-        $marc->nombre='UNICOR';
+        $marc->nombre='AHUA';
         $marc->save();
 
         $marc=New marca();

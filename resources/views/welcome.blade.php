@@ -418,7 +418,6 @@
     </div>  End brands area -->
 
             <div class="product-widget-area">
-                <div class="zigzag-bottom"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
@@ -577,9 +576,8 @@
                     </div>
                 </div>
             </div> <!-- End product widget area -->
-
             <div class="footer-top-area">
-                <div class="zigzag-bottom"></div>
+              <div class="zigzag-bottom"></div>  
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">

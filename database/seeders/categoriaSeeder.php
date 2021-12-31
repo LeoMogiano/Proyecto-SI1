@@ -21,7 +21,7 @@ class categoriaSeeder extends Seeder
 
         $cat=New categoria();
         $cat->id=11;
-        $cat->nombre='Videoportero';
+        $cat->nombre='Cerraduras';
         $cat->save();
         
         $cat=New categoria();
