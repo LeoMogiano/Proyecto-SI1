@@ -70,7 +70,7 @@
 
                                     <a class="nav-link active" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                                                                                document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -129,7 +129,11 @@
                     </div>
                 </div>
 
-                
+                <div class="col-sm-6">
+                    <div class="shopping-item">
+                        <a href="#">Carrito - <span class="cart-amunt">Bs{{ $venta->montoTotal }}</span> <i
+                                class="fa fa-shopping-cart"></i> {{-- <span class="product-count">5</span> --}}</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,10 +158,10 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
                         <li ><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li><a href="{{route('payment.create')}}">Servicios</a></li>
+                        <li class="active"><a href="">Servicio</a></li>
 
-                        
-                        <li class="active"><a href="{{ route('payment.index') }}">Facturas</a></li>
+
+                        <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
                     </ul>
@@ -311,41 +315,59 @@
     {{-- xd --}}
 
     <div style="padding-left: 7rem; padding-bottom: 3rem">
-        {{-- <a  class="btn btn-primary" href="{{ route('front.edit',$venta) }}">Volver</a> --}}
+        <a class="btn btn-primary" href="{{ route('fservicio.edit', $venta) }}">Volver</a>
         <br><br>
 
     </div>
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2 align="center">Facturas</h2>
+                <h2 align="center">Carrito</h2>
             </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Id-Nro de Factura </th>
-                            <th>Nro Autorización</th>
-                            <th>Fecha de Factura</th>
-                            <th>Nit</th>
-                            <th>Monto Total</th>
-                            <th>Nro Venta</th>
-
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio Total</th>
+                            <th>Descripcion</th>
+                            <th>Opciones</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        @foreach ($factura as $facturas)
-                            @foreach ($venta as $ventas)
-                                @if ($facturas->Id_venta == $ventas->id)
-                                    <tr>
-                                        <td>{{ $facturas->id }}</td>
-                                        <td>{{ $facturas->Nro_aut }}</td>
-                                        <td>{{ $facturas->Fecha_f }}</td>
-                                        <td>{{ $facturas->nit }}</td>
-                                        <td>{{ $facturas->monTotal}}</td>
-                                        <td>{{ $facturas->Id_venta }}</td>
-                                    </tr>
-                                @endif
+                        @foreach ($servicios as $servicio)
+                            @foreach ($dservicios as $dservicio)
+                                <tr>
+                                    @if ($dservicio->servicio_id == $servicio->id)
+
+                                        @foreach ($tservicios as $tservicio)
+                                            @if ($tservicio->id == $servicio->Id_tp)
+                                                <td>{{ $tservicio->nombre }}</td>
+                                            @endif
+                                        @endforeach
+
+                                        <td>{{ $dservicio->cantidad }}</td>
+                                        <td>{{ $servicio->precio }}</td>
+                                        <td>{{ $dservicio->precio_tot }}</td>
+                                        <td>{{ $servicio->descripción }}</td>
+                                        <td>
+                                            <form action="{{ route('pagoserv.destroy', $dservicio->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('delete')
+
+                                                <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem"
+                                                    onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')"
+                                                    value="Borrar">Eliminar</button>
+
+                                            </form>
+                                        </td>
+                                    @endif
+                                </tr>
                             @endforeach
+
                         @endforeach
                     </tbody>
                 </table>
@@ -354,7 +376,18 @@
     </div>
     </div>
     <br>
+    <div style="padding-left: 10rem">
+        <form method="post" action="{{ route('payment.store', $venta) }}">
+            @csrf
+            <p class="card-text"> <b>Nit :</b></p>
+            <input type="text" name="venta_id" value="{{ $venta->id }}" hidden>
+            <input type="text" name="nit" style="width: 40%" class="focus border-primary  form-control" required>
+    </div>
+    <div style="padding-left: 110rem; padding-bottom: 3rem">
 
+        <button class="btn btn-danger" type="submit">Finalizar Compra</button>
+    </div>
+    </form>
     <br><br>
     <!-- End product widget area -->
 

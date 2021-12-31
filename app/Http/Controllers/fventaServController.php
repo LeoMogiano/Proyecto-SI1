@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\factura;
-use App\Models\producto;
 use App\Models\servicio;
 use App\Models\tipoServicio;
-use App\Models\User;
 use App\Models\venta;
-use App\Models\venta_producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
-class frontFacController extends Controller
+class fventaServController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,15 +19,7 @@ class frontFacController extends Controller
      */
     public function index()
     {
-        
-        
-        $User = Auth::user()->id;
-        $venta=venta::where('Id_us',$User)->get();
-        $factura=factura::all();
-        
-        /* $venta=venta::where('Id_us',$User->id)->first();
-        $factura=factura::where('Id_venta',$venta->id)->first(); */
-        return view('pay.index',compact('User','venta','factura'));
+        //
     }
 
     /**
@@ -41,12 +29,7 @@ class frontFacController extends Controller
      */
     public function create()
     {
-        $venta = venta::all();
-        $User = User::all();
-        $servicios=servicio::all();
-        $tservicios=tipoServicio::all();
-        return view('fserv.index',compact('servicios','tservicios','venta','User'));
-        
+        //
     }
 
     /**
@@ -57,20 +40,18 @@ class frontFacController extends Controller
      */
     public function store(Request $request)
     {
-        $venta=venta::findOrFail($request->venta_id);
-        $factura= new factura();
-        $factura->Nro_aut=Rand(1,100000);
-        $factura->Fecha_f= $venta->Fecha_v;
-        $factura->nit= $request->nit;
-        $factura->monTotal=$venta->montoTotal;
-        $factura->Id_venta=$venta->id;
-        $factura->save();
-        activity()->useLog('Factura')->log('Registró')->subject();
+        $current_user= Auth::user();
+        $venta=new venta();  
+        $venta->Fecha_v=$request->input('Fecha_v');
+        $venta->montoTotal=0;
+        $venta->Id_us=$current_user->id;
+        $venta->save();
+        activity()->useLog('Ventas')->log('Registró')->subject();
         $lastActivity=Activity::all()->last();
-        $lastActivity->subject_id= $factura->id;
+        $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
-        $producto=producto::all();
-        return view('welcome');
+
+        return redirect()->route('fservicio.edit',$venta);
     }
 
     /**
@@ -81,7 +62,13 @@ class frontFacController extends Controller
      */
     public function show($id)
     {
-        //
+        $venta=venta::findOrFail($id);
+        $servicios=servicio::all();
+        $dservicios=DB::table('servicio_ventas')->where('venta_id',$venta->id)->get();
+        $tservicios=tipoServicio::all();
+       
+
+        return view('fserv.show',compact('venta','dservicios','servicios','tservicios'));
     }
 
     /**
@@ -92,7 +79,12 @@ class frontFacController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servicios=servicio::all();
+        $tservicios=tipoServicio::all();
+        $venta=venta::findOrFail($id);
+        $venta_id=$id;
+        return view('fserv.create',compact('servicios','venta_id','tservicios','venta')); 
+         
     }
 
     /**
@@ -115,11 +107,6 @@ class frontFacController extends Controller
      */
     public function destroy($id)
     {
-        $ventap=venta_producto::where('id',$id)->first();
-        $venta=venta::where('id',$ventap->venta_id)->first();
-        $venta->montoTotal-=$ventap->precio_tot;
-        $venta->save();
-        $ventap->delete();
-        return redirect()->route('front.show',$venta);
+        //
     }
 }

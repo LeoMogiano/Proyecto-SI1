@@ -160,7 +160,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
                         <li class="active"><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li><a href="">Servicios</a></li>
+                        <li><a href="{{route('payment.create')}}">Servicios</a></li>
 
                         
                         <li><a href="{{ route('payment.index') }}">Facturas</a></li>
@@ -181,6 +181,13 @@
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>¡Error!</strong> {{ session()->get('error') }}
+        </div>
+    @endif
+
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Éxito!</strong> {{ session()->get('success') }}
         </div>
     @endif
 

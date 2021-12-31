@@ -131,6 +131,7 @@
 
                 <div class="col-sm-6">
                     <div class="shopping-item">
+                    
                         <a href="#">Carrito - <span class="cart-amunt">Bs{{ $venta->montoTotal }}</span> <i
                                 class="fa fa-shopping-cart"></i> {{-- <span class="product-count">5</span> --}}</a>
                     </div>
@@ -158,7 +159,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
                         <li class="active"><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li><a href="">Servicio</a></li>
+                        <li><a href="{{route('payment.create')}}">Servicio</a></li>
 
 
                         <li><a href="{{ route('payment.index') }}">Facturas</a></li>
@@ -392,7 +393,7 @@
             @csrf
             <p class="card-text"> <b>Nit :</b></p>
             <input type="text" name="venta_id" value="{{ $venta->id }}" hidden>
-            <input type="text" name="nit" style="width: 40%" class="focus border-primary  form-control">
+            <input type="text" name="nit" style="width: 40%" class="focus border-primary  form-control" required>
     </div>
     <div style="padding-left: 110rem; padding-bottom: 3rem">
 

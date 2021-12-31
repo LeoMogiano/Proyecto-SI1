@@ -74,7 +74,7 @@ class frontVentaController extends Controller
         $modelos=modelo::all();
         $marcas=marca::all();
         $categorias=categoria::all(); */
-        return redirect()->route('front.edit',$request->venta_id);
+        return redirect()->route('front.edit',$request->venta_id)->with("success","Se ha añadido al carrito exitosamente.");
     }
 
     /**

@@ -129,10 +129,16 @@
                     </div>
                 </div>
 
-                
+                <div class="col-sm-6">
+                    <div class="shopping-item">
+                        <a href="{{ route('fservicio.show', $venta) }}">Carrito - <span
+                                class="cart-amunt">Bs{{ $venta->montoTotal }}</span> <i
+                                class="fa fa-shopping-cart"></i> {{-- <span class="product-count">5</span> --}}</a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div> <!-- End site branding area -->
 
 
@@ -154,10 +160,10 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
                         <li ><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li><a href="{{route('payment.create')}}">Servicios</a></li>
+                        <li class="active"><a href="{{route('payment.create')}} ">Servicios</a></li>
 
-                        
-                        <li class="active"><a href="{{ route('payment.index') }}">Facturas</a></li>
+
+                        <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
                     </ul>
@@ -169,193 +175,63 @@
     {{--  --}}
 
 
-    <!-- End main content area
-    
-    <div class="brands-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="brand-wrapper">
-                        <h2 class="section-title">Brands</h2>
-                        <div class="brand-list">
-                            <img src="img/services_logo__1.jpg" alt="">
-                            <img src="img/services_logo__2.jpg" alt="">
-                            <img src="img/services_logo__3.jpg" alt="">
-                            <img src="img/services_logo__4.jpg" alt="">
-                            <img src="img/services_logo__1.jpg" alt="">
-                            <img src="img/services_logo__2.jpg" alt="">
-                            <img src="img/services_logo__3.jpg" alt="">
-                            <img src="img/services_logo__4.jpg" alt="">                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- End main content area  -->
+
+    @if (session()->has('error'))
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> {{ session()->get('error') }}
         </div>
-    </div>  End brands area -->
+    @endif
 
-    {{-- <div class="product-widget-area" style="width: 500px;">
-
-        <div class="container">
-            @if (session()->has('error'))
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>¡Error!</strong> {{ session()->get('error') }}
-                </div>
-            @endif
-                NO ESTABA
-            <div class="card">
-
-                <div class="card-body ">
-
-                    <form method="post" action="{{ route('dventas.store') }}">
-                        @csrf
-
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                            @foreach ($productos as $producto)
-                                <div class="col ">
-                                    <div class="card h-100">
-                                        <img href="img/SmarHome.jpeg" class="card-img-top" width="200" height="300"
-                                            alt="...">
-                                        <div class="card-body ">
-                                            <h5 class="card-title"> {{ $producto->id }}</h5>
-                                            <p class="card-text">{{ $producto->nombre }}</p>
-                                        </div>
-                                        <div class="card-footer"> --}}
-
-
-    {{-- @can('gestionar usuario')
-                                    <a class="btn btn-primary btn-sm"
-                                        href="{{ route('categorias.edit', $categorias) }}">Editar</a>
-                                @endcan
-
-                                <form action="{{ route('categorias.destroy', $categorias) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    @can('gestionar usuario')
-                                        <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem"
-                                            onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
-                                    @endcan
-
-                                </form> --}}
-    {{-- </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    No ESTABA
-                        <div class="form-group row-cols-md-3">
-                            <h5>Seleccionar Producto:</h5>
-                            <select name="producto_id" class="focus border-primary  form-control">
-                                @foreach ($productos as $producto)
-                                    <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
-                                @endforeach
-
-                            </select>
-                        </div> --}}
-
-    {{-- Ya ESTABA <input type="text" name="venta_id" value="{{ $venta_id }}" class="focus border-primary  form-control"
-                    hidden> --}}
-
-    {{-- <div class="form-group row-cols-md-3">
-                            <h5>Cantidad:</h5>
-                            <input type="text" name="cantidad" class="focus border-primary  form-control" required>
-
-                        </div>
-
-
-                        <br>
-                        <div class="form-group row-cols-md-3">
-                            <button class="btn btn-primary" type="submit">Registrar</button> --}}
-    {{-- YA ESTABA <a class="btn btn-danger" href="{{ route('ventas.show', $venta_id) }}">Volver</a> --}}
-    {{-- return redirect()->route('ventas.show',$request->venta_id); YA ESTABA --}}
-    {{-- </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Éxito!</strong> {{ session()->get('success') }}
     </div>
+@endif
 
-    <form method="post" action="{{ route('dventas.store') }}">
-        @csrf
-        @foreach ($productos as $producto)
+    <div class="main1" style="padding-left: 2rem">
+
+        @foreach ($servicios as $servicio)
+
             <div class="card1">
-
-                <div class="image1">
-                    <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
-                </div>
-                <div class="title1">
-                    <h1 class="leo">{{ $producto->nombre }}</h1>
-                    <p class="card-text"> <b>Bs</b>{{ $producto->precio }}</p>
-                </div>
-
-                <div class="des1">
-
-                    <p class="card-text"> <b>Cantidad :</b></p>
-                    <input type="text" name="cantidad" style="width: 40%; margin-left: auto;
-            margin-right: auto" class="focus border-primary  form-control" required>
-                    <br>
-                    <button class="btn btn-primary" type="submit">Añadir a Carrito</button>
-                    <br>
-                    <br>
-                </div>
-            </div>
-        @endforeach
-    </form> --}}
-
-    <br>
-    <br>
-
-    {{-- xd --}}
-
-    <div style="padding-left: 7rem; padding-bottom: 3rem">
-        {{-- <a  class="btn btn-primary" href="{{ route('front.edit',$venta) }}">Volver</a> --}}
-        <br><br>
-
-    </div>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h2 align="center">Facturas</h2>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Id-Nro de Factura </th>
-                            <th>Nro Autorización</th>
-                            <th>Fecha de Factura</th>
-                            <th>Nit</th>
-                            <th>Monto Total</th>
-                            <th>Nro Venta</th>
-
-                    </thead>
-                    <tbody>
-                        @foreach ($factura as $facturas)
-                            @foreach ($venta as $ventas)
-                                @if ($facturas->Id_venta == $ventas->id)
-                                    <tr>
-                                        <td>{{ $facturas->id }}</td>
-                                        <td>{{ $facturas->Nro_aut }}</td>
-                                        <td>{{ $facturas->Fecha_f }}</td>
-                                        <td>{{ $facturas->nit }}</td>
-                                        <td>{{ $facturas->monTotal}}</td>
-                                        <td>{{ $facturas->Id_venta }}</td>
-                                    </tr>
-                                @endif
-                            @endforeach
+                <form method="post" action="{{ route('pagoserv.store') }}">
+                    @csrf
+                    <div class="image1">
+                        <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
+                    </div>
+                    <div class="title1" style="display: flex; justify-content: center">
+                        <input style="padding-right: rem" value="{{ $servicio->id }}" name="servicio_id" hidden>
+                        <input type="text" name="venta_id" value="{{ $venta_id }}" hidden>
+                        @foreach ($tservicios as $tservicio)
+                            @if ($servicio->Id_tp == $tservicio->id)
+                                <h1 style="padding-left: 0.65rem" class="leo"> {{ $tservicio->nombre }} </h1>
+                            @endif
                         @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    </div>
-    <br>
+                    </div>
+                    
+                    
+                    <p class="card-text" style="display: flex; justify-content: center">
+                        <b>Bs</b>{{ $servicio->precio }}
+                    </p>
+                    <div class="des1">
 
-    <br><br>
+                        <p class="card-text"> <b>Cantidad :</b></p>
+                        <input type="text" name="cantidad" style="width: 40%; margin-left: auto;margin-right: auto"
+                            class="focus border-primary  form-control">
+                        <br>
+                        <button class="btn btn-primary" type="submit">Añadir a carrito</button>
+                        <br>
+                        <br>
+
+                    </div>
+                </form>
+            </div>
+
+        @endforeach
+    </div>
+
     <!-- End product widget area -->
 
     <div class="footer-top-area">
@@ -424,9 +300,7 @@
             </div>
         </div>
 
-    </div>
-
-    <!-- End footer top area -->
+    </div> <!-- End footer top area -->
 
     <div class="footer-bottom-area">
         <div class="container">

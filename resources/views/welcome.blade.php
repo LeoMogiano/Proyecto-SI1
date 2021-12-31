@@ -141,7 +141,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{route('homex.index')}}">Inicio</a></li>
                         <li><a href="{{route('front.create')}}">Productos</a></li>
-                        <li><a href="">Servicio</a></li>
+                        <li><a href="{{route('payment.create')}}">Servicio</a></li>
                         
                         <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         <li><a href="{{route('front.index')}}">Nuestra Empresa</a></li>
