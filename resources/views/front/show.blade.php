@@ -70,7 +70,7 @@
 
                                     <a class="nav-link active" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                                                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -129,11 +129,11 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-sm-6">
+                <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="#">Carrito - <span class="cart-amunt">$800</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div> --}}
+                        <a href="#">Carrito - <span class="cart-amunt">Bs{{ $venta->montoTotal }}</span> <i
+                                class="fa fa-shopping-cart"></i> {{-- <span class="product-count">5</span> --}}</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,9 +158,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
                         <li class="active"><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li><a href="">Servicios</a></li>
+                        <li><a href="">Servicio</a></li>
 
-                        
+
                         <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
@@ -312,128 +312,94 @@
     <br>
     <br>
 
-    <form action="{{ route('front.store') }}" method="post">
-        @csrf
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h1>Registrar Pedido</h1>
-                </div>
-                <div class="row" id="fila">
-                    <div class="col-6">
-                        <div id="map">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="card-body">
+    {{-- xd --}}
 
-                            <div class="form-group col-md-6">
-                                <input id="datetimepicker" type="text" name="Fecha_v" class="form-control"
-                                    value="{{ old('Fecha_v') }}" autocomplete="off" id="Fecha_v" required>
-                                <label for="Fecha_v">Ingrese el Fecha de Venta</label>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="latitud" id="latitud" readonly>
-                                <label for="latitud">Latitud</label>
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="longitud" id="longitud" readonly>
-                                <label for="longitud">Longitud</label>
-                            </div>
-
-                            {{-- <div class="form-floating">
-                        <select name="matricula"  class="focus border-primary  form-control">
-                            @foreach ($vehiculo as $vehiculos)
-                                <option value="{{$vehiculos->id}}">{{$vehiculos->matricula}}</option>
-                            @endforeach
-                        </select>
-                        <label for="matricula">Matricula</label>
-                    </div> --}}
-
-                            <div class="form-group col-md-3">
-                                <button class="btn btn-primary" type="submit">Registrar Pedido</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-            </div>
-    </form>
-    <br>
-
+    <div style="padding-left: 7rem; padding-bottom: 3rem">
+        <a class="btn btn-primary" href="{{ route('front.edit', $venta) }}">Volver</a>
+        <br><br>
 
     </div>
-    {{-- <div class="main1" style="padding-left: 2rem">
-        @foreach ($productos as $producto)
-            <div class="card1">
-
-                <div class="image1">
-                    <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
-                </div>
-                <div class="title1" style="display: flex; justify-content: center">
-                    <input type="checkbox" style="padding-right: rem" value="{{ $producto->id }}" name="servicio[]"
-                        class="form-check-input">
-                    <h1 style="padding-left: 0.65rem" class="leo"> {{ $producto->nombre }}</h1>
-                </div>
-                @foreach ($modelos as $modelo)
-                    @if ($producto->Id_modelo == $modelo->id)
-                        <p class="card-text" style="display: flex; justify-content: center"> <b>Modelo
-                                :</b>{{ $modelo->nombre }}</p>
-                        @foreach ($marcas as $marca)
-                            @if ($modelo->Id_marca == $marca->id)
-                                <p class="card-text" style="display: flex; justify-content: center"> <b>Marca
-                                        :</b>{{ $marca->nombre }}</p>
-                            @endif
-                        @endforeach
-                    @endif
-                @endforeach
-                @foreach ($categorias as $categoria)
-                    @if ($producto->Id_categoria == $categoria->id)
-                        <p class="card-text" style="display: flex; justify-content: center"> <b>Categoria
-                                :</b>{{ $categoria->nombre }}</p>
-                    @endif
-                @endforeach
-                <p class="card-text" style="display: flex; justify-content: center">
-                    <b>Bs</b>{{ $producto->precio }}
-                </p>
-                <div class="des1">
-
-                    <p class="card-text"> <b>Cantidad :</b></p>
-                    <input type="text" name="cantidad" style="width: 40%; margin-left: auto;margin-right: auto"
-                        class="focus border-primary  form-control" required>
-                    
-                        <br>
-                    <button class="btn btn-primary" type="submit">Añadir a Carrito</button> EXRTRA 
-
-                    <br>
-                    <br>
-                </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 align="center">Carrito</h2>
             </div>
-        @endforeach
-    </div> --}}
-    
-    {{-- <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach ($productos as $producto)
-                <div class="col">
-                <div class="card h-100">
-                <img src="" class="card-img-top" width="200" height="300" alt="...">
-                <div class="card-body">            
-                    <h5 class="card-title"> <input type="checkbox" value="{{$servicios->id}}" name="servicio[]"class="form-check-input">{{$servicios->nombre}}</h5>
-                    <p class="card-text">{{$producto->nombre}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Precio: {{$servicios->precio}} Bs.</small>
-                </div>
-                </div>
-                </div>
-            @endforeach
-            </div> --}}
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio Total</th>
+                            <th>Descuento</th>
+                            <th>Categoria</th>
+                            <th>Modelo</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($productos as $producto)
 
 
-    {{-- </form> --}}
+                            @foreach ($productoos as $productoo)
+                                <tr>
+                                    @if ($productoo->producto_id == $producto->id)
+                                        <td>{{ $producto->nombre }}</td>
+                                        <td>{{ $productoo->cantidad }}</td>
+                                        <td>{{ $producto->precio }}</td>
+                                        <td>{{ $productoo->precio_tot }}</td>
+                                        <td>{{ $productoo->descuento }}</td>
+                                        @foreach ($categorias as $categoria)
+                                            @if ($categoria->id == $producto->Id_categoria)
+                                                <td>{{ $categoria->nombre }}</td>
+                                            @endif
+                                        @endforeach
+                                        @foreach ($modelos as $modelo)
+                                            @if ($modelo->id == $producto->Id_modelo)
+                                                <td>{{ $modelo->nombre }}</td>
+                                            @endif
+                                        @endforeach
+                                        <td>
+                                            <form action="{{ route('payment.destroy', $productoo->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('delete')
 
+                                                <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem"
+                                                    onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')"
+                                                    value="Borrar">Eliminar</button>
+
+                                            </form>
+                                        </td>
+                                    @endif
+                                </tr>
+                            @endforeach
+
+
+
+
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div style="padding-left: 10rem">
+        <form method="post" action="{{ route('payment.store', $venta) }}">
+            @csrf
+            <p class="card-text"> <b>Nit :</b></p>
+            <input type="text" name="venta_id" value="{{ $venta->id }}" hidden>
+            <input type="text" name="nit" style="width: 40%" class="focus border-primary  form-control">
+    </div>
+    <div style="padding-left: 110rem; padding-bottom: 3rem">
+
+        <button class="btn btn-danger" type="submit">Finalizar Compra</button>
+    </div>
+    </form>
+    <br><br>
     <!-- End product widget area -->
 
     <div class="footer-top-area">
@@ -502,7 +468,9 @@
             </div>
         </div>
 
-    </div> <!-- End footer top area -->
+    </div>
+
+    <!-- End footer top area -->
 
     <div class="footer-bottom-area">
         <div class="container">

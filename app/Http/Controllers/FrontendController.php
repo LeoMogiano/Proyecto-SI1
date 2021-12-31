@@ -6,7 +6,14 @@ use App\Models\categoria;
 use App\Models\marca;
 use App\Models\modelo;
 use App\Models\producto;
+use App\Models\servicio;
+use App\Models\User;
+use App\Models\venta;
+use App\Models\venta_producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 class FrontendController extends Controller
 {
@@ -27,11 +34,13 @@ class FrontendController extends Controller
      */
     public function create()
     {
+        $venta = venta::all();
+        $User = User::all();
         $productos=producto::all();
         $modelos=modelo::all();
         $marcas=marca::all();
-        $categoria=categoria::all();
-        return view('front.edit',compact('productos','modelos','marcas','categoria'));
+        $categorias=categoria::all();
+        return view('front.edit',compact('productos','modelos','marcas','categorias','venta','User'));
     }
 
     /**
@@ -42,7 +51,18 @@ class FrontendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $current_user= Auth::user();
+        $venta=new venta();  
+        $venta->Fecha_v=$request->input('Fecha_v');
+        $venta->montoTotal=0;
+        $venta->Id_us=$current_user->id;
+        $venta->save();
+        activity()->useLog('Ventas')->log('Registró')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $venta->id;
+        $lastActivity->save();
+
+        return redirect()->route('front.edit',$venta);
     }
 
     /**
@@ -53,7 +73,13 @@ class FrontendController extends Controller
      */
     public function show($id)
     {
-        //
+        $venta=venta::findOrFail($id);
+        $productos=producto::all();
+        $productoos=DB::table('producto_venta')->where('venta_id',$venta->id)->get();
+        $categorias=categoria::all();
+        $modelos=modelo::all();
+
+        return view('front.show',compact('venta','productos','productoos','categorias','modelos'));
     }
 
     /**
@@ -64,7 +90,14 @@ class FrontendController extends Controller
      */
     public function edit($id)
     {
-        
+        $productos=producto::all();
+        $modelos=modelo::all();
+        $marcas=marca::all();
+        $categorias=categoria::all();
+        $venta=venta::findOrFail($id);
+        $venta_id=$id;
+         return view('front.create',compact('productos','venta_id','modelos','marcas','categorias','venta')); 
+        /* return redirect()->route('front.create',compact('productos','modelos','marcas','categorias','venta')); */
     }
 
     /**
@@ -74,9 +107,9 @@ class FrontendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -89,4 +122,6 @@ class FrontendController extends Controller
     {
         //
     }
+   
+
 }

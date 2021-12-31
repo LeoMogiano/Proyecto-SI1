@@ -70,7 +70,7 @@
 
                                     <a class="nav-link active" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                                                                    document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -129,14 +129,16 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-sm-6">
+                <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="#">Carrito - <span class="cart-amunt">$800</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div> --}}
+                        <a href="{{ route('front.show', $venta) }}">Carrito - <span
+                                class="cart-amunt">Bs{{ $venta->montoTotal }}</span> <i
+                                class="fa fa-shopping-cart"></i> {{-- <span class="product-count">5</span> --}}</a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div> <!-- End site branding area -->
 
 
@@ -173,266 +175,67 @@
     {{--  --}}
 
 
-    <!-- End main content area
-    
-    <div class="brands-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="brand-wrapper">
-                        <h2 class="section-title">Brands</h2>
-                        <div class="brand-list">
-                            <img src="img/services_logo__1.jpg" alt="">
-                            <img src="img/services_logo__2.jpg" alt="">
-                            <img src="img/services_logo__3.jpg" alt="">
-                            <img src="img/services_logo__4.jpg" alt="">
-                            <img src="img/services_logo__1.jpg" alt="">
-                            <img src="img/services_logo__2.jpg" alt="">
-                            <img src="img/services_logo__3.jpg" alt="">
-                            <img src="img/services_logo__4.jpg" alt="">                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- End main content area  -->
+
+    @if (session()->has('error'))
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Error!</strong> {{ session()->get('error') }}
         </div>
-    </div>  End brands area -->
+    @endif
 
-    {{-- <div class="product-widget-area" style="width: 500px;">
+    <div class="main1" style="padding-left: 2rem">
 
-        <div class="container">
-            @if (session()->has('error'))
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>¡Error!</strong> {{ session()->get('error') }}
-                </div>
-            @endif
-                NO ESTABA
-            <div class="card">
-
-                <div class="card-body ">
-
-                    <form method="post" action="{{ route('dventas.store') }}">
-                        @csrf
-
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                            @foreach ($productos as $producto)
-                                <div class="col ">
-                                    <div class="card h-100">
-                                        <img href="img/SmarHome.jpeg" class="card-img-top" width="200" height="300"
-                                            alt="...">
-                                        <div class="card-body ">
-                                            <h5 class="card-title"> {{ $producto->id }}</h5>
-                                            <p class="card-text">{{ $producto->nombre }}</p>
-                                        </div>
-                                        <div class="card-footer"> --}}
-
-
-    {{-- @can('gestionar usuario')
-                                    <a class="btn btn-primary btn-sm"
-                                        href="{{ route('categorias.edit', $categorias) }}">Editar</a>
-                                @endcan
-
-                                <form action="{{ route('categorias.destroy', $categorias) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    @can('gestionar usuario')
-                                        <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem"
-                                            onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
-                                    @endcan
-
-                                </form> --}}
-    {{-- </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    No ESTABA
-                        <div class="form-group row-cols-md-3">
-                            <h5>Seleccionar Producto:</h5>
-                            <select name="producto_id" class="focus border-primary  form-control">
-                                @foreach ($productos as $producto)
-                                    <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
-                                @endforeach
-
-                            </select>
-                        </div> --}}
-
-    {{-- Ya ESTABA <input type="text" name="venta_id" value="{{ $venta_id }}" class="focus border-primary  form-control"
-                    hidden> --}}
-
-    {{-- <div class="form-group row-cols-md-3">
-                            <h5>Cantidad:</h5>
-                            <input type="text" name="cantidad" class="focus border-primary  form-control" required>
-
-                        </div>
-
-
-                        <br>
-                        <div class="form-group row-cols-md-3">
-                            <button class="btn btn-primary" type="submit">Registrar</button> --}}
-    {{-- YA ESTABA <a class="btn btn-danger" href="{{ route('ventas.show', $venta_id) }}">Volver</a> --}}
-    {{-- return redirect()->route('ventas.show',$request->venta_id); YA ESTABA --}}
-    {{-- </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <form method="post" action="{{ route('dventas.store') }}">
-        @csrf
         @foreach ($productos as $producto)
+
             <div class="card1">
-
-                <div class="image1">
-                    <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
-                </div>
-                <div class="title1">
-                    <h1 class="leo">{{ $producto->nombre }}</h1>
-                    <p class="card-text"> <b>Bs</b>{{ $producto->precio }}</p>
-                </div>
-
-                <div class="des1">
-
-                    <p class="card-text"> <b>Cantidad :</b></p>
-                    <input type="text" name="cantidad" style="width: 40%; margin-left: auto;
-            margin-right: auto" class="focus border-primary  form-control" required>
-                    <br>
-                    <button class="btn btn-primary" type="submit">Añadir a Carrito</button>
-                    <br>
-                    <br>
-                </div>
-            </div>
-        @endforeach
-    </form> --}}
-
-    <br>
-    <br>
-
-    <form action="{{ route('front.store') }}" method="post">
-        @csrf
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h1>Registrar Pedido</h1>
-                </div>
-                <div class="row" id="fila">
-                    <div class="col-6">
-                        <div id="map">
-                        </div>
+                <form method="post" action="{{ route('pago.store') }}">
+                    @csrf
+                    <div class="image1">
+                        <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
                     </div>
-                    <div class="col-6">
-                        <div class="card-body">
-
-                            <div class="form-group col-md-6">
-                                <input id="datetimepicker" type="text" name="Fecha_v" class="form-control"
-                                    value="{{ old('Fecha_v') }}" autocomplete="off" id="Fecha_v" required>
-                                <label for="Fecha_v">Ingrese el Fecha de Venta</label>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="latitud" id="latitud" readonly>
-                                <label for="latitud">Latitud</label>
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="longitud" id="longitud" readonly>
-                                <label for="longitud">Longitud</label>
-                            </div>
-
-                            {{-- <div class="form-floating">
-                        <select name="matricula"  class="focus border-primary  form-control">
-                            @foreach ($vehiculo as $vehiculos)
-                                <option value="{{$vehiculos->id}}">{{$vehiculos->matricula}}</option>
+                    <div class="title1" style="display: flex; justify-content: center">
+                        <input style="padding-right: rem" value="{{ $producto->id }}" name="producto_id" hidden>
+                        <input type="text" name="venta_id" value="{{ $venta_id }}" hidden>
+                        <h1 style="padding-left: 0.65rem" class="leo"> {{ $producto->nombre }}</h1>
+                    </div>
+                    @foreach ($modelos as $modelo)
+                        @if ($producto->Id_modelo == $modelo->id)
+                            <p class="card-text" style="display: flex; justify-content: center"> <b>Modelo
+                                    :</b>{{ $modelo->nombre }}</p>
+                            @foreach ($marcas as $marca)
+                                @if ($modelo->Id_marca == $marca->id)
+                                    <p class="card-text" style="display: flex; justify-content: center"> <b>Marca
+                                            :</b>{{ $marca->nombre }}</p>
+                                @endif
                             @endforeach
-                        </select>
-                        <label for="matricula">Matricula</label>
-                    </div> --}}
+                        @endif
+                    @endforeach
+                    @foreach ($categorias as $categoria)
+                        @if ($producto->Id_categoria == $categoria->id)
+                            <p class="card-text" style="display: flex; justify-content: center"> <b>Categoria
+                                    :</b>{{ $categoria->nombre }}</p>
+                        @endif
+                    @endforeach
+                    <p class="card-text" style="display: flex; justify-content: center">
+                        <b>Bs</b>{{ $producto->precio }}
+                    </p>
+                    <div class="des1">
 
-                            <div class="form-group col-md-3">
-                                <button class="btn btn-primary" type="submit">Registrar Pedido</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-            </div>
-    </form>
-    <br>
-
-
-    </div>
-    {{-- <div class="main1" style="padding-left: 2rem">
-        @foreach ($productos as $producto)
-            <div class="card1">
-
-                <div class="image1">
-                    <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
-                </div>
-                <div class="title1" style="display: flex; justify-content: center">
-                    <input type="checkbox" style="padding-right: rem" value="{{ $producto->id }}" name="servicio[]"
-                        class="form-check-input">
-                    <h1 style="padding-left: 0.65rem" class="leo"> {{ $producto->nombre }}</h1>
-                </div>
-                @foreach ($modelos as $modelo)
-                    @if ($producto->Id_modelo == $modelo->id)
-                        <p class="card-text" style="display: flex; justify-content: center"> <b>Modelo
-                                :</b>{{ $modelo->nombre }}</p>
-                        @foreach ($marcas as $marca)
-                            @if ($modelo->Id_marca == $marca->id)
-                                <p class="card-text" style="display: flex; justify-content: center"> <b>Marca
-                                        :</b>{{ $marca->nombre }}</p>
-                            @endif
-                        @endforeach
-                    @endif
-                @endforeach
-                @foreach ($categorias as $categoria)
-                    @if ($producto->Id_categoria == $categoria->id)
-                        <p class="card-text" style="display: flex; justify-content: center"> <b>Categoria
-                                :</b>{{ $categoria->nombre }}</p>
-                    @endif
-                @endforeach
-                <p class="card-text" style="display: flex; justify-content: center">
-                    <b>Bs</b>{{ $producto->precio }}
-                </p>
-                <div class="des1">
-
-                    <p class="card-text"> <b>Cantidad :</b></p>
-                    <input type="text" name="cantidad" style="width: 40%; margin-left: auto;margin-right: auto"
-                        class="focus border-primary  form-control" required>
-                    
+                        <p class="card-text"> <b>Cantidad :</b></p>
+                        <input type="text" name="cantidad" style="width: 40%; margin-left: auto;margin-right: auto"
+                            class="focus border-primary  form-control">
                         <br>
-                    <button class="btn btn-primary" type="submit">Añadir a Carrito</button> EXRTRA 
+                        <button class="btn btn-primary" type="submit">Añadir a carrito</button>
+                        <br>
+                        <br>
 
-                    <br>
-                    <br>
-                </div>
+                    </div>
+                </form>
             </div>
+
         @endforeach
-    </div> --}}
-    
-    {{-- <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach ($productos as $producto)
-                <div class="col">
-                <div class="card h-100">
-                <img src="" class="card-img-top" width="200" height="300" alt="...">
-                <div class="card-body">            
-                    <h5 class="card-title"> <input type="checkbox" value="{{$servicios->id}}" name="servicio[]"class="form-check-input">{{$servicios->nombre}}</h5>
-                    <p class="card-text">{{$producto->nombre}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Precio: {{$servicios->precio}} Bs.</small>
-                </div>
-                </div>
-                </div>
-            @endforeach
-            </div> --}}
-
-
-    {{-- </form> --}}
+    </div>
 
     <!-- End product widget area -->
 

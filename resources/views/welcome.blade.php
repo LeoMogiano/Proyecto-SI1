@@ -121,12 +121,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="#">Carrito - <span class="cart-amunt">$800</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -145,9 +140,10 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{route('homex.index')}}">Inicio</a></li>
-                        <li><a href="">Productos</a></li>
-                        <li><a href="{{route('front.create')}}">Servicio</a></li>
-                        <li><a href="#">Facturas</a></li>
+                        <li><a href="{{route('front.create')}}">Productos</a></li>
+                        <li><a href="">Servicio</a></li>
+                        
+                        <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         <li><a href="{{route('front.index')}}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
                     </ul>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\factura;
 use App\Models\producto;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,7 @@ class HomeController extends Controller
         
         /* return view('home'); */
         $producto=producto::all();
-        return view('welcome',compact('producto'));
+        $factura=factura::all();
+        return view('welcome',compact('producto','factura'));
     }
 }
