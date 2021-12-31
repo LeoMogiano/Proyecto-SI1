@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/SmarHome.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="{ { asset('img/SmarHome.jpeg') } }" type="image/x-icon">
     <link rel="stylesheet" href="css/styleW.css?v=<?php echo time(); ?>" />
     <title>Smartplusshouse</title>
 
@@ -22,7 +23,8 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
+    
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
     <link rel="stylesheet" href="css/responsive.css">
 
@@ -71,7 +73,7 @@
                             @endcan
                             @can('AdminDueño')
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('servicios.index') }}"><i
+                                    <a class="nav-link active" href="{{ route('perfil.index') }}"><i
                                             class="fa fa-key"></i>Dashboard</a>
                                 </li>
                             @endcan
@@ -142,11 +144,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Inicio</a></li>
+                        <li class="active"><a href="{{route('homex.index')}}">Inicio</a></li>
                         <li><a href="">Productos</a></li>
-                        <li><a href="#">Servicio</a></li>
+                        <li><a href="{{route('front.create')}}">Servicio</a></li>
                         <li><a href="#">Facturas</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="{{route('front.index')}}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
                     </ul>
                 </div>

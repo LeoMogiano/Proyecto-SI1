@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\producto;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +26,7 @@ class HomeController extends Controller
     {
         
         /* return view('home'); */
-        return view('welcome');
+        $producto=producto::all();
+        return view('welcome',compact('producto'));
     }
 }

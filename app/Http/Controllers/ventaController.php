@@ -6,6 +6,9 @@ use App\Models\categoria;
 use App\Models\factura;
 use App\Models\modelo;
 use App\Models\producto;
+use App\Models\servicio;
+use App\Models\servicio_venta;
+use App\Models\tipoServicio;
 use App\Models\User;
 use App\Models\venta;
 use Illuminate\Http\Request;
@@ -35,7 +38,8 @@ class ventaController extends Controller
     public function create()
     {
         $producto = producto::all();
-        return view('ventas.create',compact('producto'));
+        $servicios=servicio::all();
+        return view('ventas.create',compact('producto','servicios'));
     }
 
     /**
@@ -76,7 +80,12 @@ class ventaController extends Controller
         $productoos=DB::table('producto_venta')->where('venta_id',$venta->id)->get();
         $categorias=categoria::all();
         $modelos=modelo::all();
-        return view('ventas.show',compact('venta','productos','productoos','categorias','modelos'));
+
+        $servicios=servicio::all();
+        $dservicios=servicio_venta::where('venta_id',$venta->id)->get();
+        $tservicios=tipoServicio::all();
+
+        return view('ventas.show',compact('venta','productos','productoos','categorias','modelos','servicios','dservicios','tservicios'));
     }
 
     /**

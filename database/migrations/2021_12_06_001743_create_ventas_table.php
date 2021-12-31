@@ -18,6 +18,8 @@ class CreateVentasTable extends Migration
             /* $table->string('Nro_v'); */
             $table->dateTime('Fecha_v');
             $table->float('montoTotal');
+            $table->string('longitud')->nullable();
+            $table->string('latitud')->nullable();
             $table->unsignedBigInteger('Id_us');
             $table->foreign('Id_us')->on ('users')->references('id'); //foranea
             $table->timestamps();
