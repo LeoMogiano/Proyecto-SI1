@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="img/SmarHome.jpeg" type="image/x-icon">
     <link rel="shortcut icon" href="{ { asset('img/SmarHome.jpeg') } }" type="image/x-icon">
     <link rel="stylesheet" href="css/styleW.css?v=<?php echo time(); ?>" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Smartplusshouse</title>
 
     <!-- Google Fonts -->
