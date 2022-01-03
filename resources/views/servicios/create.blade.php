@@ -18,11 +18,15 @@
         <input type="text"  name="descripción" class="focus border-primary  form-control" required>
         </div>
         <div class="form-group col-md-3" >
+            <h5>URL-Imagen:</h5>
+            <input type="text"  name="url" class="focus border-primary  form-control" required>   
+        </div>
+        <div class="form-group col-md-3" >
             <h5>Precio:</h5>
             <input type="text"  name="precio" class="focus border-primary  form-control" required>   
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-4">
             <h5>Nombre del Servicio:</h5>
             <select name="Id_tp"  class="focus border-primary  form-control">
                 @foreach ($tservicio as $tservicios)

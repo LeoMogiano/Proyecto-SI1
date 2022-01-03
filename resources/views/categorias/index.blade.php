@@ -13,9 +13,9 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            @can('gestionar usuario')
+            
                 <a class="btn btn-primary" href="{{ route('categorias.create') }}">Registrar Categoria</a>
-            @endcan
+            
         </div>
         <div class="card-body">
             <table class="table table-striped table-bordered shadow-lg mt-4" id="categorias">
@@ -35,18 +35,18 @@
                             <td>{{ $categorias->id }}</td>
                             <td>{{ $categorias->nombre }}</td>
                             <td>
-                                @can('gestionar usuario')
+                                
                                     <a class="btn btn-primary btn-sm"
                                         href="{{ route('categorias.edit', $categorias) }}">Editar</a>
-                                @endcan
+                                
 
                                 <form action="{{ route('categorias.destroy', $categorias) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    @can('gestionar usuario')
+                                    
                                         <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem"
                                             onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
-                                    @endcan
+                                    
 
                                 </form>
                             </td>

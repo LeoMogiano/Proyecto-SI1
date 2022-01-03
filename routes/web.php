@@ -22,6 +22,7 @@ use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\pagoServController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicioController;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,3 +68,4 @@ Route::resource('pago',frontVentaController::class)->names('pago');
 Route::resource('payment',frontFacController::class)->names('payment');
 Route::resource('fservicio',fventaServController::class)->names('fservicio');
 Route::resource('pagoserv',pagoServController::class)->names('pagoserv');
+Route::resource('roles', RoleController::class)->names('roles');

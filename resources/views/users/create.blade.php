@@ -68,6 +68,7 @@
                 <br>
 
                 <button  class="btn btn-danger btn-sm" type="submit">Crear Usuario</button>
+                <a class="btn btn-primary btn-sm" href="{{route('users.index')}}">Volver</a>
             </form>
 
     </div>

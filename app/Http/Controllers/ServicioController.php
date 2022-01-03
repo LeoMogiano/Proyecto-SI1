@@ -44,6 +44,7 @@ class ServicioController extends Controller
         $servicio=new servicio();
         $servicio->descripción=$request->input('descripción');
         $servicio->precio=$request->input('precio');
+        $servicio->url=$request->input('url');
         $servicio->Id_tp=$request->input('Id_tp');
         $servicio->save();
         date_default_timezone_set("America/La_Paz");

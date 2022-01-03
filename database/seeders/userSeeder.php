@@ -16,17 +16,24 @@ class userSeeder extends Seeder
     {   
         //userseeder es para guardar (o registrar una ) contraseña y correo cuando haces migraciones 
         $user=new User() ;
-        $user->name='admin';
+        $user->name='Admin';
         $user->email='admin@gmail.com';
         $user->password=bcrypt('12345');//bcrypt encripta la contraseña 
         $user->save();//save con  parentesis
         $user->assignRole('Administrador');//asigna un roll al  usuario que guardamos
-        //CREAMOS UN CLIENTEA
+        //CREAMOS UN CLIENTE
         $user=new User() ;
-        $user->name='cliente';
+        $user->name='Cliente';
         $user->email='cliente@gmail.com';
         $user->password=bcrypt('54321');//bcrypt encripta la contraseña 
         $user->save();//save con  parentesis
         $user->assignRole('Cliente');//asigna un roll al  usuario que guardamos
+        // VENDEDOR
+        $user=new User() ;
+        $user->name='Leo Mogiano';
+        $user->email='mogi@gmail.com';
+        $user->password=bcrypt('mogi123');//bcrypt encripta la contraseña 
+        $user->save();//save con  parentesis
+        $user->assignRole('Vendedor');//asigna un roll al  usuario que guardamos
     }
 }

@@ -13,9 +13,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-    @can('gestionar usuario')
+ 
     <a class="btn btn-primary" href="{{route('modelos.create')}}">Registrar Modelo</a>
-    @endcan 
+   
     </div>
     <div class="card-body">
         <table class="table table-striped table-bordered shadow-lg mt-4" id="modelos">
@@ -24,9 +24,9 @@
                     <th >Id</th>
                     <th >Nombres</th>
                     <th >Nombre de la Marca</th>
-                    @can('crear modelo', Model::class)
+                   
                     <th>Acciones</th>  
-                    @endcan
+                   
                    
                 </tr>
             </thead>
@@ -43,16 +43,16 @@
                     @endforeach
                     
                     <td>
-                        @can('gestionar usuario')
+                      
                         <a class="btn btn-primary btn-sm" href="{{route(    'modelos.edit',$modelos)}}">Editar</a>  
-                        @endcan
+                        
                         
                         <form action="{{route('modelos.destroy',$modelos)}}" method="POST">
                             @csrf
                             @method('delete')
-                            @can('gestionar usuario')
+                           
                             <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem" onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
-                            @endcan
+                           
                             
                         </form>
                     </td>

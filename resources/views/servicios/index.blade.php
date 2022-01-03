@@ -3,7 +3,7 @@
 @section('title', 'Smartplusshouse')
 
 @section('content_header')
-    <h1>Lista servicios</h1>
+    <h1>Lista Servicios</h1>
 @stop
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -14,7 +14,7 @@
     <div class="card">
         <div class="card-header">
             
-                <a class="btn btn-primary" href="{{ route('servicios.create') }}">Registrar servicio</a>
+                <a class="btn btn-primary" href="{{ route('servicios.create') }}">Registrar Servicio</a>
             
         </div>
         <div class="card-body">
@@ -24,7 +24,9 @@
                         <th>Id</th>
                         <th>Descripción</th>
                         <th>Precio</th>
+                        <th>Imagen</th>
                         <th>Nombre</th>
+                        
                         
                             <th>Acciones</th>
                         
@@ -37,6 +39,7 @@
                             <td>{{ $servicios->id }}</td>
                             <td>{{ $servicios->descripción }}</td>
                             <td>{{ $servicios->precio }}</td>
+                            <td><img src="{{ $servicios->url }}" alt="xd" width="100px"></td>
                             @foreach ($tservicio as $tservicios)
                                 @if ($servicios->Id_tp == $tservicios->id)
 

@@ -9,8 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('img/SmarHome.jpeg') }}" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('datetimepicker/jquery.datetimepicker.css') }}">
-
-
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleW.css') }}">
 
     <title>Smartplusshouse</title>
@@ -79,7 +78,7 @@
                                     </form>
                                 </li>
                             @endcan
-                            @can('AdminDueño')
+                            @can('Dashboard')
                                 <li class="nav-item">
                                     <a class="nav-link active" href="{{ route('perfil.index') }}"><i
                                             class="fa fa-key"></i>Dashboard</a>
@@ -330,7 +329,7 @@
                             <div class="form-group col-md-6">
                                 <input id="datetimepicker" type="text" name="Fecha_v" class="form-control"
                                     value="{{ old('Fecha_v') }}" autocomplete="off" id="Fecha_v" required>
-                                <label for="Fecha_v">Ingrese el Fecha de Venta</label>
+                                <label for="Fecha_v">Ingrese la Fecha de Entrega</label>
                             </div>
                             <div class="form-group col-md-3">
                                 <input type="text" class="form-control" name="latitud" id="latitud" readonly>
@@ -341,16 +340,7 @@
                                 <input type="text" class="form-control" name="longitud" id="longitud" readonly>
                                 <label for="longitud">Longitud</label>
                             </div>
-
-                            {{-- <div class="form-floating">
-                        <select name="matricula"  class="focus border-primary  form-control">
-                            @foreach ($vehiculo as $vehiculos)
-                                <option value="{{$vehiculos->id}}">{{$vehiculos->matricula}}</option>
-                            @endforeach
-                        </select>
-                        <label for="matricula">Matricula</label>
-                    </div> --}}
-
+                        </div>
                             <div class="form-group col-md-3">
                                 <button class="btn btn-primary" type="submit">Registrar Pedido</button>
                             </div>
@@ -554,9 +544,9 @@
             jQuery('#datetimepicker').datetimepicker();
         });
     </script>
-
+    <script src="{{ asset('js/app2.js') }}"></script>
     <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxph9T1koe4cRoEUGVAgFgvDFhqpgFYCU&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzFYkPY-6MF--52UAWVRVzhj4pV5MQCCY&callback=initMap">
     </script>
 </body>
 

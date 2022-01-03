@@ -23,6 +23,11 @@
 
         </div>
         <div class="form-group col-md-3">
+            <h5>Precio:</h5>
+            <input type="text" name="url" value="{{ $servicio->url }}" class="focus border-primary  form-control" required>
+
+        </div>
+        <div class="form-group col-md-3">
             <div class="form-group">
                 <h5>Nombre del Servicio:</h5>
                 <select name="Id_tp" class="focus border-primary  form-control">

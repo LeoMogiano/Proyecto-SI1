@@ -46,7 +46,14 @@
             <span class="text-danger">{{$message}}</span>
         @enderror
         </div>
-
+        <div class="form-group col-md-3">
+            <h5>Url-Imagen:</h5>
+            <input type="text"  name="url" value="{{$producto->url}}" class="focus border-primary  form-control">
+            @error('url')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+            </div>
+        
         <div class="form-group col-md-3">
         <h5>Stock:</h5>
         <input type="text"  name="stock" value="{{$producto->stock}}" class="focus border-primary  form-control">

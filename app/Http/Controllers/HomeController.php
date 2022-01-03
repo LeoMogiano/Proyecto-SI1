@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\factura;
 use App\Models\producto;
+use App\Models\servicio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,6 +30,7 @@ class HomeController extends Controller
         /* return view('home'); */
         $producto=producto::all();
         $factura=factura::all();
-        return view('welcome',compact('producto','factura'));
+        $servicio=servicio::all();
+        return view('welcome',compact('producto','factura','servicio'));
     }
 }

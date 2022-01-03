@@ -17,6 +17,7 @@ class CreateServiciosTable extends Migration
             $table->id();
             $table->string('descripción',60);
             $table->float('precio');
+            $table->string('url')->nullable();
             $table->unsignedBigInteger('Id_tp');                            //foranea
             $table->foreign('Id_tp')->on ('tipo_servicios')->references('id'); //foranea
             $table->timestamps();

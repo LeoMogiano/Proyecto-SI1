@@ -11,6 +11,7 @@ class servicio extends Model
     protected $fillable=[
         'descripción',
         'precio',
+        'url',
         'Id_tp'
     ];
 }

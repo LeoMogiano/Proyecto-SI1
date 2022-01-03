@@ -9,8 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('img/SmarHome.jpeg') }}" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('datetimepicker/jquery.datetimepicker.css') }}">
-
-
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styleW.css') }}">
 
     <title>Smartplusshouse</title>
@@ -70,7 +69,7 @@
 
                                     <a class="nav-link active" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                                                                            document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -79,7 +78,7 @@
                                     </form>
                                 </li>
                             @endcan
-                            @can('AdminDueño')
+                            @can('Dashboard')
                                 <li class="nav-item">
                                     <a class="nav-link active" href="{{ route('perfil.index') }}"><i
                                             class="fa fa-key"></i>Dashboard</a>
@@ -134,9 +133,9 @@
                         <a href="#">Carrito - <span class="cart-amunt">$800</span> <i
                                 class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div> --}}
-                </div>
             </div>
         </div>
+    </div>
     </div> <!-- End site branding area -->
 
 
@@ -157,10 +156,10 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
-                        <li ><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li class="active"><a href="{{route('payment.create')}}">Servicios</a></li>
+                        <li><a href="{{ route('front.create') }}">Productos</a></li>
+                        <li class="active"><a href="{{ route('payment.create') }}">Servicios</a></li>
 
-                        
+
                         <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
@@ -317,7 +316,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    <h1>Registrar Pedido</h1>
+                    <h1>Registrar Reserva</h1>
                 </div>
                 <div class="row" id="fila">
                     <div class="col-6">
@@ -326,11 +325,10 @@
                     </div>
                     <div class="col-6">
                         <div class="card-body">
-
                             <div class="form-group col-md-6">
                                 <input id="datetimepicker" type="text" name="Fecha_v" class="form-control"
                                     value="{{ old('Fecha_v') }}" autocomplete="off" id="Fecha_v" required>
-                                <label for="Fecha_v">Ingrese el Fecha de Venta</label>
+                                <label for="Fecha_v">Ingrese la Fecha de Reserva</label>
                             </div>
                             <div class="form-group col-md-3">
                                 <input type="text" class="form-control" name="latitud" id="latitud" readonly>
@@ -341,25 +339,16 @@
                                 <input type="text" class="form-control" name="longitud" id="longitud" readonly>
                                 <label for="longitud">Longitud</label>
                             </div>
-
-                            {{-- <div class="form-floating">
-                        <select name="matricula"  class="focus border-primary  form-control">
-                            @foreach ($vehiculo as $vehiculos)
-                                <option value="{{$vehiculos->id}}">{{$vehiculos->matricula}}</option>
-                            @endforeach
-                        </select>
-                        <label for="matricula">Matricula</label>
-                    </div> --}}
-
                             <div class="form-group col-md-3">
                                 <button class="btn btn-primary" type="submit">Registrar Pedido</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br>
-
             </div>
+            <br>
+
+        </div>
     </form>
     <br>
 
@@ -413,7 +402,7 @@
             </div>
         @endforeach
     </div> --}}
-    
+
     {{-- <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($productos as $producto)
                 <div class="col">
@@ -554,9 +543,10 @@
             jQuery('#datetimepicker').datetimepicker();
         });
     </script>
+    <script src="{{ asset('js/app2.js') }}"></script>
 
     <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxph9T1koe4cRoEUGVAgFgvDFhqpgFYCU&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzFYkPY-6MF--52UAWVRVzhj4pV5MQCCY&callback=initMap">
     </script>
 </body>
 

@@ -13,9 +13,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        @can('Modo Admin')
+        
         <a class="btn btn-primary" href="{{route('tipoServicios.create')}}">Registrar Tipo</a>
-        @endcan
+       
     </div>
     <div class="card-body">
         <table class="table table-striped table-bordered shadow-lg mt-4" id="tipoServicios">
@@ -37,11 +37,11 @@
                                 <td>{{$tipoServicio->descripción}}</td>
                                 
                                 <td>
-                                    @can('Modo Cliente')
-                                    <button class="btn btn-info btn-sm"style="margin-top: 0.35rem; margin-right: 0.5rem; margin-bottom: 0.25rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" >Solicitar</button> 
-                                @endcan
+                                    
+                                    {{-- <button class="btn btn-info btn-sm"style="margin-top: 0.35rem; margin-right: 0.5rem; margin-bottom: 0.25rem" tipoServicio="return confirm('¿ESTA SEGURO DE  BORRAR?')" >Solicitar</button> --}} 
+                              
                                      
-                                    @can('Modo Admin')
+                                    
                                     <a href="{{route('tipoServicios.edit', $tipoServicio)}}" class="btn btn-primary btn-sm">Editar<a>
                                         
                                     <form action="{{route('tipoServicios.destroy', $tipoServicio)}}" method="post">
@@ -49,7 +49,7 @@
                                         @method('delete')
                                         
                                         <button class="btn btn-danger btn-sm" style="margin-top: 0.35rem" onclick="return confirm('¿ESTÁ SEGURO DE BORRAR?')" value="Borrar">Eliminar</button>
-                                     @endcan   
+                                        
                                     </form>
                                 </td>
                                 

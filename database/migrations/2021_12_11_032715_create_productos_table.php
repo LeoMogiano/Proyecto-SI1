@@ -20,6 +20,7 @@ class CreateProductosTable extends Migration
             $table->float('precio');
             $table->float('costo');
             $table->integer('stock');
+            $table->string('url')->nullable();
             $table->unsignedBigInteger('Id_categoria');                            //foranea
             $table->unsignedBigInteger('Id_modelo');                               //foranea
             $table->foreign('Id_categoria')->on ('categorias')->references('id'); //foranea

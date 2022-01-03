@@ -79,7 +79,7 @@
                                     </form>
                                 </li>
                             @endcan
-                            @can('AdminDueño')
+                            @can('Dashboard')
                                 <li class="nav-item">
                                     <a class="nav-link active" href="{{ route('perfil.index') }}"><i
                                             class="fa fa-key"></i>Dashboard</a>
@@ -192,14 +192,14 @@
 @endif
 
     <div class="main1" style="padding-left: 2rem">
-
+        <h1>Servicios</h1>
         @foreach ($servicios as $servicio)
 
             <div class="card1">
                 <form method="post" action="{{ route('pagoserv.store') }}">
                     @csrf
                     <div class="image1">
-                        <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
+                        <img src="{{ $servicio->url }}">
                     </div>
                     <div class="title1" style="display: flex; justify-content: center">
                         <input style="padding-right: rem" value="{{ $servicio->id }}" name="servicio_id" hidden>
@@ -210,7 +210,8 @@
                             @endif
                         @endforeach
                     </div>
-                    
+                    <p class="card-text" style="display: flex; justify-content: center"> <b>Modalidad
+                        :</b>{{ $servicio->descripción }}</p>
                     
                     <p class="card-text" style="display: flex; justify-content: center">
                         <b>Bs</b>{{ $servicio->precio }}

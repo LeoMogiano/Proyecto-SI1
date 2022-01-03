@@ -254,6 +254,7 @@ return [
             'text' => 'Perfil',
             'route'  => 'perfil.index',
             'icon' => 'fas fa-fw fa-user',
+            'can'       =>  'Gestionar Perfil'
         ],
 
         // [
@@ -278,13 +279,19 @@ return [
                     'text' => 'Bitacora',
                     'route'  => 'Bitacora.index',
                     'icon'        => 'fas fa-book fa-fw',
+                    'can'       =>  'Gestionar Bitacora'
                 ],
                 [
                     'text'       => 'Usuarios',
                     'icon' =>        'fas fa-users fa-fw',
                     'route'        => 'users.index',
-                    'can'       =>  'gestionar usuario'
-        
+                    'can'       =>  'Gestionar Usuario'
+                ],
+                [
+                    'text'       => 'Roles',
+                    'icon' =>        'fas fa-user-tie fa-fw',
+                    'route'        => 'roles.index',
+                    'can'       =>  'Gestionar Roles'
                 ]  
             ]
         ],
@@ -296,12 +303,13 @@ return [
                     'text' => 'Proveedores',
                     'route'  => 'proveedores.index',
                     'icon'        => 'fas fa-user-tie fa-fw',
-                    'can'       =>  'Modo Admin',
+                    'can'       =>  'Gestionar Proveedores'
                 ],
                 [
                     'text' => 'Compras',
                     'route'  => 'compras.index',
                     'icon'        => 'fas fa-boxes fa-fw',
+                    'can'       =>  'Gestionar Compra'
                 ]
             ]
         ],
@@ -313,21 +321,25 @@ return [
                     'text' => 'Ventas',
                     'route'  => 'ventas.index',
                     'icon'        => 'fas fa-shopping-cart fa-fw',
+                    'can'       =>  'Gestionar NotaVenta'
                 ],
                 [
                     'text' => 'Facturas',
                     'route'  => 'facturas.index',
                     'icon'        => 'fas fa-file-invoice fa-fw',
+                    'can'       =>  'Gestionar Facturas'
                 ],
                 [
                     'text' => 'Servicios',
                     'route'  => 'servicios.index',
                     'icon'        => 'fas fa-concierge-bell fa-fw',
+                    'can'       =>  'Gestionar Servicios'
                 ],
                 [
                     'text' => 'Tipos de Servicios',
                     'route'  => 'tipoServicios.index',
                     'icon'        => 'fab fa-servicestack fa-fw',
+                    'can'       =>  'Gestionar TipoServicios'
                 ]
             ]
         ],
@@ -339,21 +351,25 @@ return [
                     'text' => 'Categorias',
                     'route'  => 'categorias.index',
                     'icon'        => 'fas fa-copyright fa-fw',
+                    'can'       =>  'Gestionar Categorias'
                 ],
                 [
                     'text' => 'Marcas',
                     'route'  => 'marcas.index',
                     'icon'        => 'fab fa-maxcdn fa-fw',
+                    'can'       =>  'Gestionar Marcas'
                 ],
                 [
                     'text' => 'Modelos',
                     'route'  => 'modelos.index',
                     'icon'        => 'fab fa-medium fa-fw',
+                    'can'       =>  'Gestionar Modelos'
                 ],
                 [
                     'text' => 'Productos',
                     'route'  => 'productos.index',
                     'icon'        => 'fab fa-product-hunt fa-fw',
+                    'can'       =>  'Gestionar Productos'
                 ]
             ]
         ],

@@ -52,6 +52,7 @@ class ProductoController extends Controller
         $producto->precio=$request->input('precio');
         $producto->costo=$request->input('costo');
         $producto->stock=$request->input('stock');
+        $producto->url=$request->input('url');
         $producto->Id_categoria=$request->input('categoria');
         $producto->Id_modelo=$request->input('modelo');
         $producto->save();

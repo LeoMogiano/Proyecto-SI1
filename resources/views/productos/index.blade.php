@@ -13,9 +13,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-    @can('Modo Admin')
+  
     <a class="btn btn-primary" href="{{route('productos.create')}}">Registrar Producto</a>
-    @endcan
+  
     
     
     </div>
@@ -29,8 +29,9 @@
                     <th >Precios</th>
                     <th >Costos</th>
                     <th>Stock</th>
+                    <th>Imagen</th> 
                     <th >Categorias</th>
-                    <th >Modelos</th>          
+                    <th >Modelos</th>     
                     <th>Acciones</th>  
                     
                    
@@ -45,6 +46,7 @@
                     <td>{{$productos->precio}}</td>
                     <td>{{$productos->costo}}</td>
                     <td>{{$productos->stock}}</td>
+                    <td><img src="{{ $productos->url }}" alt="xd" width="75px"></td>
                     @foreach ($categoria as $categorias)
                         @if ($productos->Id_categoria==$categorias->id)
 
@@ -60,10 +62,10 @@
                     @endforeach
                     
                     <td>
-                        @can('Modo Cliente')
-                        <a class="btn btn-primary" href="">solicitar Producto</a>
-                          @endcan
-                        @can('Modo Admin')
+                       
+                        {{-- <a class="btn btn-primary" href="">solicitar Producto</a> --}}
+                          
+                        
                         <a class="btn btn-primary btn-sm" href="{{route(    'productos.edit',$productos)}}">Editar</a>  
                         <form action="{{route('productos.destroy',$productos)}}" method="POST">
                             @csrf
@@ -73,7 +75,7 @@
                             
                             
                         </form>
-                        @endcan 
+                       
                         
                         
                         
