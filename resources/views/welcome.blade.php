@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/SmarHome.jpeg" type="image/x-icon">
     <link rel="shortcut icon" href="{ { asset('img/SmarHome.jpeg') } }" type="image/x-icon">
     <link rel="stylesheet" href="css/styleW.css?v=<?php echo time(); ?>" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
     <title>Smartplusshouse</title>
 
     <!-- Google Fonts -->
@@ -24,8 +24,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">  {{-- Y Estos dos son localmente --}}
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
 
-    <link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}"> {{-- ESTOs DOS SON PARA LA NUBE --}}
     <link rel="stylesheet" href="{{ secure_asset('css/style2.css') }}">
     <link rel="stylesheet" href="css/responsive.css">
 
