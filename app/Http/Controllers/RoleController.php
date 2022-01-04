@@ -41,8 +41,10 @@ class RoleController extends Controller
         $this->validate($request,[
             'name'=> 'required|unique:roles'
         ]);
-        $rol = new Role($request->all());
+        $rol = new Role();
+        $rol->name=$request->name;
         $rol->save();
+        /* return $rol; */
         $rol->syncPermissions($request->permisos);
         return redirect()->route('roles.index');
     }
