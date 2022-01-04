@@ -295,7 +295,7 @@
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-1.jpg') }}" alt="">
                                 </div>
-                                <h2><a href="single-product.html">Producto 5</a></h2>
+                                <h2>Producto 5</h2>
                                 <div class="product-carousel-price">
                                     <ins>$700.00</ins> <del>$800.00</del>
                                 </div>
@@ -307,7 +307,7 @@
 
                                 </div>
 
-                                <h2><a href="#">Producto 4</a></h2>
+                                <h2>Producto 4</h2>
                                 <div class="product-carousel-price">
                                     <ins>$899.00</ins> <del>$999.00</del>
                                 </div>
@@ -318,7 +318,7 @@
 
                                 </div>
 
-                                <h2><a href="single-product.html">Producto 3</a></h2>
+                                <h2>Producto 3</h2>
 
                                 <div class="product-carousel-price">
                                     <ins>$400.00</ins> <del>$425.00</del>
@@ -330,7 +330,7 @@
 
                                 </div>
 
-                                <h2><a href="single-product.html">Producto 3 microsoft</a></h2>
+                                <h2>Producto 3 microsoft</h2>
 
                                 <div class="product-carousel-price">
                                     <ins>$200.00</ins> <del>$225.00</del>
@@ -342,7 +342,7 @@
 
                                 </div>
 
-                                <h2><a href="#">Producto 2</a></h2>
+                                <h2>Producto 2</h2>
 
                                 <div class="product-carousel-price">
                                     <ins>$1200.00</ins> <del>$1355.00</del>
