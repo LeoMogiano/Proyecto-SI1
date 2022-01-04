@@ -156,11 +156,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
+                        @can('Session')
                         <li class="active"><a href="{{ route('front.create') }}">Productos</a></li>
                         <li><a href="{{route('payment.create')}}">Servicios</a></li>
 
                         
                         <li><a href="{{ route('payment.index') }}">Facturas</a></li>
+                        @endcan
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
                     </ul>
