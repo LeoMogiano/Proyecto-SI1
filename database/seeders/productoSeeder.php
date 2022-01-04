@@ -33,7 +33,7 @@ class productoSeeder extends Seeder
        $producto->precio=120;
        $producto->costo=50;
        $producto->stock=20; 
-       $producto->url='https://kymovil.com/wp-content/uploads/2020/12/695-3cfbda-350x350.jpg';
+       $producto->url='https://commax.com.ar/wp-content/uploads/2018/09/intercomunicadores-ondaport-350x350.png';
        $producto->Id_categoria=12; 
        $producto->Id_modelo=51; 
        $producto->save();
