@@ -11,7 +11,7 @@
     {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
     <title>Smartplusshouse</title>
 
-    
+
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
         type='text/css'>
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">  {{-- Y Estos dos son localmente --}}
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}"> {{-- Y Estos dos son localmente --}}
     <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
 
     <link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}"> {{-- ESTOs DOS SON PARA LA NUBE --}}
@@ -148,10 +148,10 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ route('homex.index') }}">Inicio</a></li>
                         @can('Session')
-                        <li><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li><a href="{{ route('payment.create') }}">Servicio</a></li>
+                            <li><a href="{{ route('front.create') }}">Productos</a></li>
+                            <li><a href="{{ route('payment.create') }}">Servicio</a></li>
 
-                        <li><a href="{{ route('payment.index') }}">Facturas</a></li>
+                            <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         @endcan
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
@@ -290,32 +290,21 @@
                     <div class="latest-product">
                         <h2 class="section-title"> <b>Últimos Productos</b> </h2>
                         <div class="product-carousel">
+
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-1.jpg') }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to
-                                            cart</a>
-                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i>
-                                            See details</a>
-                                    </div>
                                 </div>
-
                                 <h2><a href="single-product.html">Producto 5</a></h2>
-
                                 <div class="product-carousel-price">
                                     <ins>$700.00</ins> <del>$800.00</del>
                                 </div>
                             </div>
+                            
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-2.jpg') }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>
-                                            Añadir Al Carrito</a>
-                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i>
-                                            Ver Detalles</a>
-                                    </div>
+
                                 </div>
 
                                 <h2><a href="#">Producto 4</a></h2>
@@ -326,12 +315,7 @@
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-3.jpg') }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>
-                                            Añadir Al Carrito</a>
-                                        <a href="single-product.html" class="view-details-link"><i
-                                                class="fa fa-link"></i> See details</a>
-                                    </div>
+
                                 </div>
 
                                 <h2><a href="single-product.html">Producto 3</a></h2>
@@ -343,12 +327,7 @@
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-4.jpg') }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>
-                                            Añadir al Carrito</a>
-                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i>
-                                            Ver Detalles</a>
-                                    </div>
+
                                 </div>
 
                                 <h2><a href="single-product.html">Producto 3 microsoft</a></h2>
@@ -360,12 +339,7 @@
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-5.jpg') }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i>
-                                            Añadir al carrito</a>
-                                        <a href="single-product.html" class="view-details-link"><i
-                                                class="fa fa-link"></i> Ver Detalles</a>
-                                    </div>
+
                                 </div>
 
                                 <h2><a href="#">Producto 2</a></h2>
@@ -374,23 +348,7 @@
                                     <ins>$1200.00</ins> <del>$1355.00</del>
                                 </div>
                             </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="{{ asset('img/product-6.jpg') }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add
-                                            to cart</a>
-                                        <a href="#" class="view-details-link"><i class="fa fa-link"></i>
-                                            See details</a>
-                                    </div>
-                                </div>
-
-                                <h2><a href="single-product.html">Producto 1</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>$400.00</ins>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
