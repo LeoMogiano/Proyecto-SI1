@@ -51,7 +51,7 @@
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li>
                             <!-- Solo se muestra cuando se está logeado -->
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
-                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1"><i class="fa fab fa-whatsapp"></i>Whatsapp</a></li>
+                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i class="fa fab fa-whatsapp"></i> Whatsapp</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
