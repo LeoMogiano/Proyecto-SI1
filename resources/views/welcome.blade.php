@@ -51,7 +51,7 @@
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li>
                             <!-- Solo se muestra cuando se está logeado -->
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
-                            <li><a href="#"><i class="fa fa-cart-arrow-down"></i> Mi carrito</a></li>
+                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1"><i class="fa fab fa-whatsapp"></i>Whatsapp</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
@@ -385,12 +385,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Las más vendidas</h2>
-                        <a href="" class="wid-view-more">ver todo</a>
+                        <h2 class="product-wid-title"><b>Las más vendidas</b> </h2>
+                        {{-- <a href="" class="wid-view-more">ver todo</a> --}}
                         <div class="single-wid-product">
                             <a href="#"><img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
                                     class="product-thumb"></a>
-                            <h2><a href="single-product.html">Producto 9</a></h2>
+                            <h2>Producto 9</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -403,9 +403,9 @@
                             </div>
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="{{ asset('img/product-thumb-2.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="single-product.html">Producto 8</a></h2>
+                            <img src="{{ asset('img/product-thumb-2.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 8</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -418,9 +418,9 @@
                             </div>
                         </div>
                         <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-3.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="#">Producto 7</a></h2>
+                            <img src="{{ asset('img/product-thumb-3.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 7</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -436,12 +436,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">visto recientemente</h2>
-                        <a href="#" class="wid-view-more">Ver todo</a>
+                        <h2 class="product-wid-title"><b>Visto recientemente</b> </h2>
+                        {{-- <a href="#" class="wid-view-more">Ver todo</a> --}}
                         <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-4.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="#">Producto 6</a></h2>
+                            <img src="{{ asset('img/product-thumb-4.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 6</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -454,9 +454,9 @@
                             </div>
                         </div>
                         <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="#">Producto 5</a></h2>
+                            <img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 5</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -469,9 +469,9 @@
                             </div>
                         </div>
                         <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-2.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="#">Producto 4</a></h2>
+                            <img src="{{ asset('img/product-thumb-2.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 4</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -487,12 +487,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title">Nuevos Productos</h2>
-                        <a href="#" class="wid-view-more">Ver Todo</a>
+                        <h2 class="product-wid-title"><b>Nuevos Productos</b></h2>
+                        {{-- <a href="#" class="wid-view-more">Ver Todo</a> --}}
                         <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-3.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="#">Producto 3</a></h2>
+                            <img src="{{ asset('img/product-thumb-3.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 3</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -505,9 +505,9 @@
                             </div>
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="{{ asset('img/product-thumb-4.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="single-product.html">Producto 2</a></h2>
+                            <img src="{{ asset('img/product-thumb-4.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 2</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -520,9 +520,9 @@
                             </div>
                         </div>
                         <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2><a href="#">Producto 1</a></h2>
+                            <img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
+                                    class="product-thumb">
+                            <h2>Producto 1</h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
