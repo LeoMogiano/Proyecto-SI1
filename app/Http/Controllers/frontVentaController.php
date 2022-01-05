@@ -51,11 +51,12 @@ class frontVentaController extends Controller
         $dventa->producto_id=$request->producto_id;
         $dventa->cantidad=$request->cantidad;
         $precio=producto::find($request->producto_id)->precio;
+        $des=producto::find($request->producto_id)->descuento;
         $dventa->precio_tot=$request->cantidad*$precio;
-        if (!$request->descuento) {
+        if (!$des) {
             $dventa->descuento=0;
         } else {
-            $dventa->descuento=$request->descuento;
+            $dventa->descuento=$des;
             $nuevo_precio=$dventa->precio_tot*($dventa->descuento/100);
             $dventa->precio_tot-=$nuevo_precio;
            

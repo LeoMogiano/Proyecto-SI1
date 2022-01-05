@@ -20,6 +20,7 @@ class productoSeeder extends Seeder
        $producto->color='Marron'; 
        $producto->precio=350;
        $producto->costo=250;
+       $producto->descuento=20; /* porcentaje */
        $producto->stock=15; 
        $producto->url='https://ae01.alicdn.com/kf/H06ca0c7ccc5e4d929dcdfcd9430b707cj.jpg_350x350.jpg';
        $producto->Id_categoria=11; 
@@ -32,6 +33,7 @@ class productoSeeder extends Seeder
        $producto->color='Blanco'; 
        $producto->precio=120;
        $producto->costo=50;
+       $producto->descuento=10;
        $producto->stock=20; 
        $producto->url='https://commax.com.ar/wp-content/uploads/2018/09/intercomunicadores-ondaport-350x350.png';
        $producto->Id_categoria=12; 
@@ -44,6 +46,7 @@ class productoSeeder extends Seeder
        $producto->color='Plata'; 
        $producto->precio=1200;
        $producto->costo=500;
+       $producto->descuento=0;
        $producto->stock=10; 
        $producto->url='https://commax.com.ar/wp-content/uploads/2018/09/intercomunicadores-ondaport-350x350.png';
        $producto->Id_categoria=10; 

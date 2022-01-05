@@ -41,13 +41,13 @@
                     <input type="text" name="cantidad" class="focus border-primary  form-control" required>
 
                 </div>
-                <h5>Descuento(Dejar en blanco si no aplica):</h5>
+                {{-- <h5>Descuento(Dejar en blanco si no aplica):</h5>
                 <div class="form-group d-flex col-md-1">
-
-                    <input type="text" name="descuento" class="focus border-primary  form-control">
+                    @foreach ($productos as $producto)
+                    <input type="text" name="descuento" value="{{ $producto->descuento }}"class="focus border-primary  form-control">
                     <h2>%</h2>
-
-                </div>
+                    @endforeach
+                </div> --}}
 
                 <br>
                 <button class="btn btn-primary" type="submit">Registrar</button>

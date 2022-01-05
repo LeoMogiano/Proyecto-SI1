@@ -24,14 +24,15 @@
             <thead>
                 <tr>
                     <th >Id</th>
-                    <th >Nombres</th>
-                    <th >Colores</th>
-                    <th >Precios</th>
-                    <th >Costos</th>
+                    <th >Nombre</th>
+                    <th >Color</th>
+                    <th >Precio</th>
+                    <th >Costo</th>
+                    <th >Des</th>
                     <th>Stock</th>
-                    <th>Imagen</th> 
-                    <th >Categorias</th>
-                    <th >Modelos</th>     
+                    <th>IMG</th> 
+                    <th >Cat</th>
+                    <th >Model</th>     
                     <th>Acciones</th>  
                     
                    
@@ -45,7 +46,8 @@
                     <td>{{$productos->color}}</td>
                     <td>{{$productos->precio}}</td>
                     <td>{{$productos->costo}}</td>
-                    <td>{{$productos->stock}}</td>
+                    <td>{{$productos->descuento}}</td>
+                    <td >{{$productos->stock}}</td>
                     <td><img src="{{ $productos->url }}" alt="xd" width="75px"></td>
                     @foreach ($categoria as $categorias)
                         @if ($productos->Id_categoria==$categorias->id)

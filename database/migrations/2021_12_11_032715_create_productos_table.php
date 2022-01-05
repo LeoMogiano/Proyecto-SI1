@@ -19,6 +19,7 @@ class CreateProductosTable extends Migration
             $table->string('color',25);
             $table->float('precio');
             $table->float('costo');
+            $table->float('descuento')->nullable();
             $table->integer('stock');
             $table->string('url')->nullable();
             $table->unsignedBigInteger('Id_categoria');                            //foranea

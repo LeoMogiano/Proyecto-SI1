@@ -49,6 +49,12 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <br>
+                    <h5>descuento:</h5>
+                    <input type="text" name="descuento" class="focus border-primary  form-control" required>
+                    @error('descuento')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                    <br>
                     <h5>URL-Imagen:</h5>
                     <input type="text" name="url" class="focus border-primary  form-control" required>
                     @error('url')

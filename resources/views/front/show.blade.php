@@ -55,7 +55,7 @@
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li>
                             <!-- Solo se muestra cuando se está logeado -->
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
-                            <li><a href="#"><i class="fa fa-cart-arrow-down"></i> Mi carrito</a></li>
+                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i class="fa fab fa-whatsapp"></i> Whatsapp</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
@@ -350,9 +350,9 @@
                                     @if ($productoo->producto_id == $producto->id)
                                         <td>{{ $producto->nombre }}</td>
                                         <td>{{ $productoo->cantidad }}</td>
-                                        <td>{{ $producto->precio }}</td>
-                                        <td>{{ $productoo->precio_tot }}</td>
-                                        <td>{{ $productoo->descuento }}</td>
+                                        <td>{{ $producto->precio }}Bs</td>
+                                        <td>{{ $productoo->precio_tot }}Bs</td>
+                                        <td>{{ $productoo->descuento }}%</td>
                                         @foreach ($categorias as $categoria)
                                             @if ($categoria->id == $producto->Id_categoria)
                                                 <td>{{ $categoria->nombre }}</td>
