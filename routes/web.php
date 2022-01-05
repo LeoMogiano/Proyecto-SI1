@@ -24,6 +24,9 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicioController;
+use App\Models\factura;
+use App\Models\producto;
+use App\Models\servicio;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -39,7 +42,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () { //get-obtener una vista
    // return view('auth/register');
-   return view('welcome');
+   /* return view('welcome'); */ /* por defecto 5/1/2021 */
+   $producto=producto::all();
+        $factura=factura::all();
+        $servicio=servicio::all();
+        return view('welcome',compact('producto','factura','servicio'));
+    
 });
 
 

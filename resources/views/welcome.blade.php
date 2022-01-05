@@ -290,18 +290,23 @@
                     <div class="latest-product">
                         <h2 class="section-title"> <b>Últimos Productos</b> </h2>
                         <div class="product-carousel">
-
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="{{ asset('img/product-1.jpg') }}" alt="">
-                                </div>
-                                <h2>Producto 5</h2>
-                                <div class="product-carousel-price">
-                                    <ins>$700.00</ins> <del>$800.00</del>
-                                </div>
-                            </div>
+                        @foreach ($producto as $productos)
+                            @if ($productos->descuento > 0)
+                                
                             
                             <div class="single-product">
+                                <div class="product-f-image">
+                                    {{-- <img src="{{ asset('img/product-1.jpg') }}" alt=""> --}}
+                                    <img src="{{$productos->url}}" alt="">
+                                </div>
+                                <h2>{{$productos->nombre}}</h2>
+                                <div class="product-carousel-price">
+                                    <ins>{{$productos->precio-$productos->precio*$productos->descuento/100}}Bs</ins> <del>{{$productos->precio}}Bs</del>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                            {{-- <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-2.jpg') }}" alt="">
 
@@ -347,7 +352,7 @@
                                 <div class="product-carousel-price">
                                     <ins>$1200.00</ins> <del>$1355.00</del>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                         </div>
                     </div>
