@@ -70,7 +70,10 @@ class frontFacController extends Controller
         $lastActivity->subject_id= $factura->id;
         $lastActivity->save();
         $producto=producto::all();
-        return view('welcome');
+        $factura=factura::all();
+        $servicio=servicio::all();
+       /*  añadir los models y mandarle a welcome */
+        return view('welcome', compact('producto','factura','servicio'));
     }
 
     /**
