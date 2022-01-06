@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\factura;
 use App\Models\producto;
 use App\Models\servicio;
+use App\Models\tipoServicio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $producto=producto::all();
         $factura=factura::all();
         $servicio=servicio::all();
-        return view('welcome',compact('producto','factura','servicio'));
+        $tservicio=tipoServicio::all();
+        return view('welcome',compact('producto','factura','servicio','tservicio'));
     }
 }

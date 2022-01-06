@@ -72,8 +72,9 @@ class frontFacController extends Controller
         $producto=producto::all();
         $factura=factura::all();
         $servicio=servicio::all();
+        $tservicio=tipoServicio::all();
        /*  añadir los models y mandarle a welcome */
-        return view('welcome', compact('producto','factura','servicio'));
+        return view('welcome', compact('producto','factura','servicio','tservicio'));
     }
 
     /**
@@ -119,6 +120,10 @@ class frontFacController extends Controller
     public function destroy($id)
     {
         $ventap=venta_producto::where('id',$id)->first();
+        $cant=$ventap->cantidad;
+        $producto=producto::where('id',$ventap->producto_id)->first();
+        $producto->stock+=$cant;
+        $producto->save();
         $venta=venta::where('id',$ventap->venta_id)->first();
         $venta->montoTotal-=$ventap->precio_tot;
         $venta->save();

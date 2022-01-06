@@ -51,7 +51,8 @@
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li>
                             <!-- Solo se muestra cuando se está logeado -->
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
-                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i class="fa fab fa-whatsapp"></i> Whatsapp</a></li>
+                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i
+                                        class="fa fab fa-whatsapp"></i> Whatsapp</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
@@ -290,22 +291,26 @@
                     <div class="latest-product">
                         <h2 class="section-title"> <b>Últimos Productos</b> </h2>
                         <div class="product-carousel">
-                        @foreach ($producto as $productos)
-                            @if ($productos->descuento > 0)
-                                
-                            
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    {{-- <img src="{{ asset('img/product-1.jpg') }}" alt=""> --}}
-                                    <img src="{{$productos->url}}" alt="">
+                            @foreach ($producto as $productos)
+
+
+
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        {{-- <img src="{{ asset('img/product-1.jpg') }}" alt=""> --}}
+                                        <img src="{{ $productos->url }}" alt="">
+                                    </div>
+                                    <h2>{{ $productos->nombre }}</h2>
+                                    <div class="product-carousel-price">
+
+                                        <ins>{{ $productos->precio - ($productos->precio * $productos->descuento) / 100 }}Bs</ins>
+                                        @if ($productos->descuento > 0)
+                                            <del>{{ $productos->precio }}Bs</del>
+                                        @endif
+                                    </div>
                                 </div>
-                                <h2>{{$productos->nombre}}</h2>
-                                <div class="product-carousel-price">
-                                    <ins>{{$productos->precio-$productos->precio*$productos->descuento/100}}Bs</ins> <del>{{$productos->precio}}Bs</del>
-                                </div>
-                            </div>
-                            @endif
-                        @endforeach
+
+                            @endforeach
                             {{-- <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="{{ asset('img/product-2.jpg') }}" alt="">
@@ -353,7 +358,7 @@
                                     <ins>$1200.00</ins> <del>$1355.00</del>
                                 </div>
                             </div> --}}
-                            
+
                         </div>
                     </div>
                 </div>
@@ -392,153 +397,89 @@
                     <div class="single-product-widget">
                         <h2 class="product-wid-title"><b>Las más vendidas</b> </h2>
                         {{-- <a href="" class="wid-view-more">ver todo</a> --}}
-                        <div class="single-wid-product">
-                            <a href="#"><img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
-                                    class="product-thumb"></a>
-                            <h2>Producto 9</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-2.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 8</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-3.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 7</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
+                        @foreach ($producto as $productos)
+                            @if ($productos->stock < 10)
+
+                                <div class="single-wid-product">
+                                    <a><img src="{{ $productos->url }}" alt="" class="product-thumb"></a>
+                                    <h2>{{ $productos->nombre }}</h2>
+                                    <div class="product-wid-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product-wid-price">
+
+                                        <ins>{{ $productos->precio - ($productos->precio * $productos->descuento) / 100 }}Bs</ins>
+                                        @if ($productos->descuento > 0)
+                                            <del>{{ $productos->precio }}Bs</del>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title"><b>Visto recientemente</b> </h2>
+                        <h2 class="product-wid-title"><b>Ofertas Top</b> </h2>
                         {{-- <a href="#" class="wid-view-more">Ver todo</a> --}}
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-4.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 6</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 5</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-2.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 4</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
+                        @foreach ($producto as $productos)
+                            @if ($productos->descuento > 0)
+
+                                <div class="single-wid-product">
+                                    <img src="{{ $productos->url }}" alt="" class="product-thumb">
+                                    <h2>{{ $productos->nombre }}</h2>
+                                    <div class="product-wid-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product-wid-price">
+                                        <ins>{{ $productos->precio - ($productos->precio * $productos->descuento) / 100 }}Bs</ins>
+                                        <del>{{ $productos->precio }}Bs</del>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+
+                        
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
-                        <h2 class="product-wid-title"><b>Nuevos Productos</b></h2>
+                        <h2 class="product-wid-title"><b>Servicios Top</b></h2>
                         {{-- <a href="#" class="wid-view-more">Ver Todo</a> --}}
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-3.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 3</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                        @foreach ($servicio as $servicios)
+
+
+                            <div class="single-wid-product">
+                                <img src="{{ $servicios->url }}" alt="" class="product-thumb">
+                                @foreach ($tservicio as $tservicios)
+                                    @if ($servicios->Id_tp == $tservicios->id)
+                                        <h2>{{ $tservicios->nombre }}</h2>
+                                    @endif
+                                @endforeach
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    <ins>{{ $servicios->precio }}Bs</ins>
+                                </div>
                             </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-4.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 2</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
-                        <div class="single-wid-product">
-                            <img src="{{ asset('img/product-thumb-1.jpg') }}" alt=""
-                                    class="product-thumb">
-                            <h2>Producto 1</h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>

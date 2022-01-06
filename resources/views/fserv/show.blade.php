@@ -55,7 +55,8 @@
                             <li class="hidden"><a href="#"><i class="fa fa-user"></i> Mi Cuenta</a></li>
                             <!-- Solo se muestra cuando se está logeado -->
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> Lista de deseos</a></li> --}}
-                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i class="fa fab fa-whatsapp"></i> Whatsapp</a></li>
+                            <li><a href="https://wa.me/message/P3Z4SEURODT2I1" target="_blank"><i
+                                        class="fa fab fa-whatsapp"></i> Whatsapp</a></li>
                             {{-- <li><a href="#"><i class="fa fa-money"></i> Checkout</a></li> --}}
                             @if (Auth::guest())
                                 <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
@@ -70,7 +71,8 @@
 
                                     <a class="nav-link active" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                                                                                    document.getElementById('logout-form').submit();"><i
+                                            class="fa fa-power-off"></i>
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -158,11 +160,11 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('homex.index') }}">Inicio</a></li>
                         @can('Session')
-                        <li ><a href="{{ route('front.create') }}">Productos</a></li>
-                        <li class="active"><a href="{{ route('payment.create') }}">Servicio</a></li>
+                            <li><a href="{{ route('front.create') }}">Productos</a></li>
+                            <li class="active"><a href="{{ route('payment.create') }}">Servicio</a></li>
 
 
-                        <li><a href="{{ route('payment.index') }}">Facturas</a></li>
+                            <li><a href="{{ route('payment.index') }}">Facturas</a></li>
                         @endcan
                         <li><a href="{{ route('front.index') }}">Nuestra Empresa</a></li>
                         <li class="hidden"><a href="#">Dashboard</a></li><!-- Acceso autorizado -->
@@ -389,7 +391,7 @@
 
         <button class="btn btn-danger" type="submit">Finalizar Compra</button>
     </div>
-    </form>
+        </form>
     <br><br>
     <!-- End product widget area -->
 

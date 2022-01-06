@@ -231,7 +231,10 @@
                         <b>Descuento:</b>%{{ $producto->descuento }}
                     </p>
                     <p class="card-text" style="display: flex; justify-content: center">
-                        <b>Bs</b>{{ $producto->precio }}
+                        <b>Stock:</b> {{ $producto->stock }}
+                    </p>
+                    <p class="card-text" style="display: flex; justify-content: center">
+                        <b>Precio:</b>{{ $producto->precio }}Bs
                     </p>
                     <div class="des1">
 

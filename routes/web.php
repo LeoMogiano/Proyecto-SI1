@@ -27,6 +27,7 @@ use App\Http\Controllers\ServicioController;
 use App\Models\factura;
 use App\Models\producto;
 use App\Models\servicio;
+use App\Models\tipoServicio;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -46,7 +47,8 @@ Route::get('/', function () { //get-obtener una vista
    $producto=producto::all();
         $factura=factura::all();
         $servicio=servicio::all();
-        return view('welcome',compact('producto','factura','servicio'));
+        $tservicio=tipoServicio::all();
+        return view('welcome',compact('producto','factura','servicio','$tservicio'));
     
 });
 
