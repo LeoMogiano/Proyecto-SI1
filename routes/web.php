@@ -48,7 +48,7 @@ Route::get('/', function () { //get-obtener una vista
         $factura=factura::all();
         $servicio=servicio::all();
         $tservicio=tipoServicio::all();
-        return view('welcome',compact('producto','factura','servicio','$tservicio'));
+        return view('welcome',compact('producto','factura','servicio','tservicio'));
     
 });
 
