@@ -136,7 +136,7 @@
                             <td>
                                 Smartplusshouse, Inc.<br />
                                 3415 3er Anillo, Radial 26<br />
-                                Andres Ibañez, SC 3415
+                                Andres Ibáñez, SC 3415
                             </td>
                             <td></td>
                             <td></td>
