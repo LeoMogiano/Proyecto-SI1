@@ -68,8 +68,13 @@
                                 </form> <a class="btn btn-info btn-sm" style="margin-top: 0.35rem"
                                     href="{{ route('ventas.show', $ventas) }}">Detalle Venta</a>
                                 <br>
+
                                 <a class="btn btn-success btn-sm" style="margin-top: 0.35rem"
-                                    href="{{ route('dventas.edit', $ventas) }}">Generar Factura</a>
+                                href="{{ route('ventas.pdf', $ventas) }}">Generar PDF</a>
+
+
+                                {{-- <a class="btn btn-success btn-sm" style="margin-top: 0.35rem"
+                                    href="{{ route('dventas.edit', $ventas) }}">Generar Factura</a> --}}
 
                             </td>
 

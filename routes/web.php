@@ -30,6 +30,8 @@ use App\Models\servicio;
 use App\Models\tipoServicio;
 use Illuminate\Support\Facades\Auth;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,3 +81,5 @@ Route::resource('payment',frontFacController::class)->names('payment');
 Route::resource('fservicio',fventaServController::class)->names('fservicio');
 Route::resource('pagoserv',pagoServController::class)->names('pagoserv');
 Route::resource('roles', RoleController::class)->names('roles');
+
+Route::get('ventas/pdf/{venta}', 'App\Http\Controllers\ventaController@pdf')->name('ventas.pdf');

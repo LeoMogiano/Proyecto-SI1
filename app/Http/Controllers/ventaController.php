@@ -11,9 +11,11 @@ use App\Models\servicio_venta;
 use App\Models\tipoServicio;
 use App\Models\User;
 use App\Models\venta;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
+
 
 
 class ventaController extends Controller
@@ -149,5 +151,29 @@ class ventaController extends Controller
         
         
         return redirect()->route('ventas.index');
+    }
+    public function pdf( venta $venta) {
+          
+        /* $Date = date('m-d-Y h:i:s a');
+        $Time =time(); */
+    
+        $users= User::all();
+        $productos=producto::all();
+        $dventas=DB::table('producto_venta')->where('venta_id',$venta->id)->get();
+        $categorias=categoria::all();
+        $modelos=modelo::all();
+
+        $servicios=servicio::all();
+        $dservicios=servicio_venta::where('venta_id',$venta->id)->get();
+        $tservicios=tipoServicio::all();
+
+       
+        $subtotal = $venta->montoTotal;
+
+        $pdf = PDF::loadView('ventas.pdf', compact('venta','subtotal','dventas','users','productos','servicios','dservicios','tservicios'));
+        return $pdf->download('ReporteCompra_'.$venta->id.'.pdf');
+
+        
+
     }
 }
