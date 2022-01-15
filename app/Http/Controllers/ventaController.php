@@ -167,6 +167,10 @@ class ventaController extends Controller
         $dservicios=servicio_venta::where('venta_id',$venta->id)->get();
         $tservicios=tipoServicio::all();
 
+        activity()->useLog('Ventas')->log('Generó Reporte')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $venta->id;
+        $lastActivity->save();
        
         $subtotal = $venta->montoTotal;
 
@@ -174,6 +178,7 @@ class ventaController extends Controller
         return $pdf->download('ReporteCompra_'.$venta->id.'.pdf');
 
         
+       
 
     }
 }
