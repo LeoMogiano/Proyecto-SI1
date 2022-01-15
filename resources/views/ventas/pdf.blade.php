@@ -135,8 +135,8 @@
                         <tr>
                             <td>
                                 Smartplusshouse, Inc.<br />
-                                12345 Sunny Road<br />
-                                Sunnyville, CA 12345
+                                3415 3er Anillo, Radial 26<br />
+                                Andres Ibañez, SC 3415
                             </td>
                             <td></td>
                             <td></td>
