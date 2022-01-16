@@ -175,7 +175,7 @@ class ventaController extends Controller
         $subtotal = $venta->montoTotal;
 
         $pdf = PDF::loadView('ventas.pdf', compact('venta','subtotal','dventas','users','productos','servicios','dservicios','tservicios'));
-        return $pdf->download('ReporteCompra_'.$venta->id.'.pdf');
+        return $pdf->download('ReporteVenta_'.$venta->id.'.pdf');
 
         
        
