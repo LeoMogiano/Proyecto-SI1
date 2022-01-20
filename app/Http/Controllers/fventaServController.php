@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
+//store()--> boton registrar reserva de servicio
+//show()--> carrito de servicio
 class fventaServController extends Controller
 {
     /**
@@ -38,7 +40,7 @@ class fventaServController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //boton registrar reserva de servicio
     {
         $current_user= Auth::user();
         $venta=new venta();  
@@ -51,7 +53,7 @@ class fventaServController extends Controller
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
 
-        return redirect()->route('fservicio.edit',$venta);
+        return redirect()->route('fservicio.edit',$venta); // RECORDAR QUE TE REDIRIGE a Fservicio.edit funcion
     }
 
     /**

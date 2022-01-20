@@ -7,6 +7,7 @@ use App\Models\servicio_venta;
 use App\Models\venta;
 use Illuminate\Http\Request;
 
+//store()--> boton añadir a carrito de servicio
 class pagoServController extends Controller
 {
     /**

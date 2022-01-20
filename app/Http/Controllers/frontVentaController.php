@@ -12,6 +12,10 @@ use App\Models\venta;
 use App\Models\venta_producto;
 use Illuminate\Http\Request;
 
+//store() --> boton añadir a carrito de los productos 
+//
+
+
 class frontVentaController extends Controller
 {
     /**

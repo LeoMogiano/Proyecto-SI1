@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
+// store() --> boton finalizar compra del producto o del servicio
+// create() --> boton servicio del welcome
 class frontFacController extends Controller
 {
     /**

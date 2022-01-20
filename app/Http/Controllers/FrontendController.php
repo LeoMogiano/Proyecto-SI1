@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
+// index() --> boton para mogiWelcome
+// create() --> boton producto del welcome (Vista donde se ve para registrar un pedido de producto)
+//store() --> boton registrar pedido del producto ( el cual registra a la base de datos)
+//show() --> boton de carrito de PRODUCTOS (Vista)
+
 class FrontendController extends Controller
 {
     /**
@@ -22,7 +27,7 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() // boton para mogiWelcome
     {
         return view('front.index');
     }
@@ -32,7 +37,7 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // boton producto del welcome (Vista donde se ve para registrar un pedido de producto)
     {
         $venta = venta::all();
         $User = User::all();
@@ -49,7 +54,7 @@ class FrontendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) // boton registrar pedido del producto ( el cual registra a la base de datos)
     {
         $current_user= Auth::user();
         $venta=new venta();  
@@ -62,7 +67,8 @@ class FrontendController extends Controller
         $lastActivity->subject_id= $venta->id;
         $lastActivity->save();
 
-        return redirect()->route('front.edit',$venta);
+        return redirect()->route('front.edit',$venta); // RECORDAR que luego de registrar un producto se nos redirige a la
+                                                      //funcion front.edit que esta abajo
     }
 
     /**
@@ -88,7 +94,7 @@ class FrontendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //  boton de carrito de PRODUCTOS (Vista)
     {
         $productos=producto::all();
         $modelos=modelo::all();
