@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
+//index()-- boton de facturas en el WelcomeFront
 // store() --> boton finalizar compra del producto o del servicio
 // create() --> boton servicio del welcome
+//destroy() --> eliminar producto carrito
 class frontFacController extends Controller
 {
     /**
@@ -124,10 +126,10 @@ class frontFacController extends Controller
         $ventap=venta_producto::where('id',$id)->first();
         $cant=$ventap->cantidad;
         $producto=producto::where('id',$ventap->producto_id)->first();
-        $producto->stock+=$cant;
+        $producto->stock+=$cant;                    //trigger se devuelve stock por eliminar de carrito
         $producto->save();
         $venta=venta::where('id',$ventap->venta_id)->first();
-        $venta->montoTotal-=$ventap->precio_tot;
+        $venta->montoTotal-=$ventap->precio_tot;   //trigger se quita monoto total
         $venta->save();
         $ventap->delete();
         return redirect()->route('front.show',$venta);

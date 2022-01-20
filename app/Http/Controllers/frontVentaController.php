@@ -61,16 +61,16 @@ class frontVentaController extends Controller
             $dventa->descuento=0;
         } else {
             $dventa->descuento=$des;
-            $nuevo_precio=$dventa->precio_tot*($dventa->descuento/100);
+            $nuevo_precio=$dventa->precio_tot*($dventa->descuento/100); 
             $dventa->precio_tot-=$nuevo_precio;
            
         }
         $dventa->save();
       
-        $producto->stock-=$dventa->cantidad;
+        $producto->stock-=$dventa->cantidad; //TRIGGER DE STOCK resta stock por añadir carrito
         $producto->save();
         $venta=venta::find($request->venta_id);
-        $venta->montoTotal+=$dventa->precio_tot;
+        $venta->montoTotal+=$dventa->precio_tot; // TRIGGER DE SUMA DE PRECIO TOTAL AL MONTO TOTAL DE NOTA DEVENTA
         $venta->save();
         /* $idventax=$request->venta_id; */
         /* $venta = venta::all();

@@ -18,7 +18,7 @@ use Spatie\Activitylog\Models\Activity;
 // index() --> boton para mogiWelcome
 // create() --> boton producto del welcome (Vista donde se ve para registrar un pedido de producto)
 //store() --> boton registrar pedido del producto ( el cual registra a la base de datos)
-//show() --> boton de carrito de PRODUCTOS (Vista)
+//show() --> boton de carrito de PRODUCTOS (VISTO, NO AÑADIR)
 
 class FrontendController extends Controller
 {

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
 //store()--> boton registrar reserva de servicio
-//show()--> carrito de servicio
+//show()--> carrito de servicio (VISTA, NO AÑADIR)
 class fventaServController extends Controller
 {
     /**

@@ -7,7 +7,8 @@ use App\Models\servicio_venta;
 use App\Models\venta;
 use Illuminate\Http\Request;
 
-//store()--> boton añadir a carrito de servicio
+//store()--> boton añadir a carrito de (SERVICIO)
+//destroy()--> boton eliminar a carrito de (SERVICIO)
 class pagoServController extends Controller
 {
     /**
@@ -58,7 +59,7 @@ class pagoServController extends Controller
         /* $producto->stock-=$dventa->cantidad;
         $producto->save(); */
         $venta=venta::find($request->venta_id);
-        $venta->montoTotal+=$dservicio->precio_tot;
+        $venta->montoTotal+=$dservicio->precio_tot; //TRIGGER cuando se añade a carrito el monto total se actualiza
         $venta->save();
 
         /* $factura=factura::find($request->venta_id);
@@ -114,7 +115,7 @@ class pagoServController extends Controller
         
         $ventap=servicio_venta::where('id',$id)->first();
         $venta=venta::where('id',$ventap->venta_id)->first();
-        $venta->montoTotal-=$ventap->precio_tot;
+        $venta->montoTotal-=$ventap->precio_tot;                //TRIGGER SE DISMINUYE de monto total de eliminar
         $venta->save();
         $ventap->delete();
         return redirect()->route('fservicio.show',$venta);
